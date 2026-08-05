@@ -3,7 +3,29 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>作者索引</title>
+<title>类型索引</title>
+
+/* 搜索框样式 */
+#search-input{
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px 14px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+    outline: none;
+}
+#search-input:focus{
+    border-color:#662599;
+}
+.item{
+    margin: 9px 0;
+    line-height:1.55;
+}
+.highlight{
+    background-color:#fff280;
+}
+
 <style>
 body { max-width:920px; margin:24px auto; padding:0 14px; font-size:16px; }
 .tip { text-align:center; margin:24px 0; }
@@ -15,6 +37,7 @@ a { color:#0000cc; text-decoration:none; }
 <div class="tip">
 【温馨提示】<br>点击名字进入，转存后去网盘下载/播放
 </div>
+<input id="search-input" placeholder="🔍 输入关键词快速搜索资源名称...">
 <div class="divider"></div>
 <div class="item">📂 <a href="https://pan.baidu.com/s/1O5Mcg40IRCcp0X8eocu68w?pwd=sili" target="_blank">260426鸡肋：近期连载新文50本</a></div>
 <div class="item">📂 <a href="https://pan.baidu.com/s/18_cbkQgwjhKAuoMyBiWrfw?pwd=sili" target="_blank">260428鸡肋：近期连载新文50本</a></div>
@@ -331,6 +354,22 @@ a { color:#0000cc; text-decoration:none; }
 <div class="item">📂 <a href="https://pan.baidu.com/s/1tOExJlaruOKj0lGeYC9t0w?pwd=sili" target="_blank">四里260729GL</a></div>
 <div class="item">📂 <a href="https://pan.baidu.com/s/1ns_IkY8JLnk-Rl2UfbIwMw?pwd=sili" target="_blank">四里260730婆文NP</a></div>
 <div class="item">📂 <a href="https://pan.baidu.com/s/1j3pC8D8j8DRtEPzFycJ-1g?pwd=sili" target="_blank">四里260731DN壮受</a></div>
+<script>
+const input = document.getElementById('search-input');
+const items = document.querySelectorAll('.item');
+input.addEventListener('input', function(){
+    let keyword = this.value.trim().toLowerCase();
+    items.forEach(el=>{
+        let text = el.textContent.toLowerCase();
+        if(text.includes(keyword)){
+            el.style.display = 'block';
+        }else{
+            el.style.display = 'none';
+        }
+    })
+})
+</script>
+  
 
 </body>
 </html>
