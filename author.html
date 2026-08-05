@@ -46,12 +46,36 @@ body { max-width:920px; margin:24px auto; padding:0 14px; font-size:16px; }
     word-break: break-all;
     line-height: 1.7;
 }
+
+
+/* 搜索框样式 */
+#search-input{
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px 14px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+    outline: none;
+}
+#search-input:focus{
+    border-color:#662599;
+}
+.item{
+    margin: 9px 0;
+    line-height:1.55;
+}
+.highlight{
+    background-color:#fff280;
+}
+    
 </style>
 </head>
 <body>
 <div class="tip">
 【温馨提示】<br>点击名字弹出文本弹窗查看内容
 </div>
+<input id="search-input" placeholder="🔍 输入关键词快速搜索资源名称...">    
 <div class="divider"></div>
 
 <!-- 弹窗结构 -->
@@ -18702,6 +18726,23 @@ document.getElementById('mask').onclick = function(e){
 【LZY迅雷】：https://pan.xunlei.com/s/VOxBXCb-0CtCNmDVoV3RNW3mA1 提取码：vxca
 
 教程https://www.kdocs.cn/l/cmy1886FUHCYgvW`)">[四里]林佩作者合集by71p</span></div>
+
+
+<script>
+const input = document.getElementById('search-input');
+const items = document.querySelectorAll('.item');
+input.addEventListener('input', function(){
+    let keyword = this.value.trim().toLowerCase();
+    items.forEach(el=>{
+        let text = el.textContent.toLowerCase();
+        if(text.includes(keyword)){
+            el.style.display = 'block';
+        }else{
+            el.style.display = 'none';
+        }
+    })
+})
+</script>
 
 </body>
 </html>
