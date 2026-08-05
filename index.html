@@ -5,11 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>四里资源导航</title>
 <style>
+html,body{
+    height:100%;
+    margin:0;
+}
 body {
     max-width:920px;
-    margin:40px auto;
+    margin:0 auto;
     padding:0 14px;
     font-size:22px;
+    /* 粘性页脚核心设置 */
+    display:flex;
+    flex-direction:column;
+    min-height:100vh;
+}
+/* 主体内容自动占满剩余空间，把footer压到底 */
+.main-wrap{
+    flex-grow:1;
 }
 .tip {
     text-align:center;
@@ -30,41 +42,42 @@ body {
     font-size:28px;
 }
 .footer{
-    margin-top:120px;
     font-size:12px;
     text-align:center;
     color:#444;
     line-height:1.6;
+    margin-top:40px;
+    padding-bottom:20px;
 }
 
-    /* qrcode.png */
- <!--  .divider{
-    margin:40px 0 20px;   /* 分割线：上下留白，上面空40像素，下面空20像素 */
-    border:none;          /* 清除默认横线 */
-    border-top:1px solid #333; /* 画一条黑色细横线，就是页面那条分割线 */
+    <!--
+.divider{
+    margin:40px 0 20px;
+    border:none;
+    border-top:1px solid #333;
 }
 .tip-text{
-    text-align:center;    /* 文字居中对齐 */
-    margin:12px 0;        /* 文字上下留出空隙 */
-    font-size:15px;       /* 字体大小15号 */
+    text-align:center;
+    margin:12px 0;
+    font-size:15px;
 }
 .qr-wrap{
-    text-align:center;    /* 二维码整体居中 */
-    margin:35px 0;        /* 二维码上下留出大空白 */
+    text-align:center;
+    margin:35px 0;
 }
 .qr-wrap img{
-    width:260px;          /* 二维码图片固定宽度260像素，不会过大 */
+    width:260px;
 }
 .bottom-tip{
-    text-align:center;    /* 底部文字居中 */
-    margin-top:30px;      /* 和上面内容隔开30像素 */
-    font-size:15px;       /* 字号 */
-}
---!>
+    text-align:center;
+    margin-top:30px;
+    font-size:15px;
+}-->
     
 </style>
 </head>
 <body>
+<div class="main-wrap">
 <div class="tip">
 【温馨提示】<br>点击名字进入，转存后去网盘下载/播放
 </div>
@@ -86,9 +99,7 @@ body {
 <div class="menu-item">
     <a href="./year.html">👉年度</a>
 </div> -->
-
-
-
+</div>
 
 <!-- 新增投喂二维码区域 
  <hr class="divider">
@@ -98,8 +109,7 @@ body {
      <img src="qrcode.png" alt="二维码">
  </div>
  <p class="bottom-tip">是真的没有啦，不要再拉啦</p>
---!>
-</body>
+-->
 
     
 <div class="footer">
