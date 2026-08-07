@@ -9,7 +9,7 @@ body { max-width:920px; margin:24px auto; padding:0 14px; font-size:16px; }
 .tip { text-align:center; margin:24px 0; }
 .divider { border-bottom:1px solid #aaa; margin-bottom:20px; }
 .group-title { font-weight:bold; font-size:17px; margin-top:28px; }
-.item { margin: 8px 0; cursor: pointer; color:#0000cc; }
+.item { margin: 9px 0; cursor: pointer; color:#0000cc; line-height:1.55; }
 .item:hover { text-decoration: underline; }
 
 /* 弹窗遮罩层 */
@@ -54,6 +54,30 @@ body { max-width:920px; margin:24px auto; padding:0 14px; font-size:16px; }
 .pop-text a:hover {
     text-decoration: underline;
 }
+/* 搜索框样式 */
+#search-input{
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px 14px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+    outline: none;
+}
+#search-input:focus{
+    border-color:#662599;
+}
+.highlight{
+    background-color:#fff280;
+}
+/* 底部图片样式 */
+.footer-img{
+    width: 100%;
+    max-width: 600px;
+    display: block;
+    margin: 40px auto 20px;
+    border-radius: 8px;
+}
 </style>
 </head>
 <body>
@@ -61,8 +85,9 @@ body { max-width:920px; margin:24px auto; padding:0 14px; font-size:16px; }
 【温馨提示】<br>当前合集总数：<span id="countNum">0</span> 个
 <br>点击名字弹出文本弹窗查看内容，弹窗内网址可直接点击跳转
 </div>
-<div class="divider"></div>
+<input id="search-input" placeholder="🔍 输入关键词快速搜索资源名称...">
 
+<div class="divider"></div>
 <!-- 弹窗结构 -->
 <div class="mask" id="mask">
     <div class="pop-box">
@@ -73,6 +98,9 @@ body { max-width:920px; margin:24px auto; padding:0 14px; font-size:16px; }
 
 <!-- 列表渲染容器 -->
 <div id="listContainer"></div>
+
+<!-- ==========页面底部图片区域========== -->
+<img class="footer-img" src="/qrcode.jpg" alt="底部配图">
 
 <!-- 优先加载数据源 -->
 <script src="./data.js"></script>
@@ -94,7 +122,10 @@ document.getElementById('mask').onclick = function(e){
     if(e.target === this) closePop();
 }
 
+// 渲染列表函数
 function renderList(){
+    // 填充总数
+    document.getElementById('countNum').innerText = window.totalCount || 0;
     const container = document.getElementById('listContainer');
     let htmlStr = '';
     for (const key in groupData) {
@@ -107,7 +138,26 @@ function renderList(){
     container.innerHTML = htmlStr;
 }
 
-window.onload = renderList;
+// 页面加载完成渲染列表
+window.onload = function(){
+    renderList();
+    // 列表渲染完成后，再绑定搜索事件
+    bindSearch();
+};
+
+// 封装搜索绑定函数
+function bindSearch(){
+    const input = document.getElementById('search-input');
+    input.addEventListener('input', function(){
+        let keyword = this.value.trim().toLowerCase();
+        // 每次输入实时重新获取最新条目
+        const itemList = document.querySelectorAll('.item');
+        itemList.forEach(el=>{
+            let text = el.textContent.toLowerCase();
+            el.style.display = text.includes(keyword) ? 'block' : 'none';
+        })
+    })
+}
 </script>
 </body>
 </html>
