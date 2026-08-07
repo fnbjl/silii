@@ -12,7 +12,7 @@ body { max-width:920px; margin:24px auto; padding:0 14px; font-size:16px; }
 .item { margin: 9px 0; cursor: pointer; color:#0000cc; line-height:1.55; }
 .item:hover { text-decoration: underline; }
 
-/* 弹窗遮罩层 */
+/* 弹窗遮罩层：改用flex全局居中 */
 .mask {
     display: none;
     position: fixed;
@@ -22,16 +22,24 @@ body { max-width:920px; margin:24px auto; padding:0 14px; font-size:16px; }
     height: 100%;
     background: rgba(0,0,0,0.6);
     z-index: 999;
+    /* 核心居中代码 */
+    display: none;
+    align-items: center;
+    justify-content: center;
 }
-/* 弹窗盒子 */
+/* 弹窗盒子，移除旧margin，自动居中 */
 .pop-box {
     width: 80%;
     max-width: 600px;
     background: #fff;
-    margin: 15vh auto;
     padding: 25px;
     border-radius: 10px;
     position: relative;
+    /* 清除之前居中的margin */
+    margin: 0;
+    /* 超长内容自动滚动 */
+    max-height: 85vh;
+    overflow-y: auto;
 }
 /* 关闭按钮 */
 .close-btn {
@@ -106,8 +114,11 @@ body { max-width:920px; margin:24px auto; padding:0 14px; font-size:16px; }
 <!-- ==========页面底部图片区域========== -->
 <img class="footer-img" src="/qrcode.jpg" alt="底部配图">
 
+
+
+
 <!-- 优先加载数据源 -->
-<script src="/js/author.js"></script>
+<script src="data.js"></script>
 <script>
 const urlReg = /(https?:\/\/[^\s]+)/g;
 
@@ -117,7 +128,7 @@ function openPop(text){
     // 2、把换行回车\n转为网页换行<br>，完整保留原始换行排版
     html = html.replaceAll('\n', '<br>');
     document.getElementById('popContent').innerHTML = html;
-    document.getElementById('mask').style.display = 'block';
+    document.getElementById('mask').style.display = 'flex';
 }
 function closePop(){
     document.getElementById('mask').style.display = 'none';
