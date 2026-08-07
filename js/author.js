@@ -1,4 +1,4 @@
-// 索引数据源，Python自动格式化生成
+// 自动生成分类索引数据
 window.groupData = {
     "1": [
         {
@@ -610,6 +610,10 @@ window.groupData = {
         {
             "name": "[C]-【四里】长笑歌by20p",
             "url": "[C]-【四里】长笑歌by20p\n\n【移动】https://yun.139.com/shareweb/#/w/i/2w2KJxfUVzH6t 提取码：f0nr\n【LZY百度】https://pan.baidu.com/s/18Hgn6W9lXBAQwVCcXNTbUA?pwd=sili\n【LZY夸克】https://pan.quark.cn/s/c5eb59424eb7\n【LZY迅雷】：https://pan.xunlei.com/s/VOxBZb1CQu1Ce1T_-Fp1nu5UA1 提取码：u9ua\n\n教程https://www.kdocs.cn/l/cmy152FUHCYgvW"
+        },
+        {
+            "name": "[C]-【四里】作者：辞奺合集by4p",
+            "url": "[C]-【四里】作者：辞奺合集by4p\n\n【百度】https://pan.baidu.com/s/12jWaDOaV74gBtD9xoy_h_A?pwd=sili\n【迅雷】https://pan.xunlei.com/s/VOsM_Gti_3UVMxgxR4CNFi_WA1?pwd=nd6y\n【移动】https://yun.139.com/shareweb/#/w/i/2w2KKfj3iL9tk 提取码：wil5\n【LZY百度】https://pan.baidu.com/s/1gASnGQ22EjXK_IZYg1o2NA?pwd=sili\n【LZY夸克】https://pan.quark.cn/s/f5bdc69c3805\n【LZY迅雷】：https://pan.xunlei.com/s/VOxBZbeLEQwHiFTFBaEuuUhVA1 提取码：6kff\n\n教程https://www.kdocs.cn/l/cmy153FUHCYgvW"
         }
     ],
     "D": [
@@ -3638,6 +3642,10 @@ window.groupData = {
         {
             "name": "[S]-【四里】言情作者【素火执笔】作品合集by4p",
             "url": "[S]-【四里】言情作者【素火执笔】作品合集by4p\n\n【百度】https://pan.baidu.com/s/1gpDfAm_cxwxJZLQFl3bxgw?pwd=sili\n【迅雷】https://pan.xunlei.com/s/VOsMVedIZxg5nzoA6EJT8b-mA1?pwd=uy93\n【移动】https://yun.139.com/shareweb/#/w/i/2w2KKfj3mm5vw 提取码：9ohu\n【LZY夸克】https://pan.quark.cn/s/ad45aba146cf\n【LZY迅雷】：https://pan.xunlei.com/s/VOxBYa3wNZzy6pkpLMCSFloYA1 提取码：mqus\n\n教程https://www.kdocs.cn/l/cmy903FUHCYgvW"
+        },
+        {
+            "name": "[四里]林佩作者合集by71p",
+            "url": "[四里]林佩作者合集by71p\n\n【移动】https://yun.139.com/shareweb/#/w/i/2w2KKciQ4UWuk 提取码：29rq\n【LZY百度】https://pan.baidu.com/s/1ceVmkOcVjOJimtGecLcFBg?pwd=sili\n【LZY夸克】https://pan.quark.cn/s/2e9621fea72c\n【LZY迅雷】：https://pan.xunlei.com/s/VOxBXCb-0CtCNmDVoV3RNW3mA1 提取码：vxca\n\n教程https://www.kdocs.cn/l/cmy1886FUHCYgvW"
         }
     ],
     "T": [
@@ -7576,18 +7584,6 @@ window.groupData = {
         {
             "name": "[Z]-【四里】祚藤休罹by3p",
             "url": "[Z]-【四里】祚藤休罹by3p\n\n【百度】https://pan.baidu.com/s/18pFVZc8JZPhq4kOlBYRKRg?pwd=sili\n【迅雷】https://pan.xunlei.com/s/VOsMEiSQPyG9GOqZxYBdvCJIA1?pwd=ax7t\n【移动】https://yun.139.com/shareweb/#/w/i/2w2KJGgzBPZ1n 提取码：za4e\n【LZY百度】https://pan.baidu.com/s/1bAu2dKPSFJUE5J7p2U_saQ?pwd=sili\n【LZY夸克】https://pan.quark.cn/s/0ae0312c611d\n【LZY迅雷】：https://pan.xunlei.com/s/VOxBVBwVHIOyoeCOmhdwAaLIA1 提取码：fvuv\n\n教程https://www.kdocs.cn/l/cmy1885FUHCYgvW"
-        }
-    ],
-    "四": [
-        {
-            "name": "[四里]林佩作者合集by71p",
-            "url": "[四里]林佩作者合集by71p\n\n【移动】https://yun.139.com/shareweb/#/w/i/2w2KKciQ4UWuk 提取码：29rq\n【LZY百度】https://pan.baidu.com/s/1ceVmkOcVjOJimtGecLcFBg?pwd=sili\n【LZY夸克】https://pan.quark.cn/s/2e9621fea72c\n【LZY迅雷】：https://pan.xunlei.com/s/VOxBXCb-0CtCNmDVoV3RNW3mA1 提取码：vxca\n\n教程https://www.kdocs.cn/l/cmy1886FUHCYgvW"
-        }
-    ],
-    "辞": [
-        {
-            "name": "[C]-【四里】作者：辞奺合集by4p",
-            "url": "[C]-【四里】作者：辞奺合集by4p\n\n【百度】https://pan.baidu.com/s/12jWaDOaV74gBtD9xoy_h_A?pwd=sili\n【迅雷】https://pan.xunlei.com/s/VOsM_Gti_3UVMxgxR4CNFi_WA1?pwd=nd6y\n【移动】https://yun.139.com/shareweb/#/w/i/2w2KKfj3iL9tk 提取码：wil5\n【LZY百度】https://pan.baidu.com/s/1gASnGQ22EjXK_IZYg1o2NA?pwd=sili\n【LZY夸克】https://pan.quark.cn/s/f5bdc69c3805\n【LZY迅雷】：https://pan.xunlei.com/s/VOxBZbeLEQwHiFTFBaEuuUhVA1 提取码：6kff\n\n教程https://www.kdocs.cn/l/cmy153FUHCYgvW"
         }
     ]
 };
