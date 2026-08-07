@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>作者索引</title>
+<style>
+body { max-width:920px; margin:24px auto; padding:0 14px; font-size:16px; }
+.tip { text-align:center; margin:24px 0; }
+.divider { border-bottom:1px solid #aaa; margin-bottom:20px; }
+.group-title { font-weight:bold; font-size:17px; margin-top:28px; }
+.item { margin: 8px 0; cursor: pointer; color:#0000cc; }
+.item:hover { text-decoration: underline; }
+
+/* 弹窗遮罩层 */
+.mask {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    z-index: 999;
+}
+/* 弹窗盒子 */
+.pop-box {
+    width: 80%;
+    max-width: 600px;
+    background: #fff;
+    margin: 15vh auto;
+    padding: 25px;
+    border-radius: 10px;
+    position: relative;
+}
+/* 关闭按钮 */
+.close-btn {
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #666;
+}
+.pop-text {
+    word-break: break-all;
+    line-height: 1.7;
+}
+/* 弹窗内链接样式 */
+.pop-text a {
+    color: #0066cc;
+    word-break: break-all;
+}
+.pop-text a:hover {
+    text-decoration: underline;
+}
+</style>
+</head>
+<body>
+<div class="tip">
+【温馨提示】<br>当前合集总数：<span id="countNum">0</span> 个
+<br>点击名字弹出文本弹窗查看内容，弹窗内网址可直接点击跳转
+</div>
+<div class="divider"></div>
+
+<!-- 弹窗结构 -->
+<div class="mask" id="mask">
+    <div class="pop-box">
+        <span class="close-btn" onclick="closePop()">×</span>
+        <div class="pop-text" id="popContent"></div>
+    </div>
+</div>
+
+<!-- 列表渲染容器 -->
+<div id="listContainer"></div>
+
+<!-- 优先加载数据源 -->
+<script src="./data.js"></script>
+<script>
+const urlReg = /(https?:\/\/[^\s]+)/g;
+
+function openPop(text){
+    // 1、链接替换为文字“链接”
+    let html = text.replace(urlReg, '<a href="$1" target="_blank">链接</a>');
+    // 2、把换行回车\n转为网页换行<br>，完整保留原始换行排版
+    html = html.replaceAll('\n', '<br>');
+    document.getElementById('popContent').innerHTML = html;
+    document.getElementById('mask').style.display = 'block';
+}
+function closePop(){
+    document.getElementById('mask').style.display = 'none';
+}
+document.getElementById('mask').onclick = function(e){
+    if(e.target === this) closePop();
+}
+
+function renderList(){
+    const container = document.getElementById('listContainer');
+    let htmlStr = '';
+    for (const key in groupData) {
+        htmlStr += `<div class="group-title">【${key}】</div>\n`;
+        const list = groupData[key];
+        list.forEach(item=>{
+            htmlStr += `<div class="item">📂 <span onclick="openPop(\`${item.url}\`)">${item.name}</span></div>\n`;
+        })
+    }
+    container.innerHTML = htmlStr;
+}
+
+window.onload = renderList;
+</script>
+</body>
+</html>
