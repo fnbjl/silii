@@ -22,7 +22,6 @@ body {
 /* 主体内容自动占满剩余空间，把footer压到底 */
 .main-wrap{
     flex-grow:1;
-  /*  max-height:90vh;*/
     padding-top:20px;
 }
 .tip {
@@ -34,12 +33,26 @@ body {
     max-width:400px;
     margin:0 auto 40px;
 }
+/* 顶部单行菜单 */
 .menu-item{
     text-align:left;
-    margin:22px 0;
+    margin:14px 0;
     padding-left:20px;
 }
 .menu-item a{
+    color:#662599;
+    text-decoration:none;
+    font-size:20px;
+}
+/* 教程之后两列网格，紧凑左对齐 */
+.grid-two{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap:12px 8px;
+    padding-left:20px;
+    margin-top:10px;
+}
+.grid-two a{
     color:#662599;
     text-decoration:none;
     font-size:20px;
@@ -52,31 +65,6 @@ body {
     margin-top:40px;
     padding-bottom:20px;
 }
-
-    <!--
-.divider{
-    margin:40px 0 20px;
-    border:none;
-    border-top:1px solid #333;
-}
-.tip-text{
-    text-align:center;
-    margin:12px 0;
-    font-size:15px;
-}
-.qr-wrap{
-    text-align:center;
-    margin:35px 0;
-}
-.qr-wrap img{
-    width:260px;
-}
-.bottom-tip{
-    text-align:center;
-    margin-top:30px;
-    font-size:15px;
-}-->
-    
 </style>
 </head>
 <body>
@@ -94,83 +82,37 @@ body {
 </div>
     
 <div class="menu-item">
-    <a href="https://www.kdocs.cn/l/cmy3FUHCYgvW">👉教程必看:密码&解压等解答</a>
+    <a href="https://www.kdocs.cn/l/cmy3FUHCYgvW">💡教程必看:密码&解压等解答</a>
+</div>
+<div style="height:10px;"></div>
+<!-- 教程之后开始两列布局 -->
+<div class="grid-two">
+    <a href="./author.html">👉小说-作者</a>
+    <a href="./type.html">👉小说-类型</a>
+
+    <a href="https://www.kdocs.cn/wo/sl/v1EhIinl">👉书籍‑平台</a>
+    <a href="https://www.kdocs.cn/wo/sl/v14Oxbrh">👉漫画</a>
+
+    <a href="https://www.kdocs.cn/wo/sl/v11pNw1A">👉广播剧/有声剧</a>
+    <a href="https://www.kdocs.cn/wo/sl/v11cx7Ta">👉影视</a>
+
+    <a href="https://www.kdocs.cn/wo/sl/v11uhpz2">👉软件</a>
+    <a href="https://www.kdocs.cn/wo/sl/v1dzztK">👉课程</a>
+
+    <a href="https://www.kdocs.cn/wo/sl/v12OWpMH">👉音乐</a>
+    <a href="https://www.kdocs.cn/l/cdoBaY2HudCQ">👉推图</a>
+
+    <a href="https://www.kdocs.cn/l/ce5CjGfczDP5">👉输入法</a>
+    <a href="https://www.kdocs.cn/l/cehQOLkoItKw">👉推荐网站</a>
+
+    <a href="https://www.kdocs.cn/l/cluWmY2qP21H">👉生成器</a>
 </div>
 
-<div class="menu-item">
-    <a href="./author.html">👉作者</a>
-</div>
-    
-<div class="menu-item">
-    <a href="./type.html">👉类型</a>
 </div>
 
-<div class="menu-item">
-    <a href="https://www.kdocs.cn/wo/sl/v1EhIinl">👉书籍-平台</a >
-</div>
-    
-<div class="menu-item">
-    <a href="https://www.kdocs.cn/wo/sl/v14Oxbrh">👉漫画</a >
-</div>
-    
- <div class="menu-item">
-    <a href="https://www.kdocs.cn/wo/sl/v11pNw1A">👉广播剧/有声剧</a >
-</div>
-    
-<div class="menu-item">
-    <a href="https://www.kdocs.cn/wo/sl/v11cx7Ta">👉影视：电视电影动漫</a >
-</div>
-    
-<div class="menu-item">
-    <a href="https://www.kdocs.cn/wo/sl/v11uhpz2">👉软件</a >
-</div> 
-
-<div class="menu-item">
-    <a href="https://www.kdocs.cn/wo/sl/v1dzztK">👉课程</a >
-</div>
-    
-<div class="menu-item">
-    <a href="https://www.kdocs.cn/wo/sl/v12OWpMH">👉音乐</a >
-</div>   
-<div class="menu-item">
-    <a href="https://www.kdocs.cn/l/cdoBaY2HudCQ">👉推图</a >
-</div>
-    
-<div class="menu-item">
-    <a href="https://www.kdocs.cn/l/ce5CjGfczDP5">👉输入法</a >
-</div> 
-<div class="menu-item">
-    <a href="https://www.kdocs.cn/l/cehQOLkoItKw">👉推荐网站</a >
-</div> 
-<div class="menu-item">
-    <a href="https://www.kdocs.cn/l/cluWmY2qP21H">👉生成器</a >
-</div> 
-    
-<!-- <div class="menu-item">
-    <a href="./style.html">👉文风</a>
-</div>
-<div class="menu-item">
-    <a href="./single.html">👉单本</a>
-</div>
-<div class="menu-item">
-    <a href="./year.html">👉年度</a>
-</div> -->
-</div>
-
-<!-- 新增投喂二维码区域 
- <hr class="divider">
-  <p class="tip-text">都没有啦，不要再拉啦</p> 
- <p class="tip-text">🤝有条件的可以偶尔投喂哦🤝<br>你的支持是我坚持下去的动力</p>
- <div class="qr-wrap">
-     <img src="qrcode.png" alt="二维码">
- </div>
- <p class="bottom-tip">是真的没有啦，不要再拉啦</p>
--->
-
-    
 <div class="footer">
 本网站网址数据来源于互联网搜索引擎和热心网友投稿<br>
-如有冒犯请追踪互联网搜索引擎或者直接联系热心网友<br>
+如侵权请追踪互联网搜索引擎或者直接联系热心网友<br>
 fnbjl@outlook.com ©2022 本地保存请勿超过24小时 特此声明
 </div>
 
