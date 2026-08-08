@@ -103,16 +103,28 @@ h2{
 }
 details{
     margin:10px 0;
-    padding-left:8px;
+    /*padding-left:22px;*/
+    position:relative;
+}
+/* 👉关键点：只有open展开状态，子折叠才显示左侧竖线，收起完全消失 */
+details.sub-item[open]::before{
+    content:"";
+    position:absolute;
+    left:5px;
+    top:25px;
+    bottom:0px;
+    width:2px;
+    background:#cad3e0;
 }
 summary{
     cursor:pointer;
     font-weight:bold;
     font-size:15px;
     padding:4px 0;
+    position:relative;
 }
 details>div{
-    padding-left:18px;
+    padding-left:20px;
 }
 </style>
 </head>
@@ -201,7 +213,6 @@ details>div{
         <details class="sub-item">
             <summary><span class="blue-tip"><a href="https://pan.baidu.com/s/1JMHp6vUoYZFEpTKk85Mpmg?pwd=sili" target="_blank">解压专家：</a></span>如出现以下情况，请用解压专家等专业解压软件进行解压；或者重新下载，下载时不要切屏</summary>
             <div>
-                <div>解压专家：</a></span></div>
                 <div>解压失败/不成功</div>
                 <div>无密码却让输入密码</div>
                 <div>输入正确密码却显示密码错误</div>
@@ -294,13 +305,13 @@ details>div{
         </div>
     </div>
     <div class="collapse-content multi-open">
-        <div class="yellow-tip">⚠️加微信 hecbof｜有空会回｜不礼貌勿扰<</div>
-        <div  class="yellow-tip">💬帮找后如无回复，下次需帮找将无视</span></div>
-        <div class="pink-tip">🚫违反规则，格式不对，今日禁找【以回复的当日为基准】！每人每日，限找一次！</span></div>
+        <div class="yellow-tip">⚠️加微信 hecbof｜有空会回｜不礼貌勿扰</div>
+        <div  class="yellow-tip">💬帮找后如无回复，下次需帮找将无视</div>
+        <div class="pink-tip">🚫违反规则，格式不对，今日禁找【以回复的当日为基准】！每人每日，限找一次！</div>
         <div class="blue-tip">🔘如需额外合集：合集整理不易所以需小偿，如“作者名+付款截屏”<br>
-🔘非合集资源有空可🈚偿帮找</span></div>
+🔘非合集资源有空可🈚偿帮找</div>
 
-        <details class="sub-item"open>
+        <details class="sub-item" open>
             <summary>1️⃣代找格式</summary>
             <div>①其他资源格式：发名字【发图无视 「(°^°)」】</div>
             <div>②找书格式：无需备注指定章节/番外。</div>
@@ -312,7 +323,7 @@ details>div{
             <div class="red-tip">❗四项必填，不知道百度！</div>
         </details>
 
-        <details class="sub-item"open>
+        <details class="sub-item" open>
             <summary>2️⃣代找规则</summary>
             <div><span class="red-tip">🚫</span>不写格式者不找，格式不要添加书名号。</div>
             <div><span class="red-tip">🚫</span>不接受指定网盘/文件格式。</div>
