@@ -1,0 +1,77 @@
+body { max-width:920px; margin:24px auto; padding:0 14px; font-size:16px; }
+.tip { text-align:center; margin:24px 0; }
+.divider { border-bottom:1px solid #aaa; margin-bottom:20px; }
+.group-title { font-weight:bold; font-size:17px; margin-top:28px; }
+.item { margin: 9px 0; cursor: pointer; color:#0000cc; line-height:1.55; }
+.item:hover { text-decoration: underline; }
+
+/* 弹窗遮罩层：改用flex全局居中 */
+.mask {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    z-index: 999;
+    align-items: center;
+    justify-content: center;
+}
+/* 弹窗盒子，移除旧margin，自动居中 */
+.pop-box {
+    width: 80%;
+    max-width: 600px;
+    background: #fff;
+    padding: 25px;
+    border-radius: 10px;
+    position: relative;
+    margin: 0;
+    max-height: 85vh;
+    overflow-y: auto;
+}
+/* 关闭按钮 */
+.close-btn {
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #666;
+}
+.pop-text {
+    word-break: break-all;
+    line-height: 1.7;
+}
+/* 弹窗内链接样式 */
+.pop-text a {
+    color: #0066cc;
+    word-break: break-all;
+}
+.pop-text a:hover {
+    text-decoration: underline;
+}
+/* 搜索框样式 */
+#search-input{
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px 14px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+    outline: none;
+}
+#search-input:focus{
+    border-color:#662599;
+}
+.highlight{
+    background-color:#fff280;
+}
+/* 底部图片样式 */
+.footer-img{
+    width: 100%;
+    max-width: 600px;
+    display: block;
+    margin: 40px auto 20px;
+    border-radius: 8px;
+}
