@@ -14,12 +14,10 @@ body {
     margin:0 auto;
     padding:0 14px;
     font-size:14px;
-    /* 粘性页脚核心设置 */
     display:flex;
     flex-direction:column;
     min-height:100vh;
 }
-/* 主体内容自动占满剩余空间，把footer压到底 */
 .main-wrap{
     flex-grow:1;
     padding-top:20px;
@@ -28,7 +26,6 @@ body {
     text-align:center;
     margin-bottom:30px;
 }
-    * 仅公告段落两端对齐，末尾居左 */
 .tip-notice{
     text-align: justify;
     text-align-last: left;
@@ -40,7 +37,6 @@ body {
     max-width:400px;
     margin:0 auto 40px;
 }
-/* 顶部单行菜单 */
 .menu-item{
     text-align:left;
     margin:14px 0;
@@ -51,7 +47,6 @@ body {
     text-decoration:none;
     font-size:20px;
 }
-/* 教程之后两列网格，紧凑左对齐 */
 .grid-two{
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -66,36 +61,87 @@ body {
 }
 .footer{
     font-size:12px;
-    text-align:center;
+    text-align:justify;
+    text-align-last:left;
     color:#444;
     line-height:1.6;
     margin-top:40px;
-    padding-bottom:20px;
+    padding:0 14px 20px 14px;
+}
+
+
+/* ==========弹窗样式 ========== */
+.modal-mask{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.55);
+    z-index:999;
+    align-items:center;
+    justify-content:center;
+    padding:16px;
+}
+.modal-box{
+    background:#fff;
+    width: min(520px, calc(100vw - 32px));
+    border-radius:12px;
+    padding:22px;
+    position:relative;
+}
+.modal-copy-all{
+    position:absolute;
+    top:14px;
+    right:22px;
+    font-size:13px;
+    cursor:pointer;
+    background:#e9e0f4;
+    color:#662599;
+    padding:2px 8px;
+    border-radius:4px;
+}
+.modal-content{
+    margin-top:10px;
+    line-height:1.7;
+    font-size:20px;
+    text-align: center;
+}
+.modal-content a{
+    text-decoration: none;
+    color:#662599;
+}
+.modal-content a:hover{
+    text-decoration: underline;
+}
+/* 提示小字 */
+.tip-small{
+    font-size:13px;
+    margin-top:8px;
+}
+.modal-mask.show{
+    display:flex;
+}
+.pop-btn{
+    color:#d63384;
+    font-size:20px;
+    cursor:pointer;
+}
+.copy-source{
+    display:none;
 }
 </style>
 </head>
 <body>
 <div class="main-wrap">
 <div class="tip">
-<!--【公告】
-    <br>有问题自己看教程，已经很详细了-->
-
     <div class="tip-notice">
-         【公告】①点击名字进入，转存后去网盘下载/转存；②如果遇到禁止访问/加载缓慢就换夸克/Edge/360/夸克/UC/谷歌浏览器等;③若看文途中发现有数字或者网址不要去搜索或者添加，谨防上当受骗！④有问题自己看教程，已经很详细了</div>
+         【公告】①点击名字进入，转存后去网盘下载/转存；②如果遇到禁止访问/加载缓慢就换夸克/Edge/360/夸克/UC/谷歌浏览器等;③若看文途中发现有数字或者网址不要去搜索或者添加，谨防上当受骗！④有问题自己看教程，已经很详细了
+    </div>
 </div>
 <div class="line"></div>
-<!--
- <div class="menu-item">
-    <a href="https://link3.cc/sili">✨永久网址https://link3.cc/sili</a>
-</div>
-<div class="menu-item">
-    <a href="./rule.html">💡教程</a>
-</div>
-    -->
 
-<!-- 教程之后开始两列布局 -->
 <div class="grid-two">
-    <a href="https://link3.cc/sili">✨永久网址</a>
+
+    <span class="pop-btn" id="openModal">📢汇总</span>
     <a href="./rule.html">💡教程必看</a>
     
     <a href="https://www.kdocs.cn/etapps/query/q/Zh78BBBB">🔍一键搜索①</a>
@@ -120,17 +166,77 @@ body {
     <a href="https://www.kdocs.cn/l/cehQOLkoItKw">👉推荐网站</a>
 
     <a href="https://www.kdocs.cn/l/cluWmY2qP21H">👉生成器</a>
-     <a href="https://www.kdocs.cn/l/ccZejP8HjMjl">🫧浮力汇总</a>
+    <a href="https://www.kdocs.cn/l/ccZejP8HjMjl">🫧浮力汇总</a>
+
     <a href="https://v.wjx.cn/vm/hm9ppDu.aspx">💌留言板</a>
 </div>
 
 </div>
 
-<div class="footer">
-本网站网址数据来源于互联网搜索引擎和热心网友投稿<br>
-如侵权请追踪互联网搜索引擎或者直接联系热心网友<br>
-fnbjl@outlook.com ©2022 本地保存请勿超过24小时 特此声明
+<div class="modal-mask" id="modalMask">
+    <div class="modal-box">
+        <div class="modal-copy-all" id="copyAllBtn">复制</div>
+        <div class="modal-content">
+            <span class="title-hd">⭐汇总网址</span>
+            <div>永久导航<a href="https://link3.cc/sili">👉🏻链接</a></div>
+
+            <div>👉🏻汇总① <a href="https://sili.cc.cd/">链接</a></div>
+            <div>👉🏻汇总② <a href="https://www.silii.cc.cd/">链接</a></div>
+            <div>👉🏻汇总③<a href="https://www.sili.cc.cd/">链接</a></div>
+            <div>👉🏻汇总④<a href="https://www.kdocs.cn/l/cugJkk7n9MMc">链接</a></div>
+            <div class="tip-small">💡提示：①-③内容一样，防止打不开都;都打不开用④</div>
+        </div>
+        <div class="copy-source" id="copySource">
+⭐永久汇总链接
+🫧导航https://link3.cc/sili
+汇总① https://sili.cc.cd/
+汇总② https://www.silii.cc.cd/
+汇总③ https://www.sili.cc.cd/
+汇总④ https://www.kdocs.cn/l/cugJkk7n9MMc
+        </div>
+    </div>
 </div>
+
+
+<div class="footer">
+免责声明：本站所有数据均来源于互联网搜索引擎，仅供交流学习，请勿用于非法用途或传播，否则后果自负。本地保存请勿超过24小时，请支持正版。如有侵犯您的权益，请发送相关证明文件至邮件fnbjl@outlook.com ，将及时进行屏蔽删除处理！谢谢(任何付费获取渠道均属欺诈，请谨防受骗)©2022 特此声明
+</div>
+
+<script>
+const mask = document.getElementById('modalMask');
+const openBtn = document.getElementById('openModal');
+const copyAllBtn = document.getElementById('copyAllBtn');
+const copySource = document.getElementById('copySource');
+
+openBtn.onclick = function(){
+    mask.classList.add('show');
+}
+mask.onclick = function(e){
+    if(e.target === mask){
+        mask.classList.remove('show');
+    }
+}
+
+copyAllBtn.onclick = async function(){
+    let text = copySource.innerText.trim();
+    const originTxt = this.innerText;
+    try{
+        await navigator.clipboard.writeText(text);
+        this.innerText = "✅已复制";
+    }catch(err){
+        const ta = document.createElement('textarea');
+        ta.value = text;
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+        this.innerText = "✅已复制";
+    }
+    setTimeout(()=>{
+        this.innerText = originTxt;
+    },1200);
+}
+</script>
 
 </body>
 </html>
