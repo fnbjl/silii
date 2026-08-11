@@ -108,7 +108,7 @@ body{
 .url-text{
   white-space: nowrap;
   font-family: monospace;
-} 
+}
 
 .url-text::after{
   content:"";
@@ -120,21 +120,30 @@ body{
 <body>
 
 <div class="page-title">免费节点订阅<br>Clash/V2Ray/SSR最新机场订阅</div>
-<div><a href="https://url46.ctfile.com/s/2b02971cf50feb61d3fcf0c6abb58ce0?p=123456">下载地址，不显示换浏览器</a></div>
 <div id="container"></div>
 
 <!-- 引入外部节点数据文件 -->
-<script src="./js/node.js"></script>
+<script src="node.js"></script>
 
 <script>
 const container = document.getElementById("container");
 
-// 渲染卡片
-function renderList(data){
+// 渲染卡片，参考模板写法，增加数据异常检测
+function renderList(){
   container.innerHTML = "";
-  data.forEach((item)=>{
+
+  // 判断groupData是否存在
+  if(typeof groupData === 'undefined'){
+    container.innerHTML = `<div style="text-align:center;color:red;padding:30px">⚠️数据加载异常，请检查JS语法</div>`;
+    return;
+  }
+
+  let htmlStr = '';
+  // 遍历分组对象 groupData {日期:[{title,url},...]}
+  for (const dateKey in groupData) {
+    const itemList = groupData[dateKey];
     let itemHtml = "";
-    item.items.forEach(sub=>{
+    itemList.forEach(sub => {
       itemHtml += `
       <div class="title-hd">${sub.title}</div>
       <div class="code-wrap">
@@ -143,22 +152,23 @@ function renderList(data){
           <div class="url-text">${sub.url}</div>
         </div>
       </div>
-      `
-    })
+      `;
+    });
 
-    const blockHtml = `
+    htmlStr += `
 <div class="date-block">
   <div class="main-date" onclick="toggleDate(this)">
-    <span>📅 ${item.date}</span>
+    <span>📅 ${dateKey}</span>
     <span class="date-arrow">▼</span>
   </div>
   <div class="date-content">
     ${itemHtml}
   </div>
 </div>
-    `
-    container.innerHTML += blockHtml;
-  })
+    `;
+  }
+
+  container.innerHTML = htmlStr;
 
   // 初始化折叠：第一个展开，其余折叠
   const blocks = document.querySelectorAll('.date-block');
@@ -170,9 +180,9 @@ function renderList(data){
   }
 }
 
-// 页面加载完成，使用外部nodes.js里的nodeData渲染
+// 页面加载完成
 document.addEventListener('DOMContentLoaded',()=>{
-  renderList(nodeData);
+  renderList();
 });
 
 // 折叠切换
