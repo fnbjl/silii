@@ -128,22 +128,21 @@ body{
 <script>
 const container = document.getElementById("container");
 
-// 渲染卡片，参考模板写法，增加数据异常检测
+// 渲染卡片，适配 window.groupData 数组格式
 function renderList(){
   container.innerHTML = "";
 
-  // 判断groupData是否存在
-  if(typeof groupData === 'undefined'){
+  // 判断是否存在
+  if(typeof window.groupData === 'undefined'){
     container.innerHTML = `<div style="text-align:center;color:red;padding:30px">⚠️数据加载异常，请检查JS语法</div>`;
     return;
   }
 
   let htmlStr = '';
-  // 遍历分组对象 groupData {日期:[{title,url},...]}
-  for (const dateKey in groupData) {
-    const itemList = groupData[dateKey];
+  // 数组forEach遍历，不是for in
+  window.groupData.forEach(item => {
     let itemHtml = "";
-    itemList.forEach(sub => {
+    item.items.forEach(sub => {
       itemHtml += `
       <div class="title-hd">${sub.title}</div>
       <div class="code-wrap">
@@ -158,7 +157,7 @@ function renderList(){
     htmlStr += `
 <div class="date-block">
   <div class="main-date" onclick="toggleDate(this)">
-    <span>📅 ${dateKey}</span>
+    <span>📅 ${item.date}</span>
     <span class="date-arrow">▼</span>
   </div>
   <div class="date-content">
@@ -166,7 +165,7 @@ function renderList(){
   </div>
 </div>
     `;
-  }
+  });
 
   container.innerHTML = htmlStr;
 
