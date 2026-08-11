@@ -1,4 +1,4 @@
-const dataList = [
+window.groupData = [
   {
     date:"2026‑08‑11",
     items:[
