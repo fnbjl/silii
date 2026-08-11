@@ -116,9 +116,10 @@ body{
   display:inline-block;
   width:55px;
 }
-  /* 所有a标签全部去掉下划线 */
+/* 所有a标签全部去掉下划线，继承父文字颜色 */
 a {
   text-decoration: none;
+  color: inherit;
 }
 </style>
 </head>
@@ -126,7 +127,7 @@ a {
 
 <div class="page-title">免费节点订阅<br>Clash/V2Ray/SSR最新机场订阅</div>
 <div class="page-title"><a href="https://url46.ctfile.com/s/2b02971cf50feb61d3fcf0c6abb58ce0?p=123456">🔗下载地址：没数据换浏览器</a></div>
-<div class="page-title"><a href="./tools/tools.html" target="_blank">🧰吃饭工具</a></div>
+<div class="page-title"><a href="./tools.html" target="_blank">🧰吃饭工具</a></div>
 <div id="container"></div>
 
 <!-- 引入外部节点数据文件 -->
@@ -150,8 +151,9 @@ function renderList(){
   window.groupData.forEach(item => {
     let itemHtml = "";
     item.items.forEach(sub => {
+      // ✅这里写死固定标题，不再读取sub.title
       itemHtml += `
-      <div class="title-hd">${sub.title}</div>
+      <div class="title-hd">Clash/Mihomo免费节点订阅地址：</div>
       <div class="code-wrap">
         <button class="copy-btn" onclick="copyText(this)">复制</button>
         <div class="code-box">
