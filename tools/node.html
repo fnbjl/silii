@@ -116,10 +116,10 @@ body{
   display:inline-block;
   width:55px;
 }
-/* 所有a标签全部去掉下划线，继承父文字颜色 */
+/* 所有a标签全部去掉下划线，深蓝色 #0f2b4d */
 a {
   text-decoration: none;
-  color: #0f2b4d;
+  color: #2563eb;
 }
 </style>
 </head>
@@ -147,13 +147,18 @@ function renderList(){
   }
 
   let htmlStr = '';
-  // 数组forEach遍历，不是for in
   window.groupData.forEach(item => {
     let itemHtml = "";
-    item.items.forEach(sub => {
-      // ✅这里写死固定标题，不再读取sub.title
+    // 拿到下标 index，区分第1、第2条链接
+    item.items.forEach((sub, index) => {
+      let titleText = "";
+      if(index === 0){
+        titleText = "Clash/Mihomo免费节点订阅地址：";
+      }else if(index === 1){
+        titleText = "V2Ray免费节点订阅地址：";
+      }
       itemHtml += `
-      <div class="title-hd">Clash/Mihomo免费节点订阅地址：</div>
+      <div class="title-hd">${titleText}</div>
       <div class="code-wrap">
         <button class="copy-btn" onclick="copyText(this)">复制</button>
         <div class="code-box">
