@@ -103,42 +103,49 @@ body { max-width:920px; margin:24px auto; padding:0 14px; font-size:16px; }
 <!-- 列表渲染容器 -->
 <div id="listContainer"></div>
 
-<!-- ==========页面底部图片区域========== -->
-<!-- <img class="footer-img" src="/qrcode.jpg" alt="底部配图">-->
+<script>
+let list1 = [];
+let list2 = [];
+let list3 = [];
 
-<!-- 加载两个原始JS文件，不修改源文件，内存合并所有数据 -->
-<!--小说作者-->
+// 扁平化工具函数：接收groupData对象，返回一维数组
+function flatGroupData(gData){
+    let arr = [];
+    for(let k in gData){
+        arr = arr.concat(gData[k]);
+    }
+    return arr;
+}
+</script>
+
+<!-- 1、加载author.js，读完立刻复制保存到list1 -->
 <script src="js/author.js"></script>
 <script>
-//提取author全部条目扁平化
-let list1 = [];
-for(let key in window.groupData){
-    list1 = list1.concat(window.groupData[key]);
-}
+list1 = flatGroupData(window.groupData);
+// 清空全局，防止干扰
+window.groupData = null;
 </script>
 
-<!--小说类型-->
+<!-- 2、加载type.js，读完立刻复制保存到list2 -->
 <script src="js/type.js"></script>
 <script>
-//提取type全部条目扁平化
-let list2 = [];
-for(let key in window.groupData){
-    list2 = list2.concat(window.groupData[key]);
-}
+list2 = flatGroupData(window.groupData);
+window.groupData = null;
 </script>
-<!--小说类型-->
+
+<!--3、加载sili.js，读完立刻复制保存到list3 -->
 <script src="js/sili.js"></script>
 <script>
-//提取type全部条目扁平化
-let list3 = [];
-for(let key in window.groupData){
-    list3 = list3.concat(window.groupData[key]);
-}
-<script>
+list3 = flatGroupData(window.groupData);
+window.groupData = null;
 
 //合并 list1 list2 list3 三个数组
 window.allList = list1.concat(list2, list3);
 window.totalCount = window.allList.length;
+console.log("合并后总条数", window.totalCount);
+</script>
+
+<script>
 const urlReg = /(https?:\/\/[^\s]+)/g;
 
 function openPop(text){
