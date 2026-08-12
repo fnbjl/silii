@@ -125,11 +125,19 @@ let list2 = [];
 for(let key in window.groupData){
     list2 = list2.concat(window.groupData[key]);
 }
+    
 //合并为全局一维数组
 window.allList = list1.concat(list2);
 window.totalCount = window.allList.length;
 </script>
-
+<!--小说类型-->
+<script src="js/sili.js"></script>
+<script>
+//提取type全部条目扁平化
+let list3 = [];
+for(let key in window.groupData){
+    list3 = list3.concat(window.groupData[key]);
+}
 <script>
 const urlReg = /(https?:\/\/[^\s]+)/g;
 
