@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+  font-family:system-ui, sans-serif;
+}
+
+body{
+  background:#f7f9fc;
+  padding:14px;
+  line-height:1.7;
+  font-size:15px;
+}
+
+.page-title{
+  font-size:24px;
+  font-weight:bold;
+  margin-bottom:20px;
+  padding:0 4px;
+  text-decoration: none;
+}
+
+.date-block{
+  background:#ffe6ea;
+  border:1px solid #ffccd5;
+  border-radius:16px;
+  padding:12px;
+  margin-bottom:24px;
+}
+
+.main-date{
+  font-size:22px;
+  font-weight:bold;
+  color:#222;
+  padding:10px 12px;
+  border-radius:12px;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  background:#fff0f3;
+  margin-bottom:12px;
+  user-select:none;
+}
+
+.date-arrow{
+  font-size:16px;
+  transition:transform 0.25s ease;
+  color:#ff6680;
+}
+
+.date-arrow.collapsed{
+  transform:rotate(-90deg);
+}
+
+.date-content{
+  overflow:hidden;
+  transition:max-height 0.3s ease, opacity 0.3s ease;
+  max-height:2000px;
+  opacity:1;
+}
+
+.date-content.hidden{
+  max-height:0;
+  opacity:0;
+  pointer-events:none;
+}
+
+.title-hd{
+  font-size:20px;
+  font-weight:bold;
+  margin-bottom:12px;
+  padding:0 4px;
+}
+
+.code-wrap{
+  position:relative;
+  margin-bottom:18px;
+}
+
+.code-box{
+  background:#222;
+  color:#fff;
+  padding:16px;
+  border-radius:8px;
+  overflow-x:auto;
+}
+
+.copy-btn{
+  position:absolute;
+  top:8px;
+  right:8px;
+  background:#555;
+  color:#fff;
+  border:none;
+  padding:4px 10px;
+  border-radius:4px;
+  font-size:13px;
+  cursor:pointer;
+  z-index:2;
+}
+
+.url-text{
+  white-space: nowrap;
+  font-family: monospace;
+}
+
+.url-text::after{
+  content:"";
+  display:inline-block;
+  width:55px;
+}
+/* 所有a标签全部去掉下划线，深蓝色 #0f2b4d */
+a {
+  text-decoration: none;
+  color: #2563eb;
+}
+</style>
+</head>
+<body>
+
+<div class="page-title">免费节点订阅<br>Clash/V2Ray/SSR最新机场订阅</div>
+<div class="page-title"><a href="https://url46.ctfile.com/s/2b02971cf50feb61d3fcf0c6abb58ce0?p=123456">🔗下载地址：没数据换浏览器</a></div>
+<div class="page-title"><a href="./tools.html" target="_blank">🧰吃饭工具</a></div>
+<div id="container"></div>
+
+<!-- 引入外部节点数据文件 -->
+<script src="node.js"></script>
+
+<script>
+const container = document.getElementById("container");
+
+// 渲染卡片，适配 window.groupData 数组格式
+function renderList(){
+  container.innerHTML = "";
+
+  // 判断是否存在
+  if(typeof window.groupData === 'undefined'){
+    container.innerHTML = `<div style="text-align:center;color:red;padding:30px">⚠️数据加载异常，请检查JS语法</div>`;
+    return;
+  }
+
+  let htmlStr = '';
+  window.groupData.forEach(item => {
+    let itemHtml = "";
+    // 拿到下标 index，区分第1、第2条链接
+    item.items.forEach((sub, index) => {
+      let titleText = "";
+      if(index === 0){
+        titleText = "Clash/Mihomo免费节点订阅地址：";
+      }else if(index === 1){
+        titleText = "V2Ray免费节点订阅地址：";
+      }
+      itemHtml += `
+      <div class="title-hd">${titleText}</div>
+      <div class="code-wrap">
+        <button class="copy-btn" onclick="copyText(this)">复制</button>
+        <div class="code-box">
+          <div class="url-text">${sub.url}</div>
+        </div>
+      </div>
+      `;
+    });
+
+    htmlStr += `
+<div class="date-block">
+  <div class="main-date" onclick="toggleDate(this)">
+    <span>📅 ${item.date}</span>
+    <span class="date-arrow">▼</span>
+  </div>
+  <div class="date-content">
+    ${itemHtml}
+  </div>
+</div>
+    `;
+  });
+
+  container.innerHTML = htmlStr;
+
+  // 初始化折叠：第一个展开，其余折叠
+  const blocks = document.querySelectorAll('.date-block');
+  for(let i=1;i<blocks.length;i++){
+    const content = blocks[i].querySelector('.date-content');
+    const arrow = blocks[i].querySelector('.date-arrow');
+    content.classList.add('hidden');
+    arrow.classList.add('collapsed');
+  }
+}
+
+// 页面加载完成
+document.addEventListener('DOMContentLoaded',()=>{
+  renderList();
+});
+
+// 折叠切换
+function toggleDate(el){
+  const content = el.nextElementSibling;
+  const arrow = el.querySelector('.date-arrow');
+  content.classList.toggle('hidden');
+  arrow.classList.toggle('collapsed');
+}
+
+// 复制
+function copyText(btn){
+  const urlDom = btn.closest('.code-wrap').querySelector('.url-text');
+  const text = urlDom.innerText.trim();
+  const ta = document.createElement('textarea');
+  ta.value = text;
+  ta.style.position = 'absolute';
+  ta.style.left = '-9999px';
+  document.body.appendChild(ta);
+  ta.select();
+  try {
+    document.execCommand('copy');
+    btn.textContent = "已复制";
+  } catch (e) {
+    btn.textContent = "复制失败";
+  }
+  document.body.removeChild(ta);
+  setTimeout(()=>{btn.textContent="复制"},1200);
+}
+</script>
+
+</body>
+</html>

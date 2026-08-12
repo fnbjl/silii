@@ -95,7 +95,7 @@ body { max-width:920px; margin:24px auto; padding:0 14px; font-size:16px; }
 </head>
 <body>
 <div class="tip">
-【温馨提示】<br>当前合集总数：<span id="countNum">0</span>
+当前合集总数：<span id="countNum">0</span>
 <!-- <br>公告：点击名字弹窗进入，转存后去网盘下载/转存；如果遇到禁止访问/加载缓慢就换夸克、Edge等浏览器。-->
 <div class="tip-notice">
 公告：点击名字弹窗进入，转存后去网盘下载/转存；如果遇到禁止访问/加载缓慢就换夸克/Edge/360/夸克/UC/谷歌浏览器等。
@@ -122,7 +122,7 @@ body { max-width:920px; margin:24px auto; padding:0 14px; font-size:16px; }
 
 <!-- ==========页面底部图片区域========== -->
 <!-- 关键点：去掉src，使用data-src存图片地址，初始不会发起图片请求 -->
-<img class="footer-img" data-src="qrcode.jpg" alt="底部配图">
+<img class="footer-img" data-src="qrcode.jpg" alt="等待刷新">
 
 
 
@@ -177,18 +177,38 @@ document.addEventListener('DOMContentLoaded',function(){
 });
 
 // 封装搜索绑定函数
+// 封装搜索绑定函数【搜索时完全隐藏分组标题】
 function bindSearch(){
     const input = document.getElementById('search-input');
+    if(!input) return;
+    let timer = null;
     input.addEventListener('input', function(){
-        let keyword = this.value.trim().toLowerCase();
-        // 每次输入实时重新获取最新条目
-        const itemList = document.querySelectorAll('.item');
-        itemList.forEach(el=>{
-            let text = el.textContent.toLowerCase();
-            el.style.display = text.includes(keyword) ? 'block' : 'none';
-        })
+        const keyword = this.value.trim().toLowerCase();
+        clearTimeout(timer);
+        timer = setTimeout(()=>{
+            const allItems = document.querySelectorAll('.item');
+            const allGroupTitles = document.querySelectorAll('.group-title');
+
+            // 清空输入框：全部恢复
+            if(keyword === ''){
+                allItems.forEach(el=> el.style.display = 'block');
+                allGroupTitles.forEach(el=> el.style.display = 'block');
+                return;
+            }
+
+            // 有搜索关键词：全部分组标题隐藏
+            allGroupTitles.forEach(el=> el.style.display = 'none');
+
+            // 筛选条目，只显示匹配的
+            allItems.forEach(el=>{
+                const text = el.textContent.toLowerCase();
+                el.style.display = text.includes(keyword) ? 'block' : 'none';
+            });
+
+        },300)
     })
 }
+
 </script>
 </body>
 </html>
