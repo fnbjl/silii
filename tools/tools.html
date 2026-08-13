@@ -137,9 +137,6 @@ a{
 <!-- 引入外部数据文件 tools.js -->
 <script src="tools.js"></script>
 <script>
-<script>
-
-
 const container = document.getElementById("container");
 toolsData.forEach(group => {
   let itemHtml = "";
@@ -152,7 +149,6 @@ toolsData.forEach(group => {
     `;
   });
 
-  // ✅ 默认折叠：卡片加 collapsed，内容容器加 hidden，箭头加 collapsed
   const cardHtml = `
     <div class="group-card collapsed">
       <div class="group-header" onclick="toggleGroup(this)">
