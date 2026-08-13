@@ -10,7 +10,7 @@
   padding:0;
   font-family:system-ui, sans-serif;
 }
-
+<a href="/" class="back-home"><</a>
 body{
   background:#f7f9fc;
   padding:14px;
@@ -115,6 +115,22 @@ body{
   content:"";
   display:inline-block;
   width:55px;
+}
+/*返回 */  
+.back-home {
+    position: fixed;
+    top: 16px;
+    left: 16px;
+    z-index: 999;
+    padding: 8px 16px;
+    background-color: #2563eb;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+.back-home:hover {
+    background-color: #1d4ed8;
 }
 /* 所有a标签全部去掉下划线，深蓝色 #0f2b4d */
 a {
