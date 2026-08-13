@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.85em' font-size='70'>𓆛</text></svg>">
-<title>工具&网址</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.85em' font-size='70'>🐟︎</text></svg>">
+<title>吃饭工具</title>
 <style>
 *{
   box-sizing:border-box;
@@ -130,7 +130,47 @@ a{
   font-size:13px;
 }
 
-/* 底部大导航条 左⬅｜中主页｜右➡ */
+.code-wrap{
+  display:inline-block;
+  position:relative;
+  padding-right:54px; /* 给悬浮按钮预留空间 */
+}
+.copy-btn{
+  font-size:13px;
+  padding:3px 8px;
+  background:#888888;
+  color:#fff;
+  border:none;
+  border-radius:6px;
+  cursor:pointer;
+  position:absolute;
+  right:0;
+  top:50%;
+  transform:translateY(-50%);
+}
+.copy-btn:active{
+  background:#666666;
+}
+
+.toast{
+  position:fixed;
+  top:20px;
+  left:50%;
+  transform:translateX(-50%);
+  background:rgba(0,0,0,0.75);
+  color:#fff;
+  padding:8px 16px;
+  border-radius:8px;
+  font-size:14px;
+  z-index:9999;
+  opacity:0;
+  transition:opacity 0.2s;
+  pointer-events:none;
+}
+.toast.show{
+  opacity:1;
+}
+
 .nav-bar-wrap{
   position:fixed;
   bottom:20px;
@@ -180,7 +220,8 @@ a{
 <div class="title-hd">🍚吃饭工具</div>
 <div id="container"></div>
 
-<!-- 顺序：左⬅｜中主页｜右➡ -->
+<div class="toast" id="toast">复制成功</div>
+
 <div class="nav-bar-wrap">
   <div class="nav-bar">
     <div class="nav-item" id="prevBtn" onclick="goPrev()">⬅</div>
@@ -191,19 +232,6 @@ a{
 
 <script src="tools.js"></script>
 <script>
-const container = document.getElementById("container");
-const cardDomList = [];
-
-toolsData.forEach((group, index) => {
-  let itemHtml = "";
-  group.items.forEach(item => {
-    itemHtml += `
-      <div class="accel-item">
-        <div class="label">${item.label}</div>
-        ${item.html}
-      </div>
-    `;
-  });
 
   const cardHtml = `
     <div class="group-card collapsed" data-index="${index}">
@@ -219,13 +247,57 @@ toolsData.forEach((group, index) => {
   container.innerHTML += cardHtml;
 });
 
-document.querySelectorAll('.group-card').forEach(card=>{
-  cardDomList.push(card);
-});
+cardDomList = Array.from(document.querySelectorAll('.group-card'));
+
+function autoInjectCopyButtons(){
+  const codeWraps = document.querySelectorAll('.code-wrap');
+  codeWraps.forEach(wrap => {
+    const codeEl = wrap.querySelector('.code');
+    if (!codeEl) return;
+    if (wrap.querySelector('.copy-btn')) return;
+
+    const btn = document.createElement('button');
+    btn.className = 'copy-btn';
+    btn.textContent = 'copy';
+
+    btn.addEventListener('click', () => {
+      const text = codeEl.innerText.trim();
+      const ta = document.createElement('textarea');
+      ta.value = text;
+      ta.style.position = 'absolute';
+      ta.style.left = '-9999px';
+      document.body.appendChild(ta);
+      ta.select();
+      try {
+        document.execCommand('copy');
+        btn.textContent = "已复制";
+        showToast("复制成功");
+      } catch (e) {
+        btn.textContent = "复制失败";
+        showToast("复制失败，请手动复制");
+      }
+      document.body.removeChild(ta);
+      setTimeout(() => {
+        btn.textContent = "copy";
+      }, 1200);
+    });
+
+    wrap.appendChild(btn);
+  });
+}
+
+autoInjectCopyButtons();
+
+function showToast(text){
+  toastEl.textContent = text;
+  toastEl.classList.add('show');
+  setTimeout(()=>{
+    toastEl.classList.remove('show');
+  },1200);
+}
 
 let currentIndex = 0;
 
-// 切换：全部折叠，只打开目标卡片
 function jumpTo(index){
   if(index < 0 || index >= cardDomList.length) return;
   currentIndex = index;
@@ -257,8 +329,8 @@ function toggleGroup(el){
 function updateBtnState(){
   const prevBtn = document.getElementById("prevBtn");
   const nextBtn = document.getElementById("nextBtn");
-  prevBtn.style.opacity = currentIndex <= 0 ? "0.4" : "1";
-  nextBtn.style.opacity = currentIndex >= cardDomList.length -1 ? "0.4" : "1";
+  prevBtn.disabled = currentIndex <= 0;
+  nextBtn.disabled = currentIndex >= cardDomList.length -1;
 }
 
 function goPrev(){
