@@ -2,9 +2,8 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.85em' font-size='70'>🐟︎</text></svg>">
-<title>吃饭工具</title>
 <style>
 *{
   box-sizing:border-box;
@@ -12,37 +11,44 @@
   padding:0;
   font-family:system-ui, sans-serif;
 }
-
 body{
   background:#f7f9fc;
-  padding:14px 12px;
+  padding:14px;
+  /* 底部预留空间，避免内容被固定按钮遮挡 */
+  padding-bottom:80px;
   line-height:1.7;
   font-size:15px;
-  overflow-x:hidden;
-  padding-bottom:90px;
 }
-
-.title-hd{
-  font-size:25px;
+.page-title{
+  font-size:24px;
+  font-weight:bold;
+  margin-bottom:0px;
+  padding:0 4px;
+}
+.page-title1{
+  font-size:20px;
+  font-weight:bold;
+  margin-bottom:14px;
+  padding:0 4px;
+}
+.page-title2{
+  font-size:16px;
   font-weight:bold;
   margin-bottom:16px;
-}
+  padding:0 4px;
+}  
 
-.group-card{
-  background:#fff0f3;
+.date-block{
+  background:#ffe6ea;
   border:1px solid #ffccd5;
   border-radius:16px;
   padding:12px;
-  margin-bottom:20px;
-  transition: padding 0.2s;
+  margin-bottom:24px;
 }
-.group-card.collapsed{
-  padding-bottom:0;
-}
-
-.group-header{
+.main-date{
   font-size:22px;
   font-weight:bold;
+  color:#222;
   padding:10px 12px;
   border-radius:12px;
   cursor:pointer;
@@ -50,232 +56,217 @@ body{
   align-items:center;
   justify-content:space-between;
   background:#fff0f3;
-  margin-bottom:4px;
+  margin-bottom:12px;
   user-select:none;
 }
-
-.arrow{
+.date-arrow{
   font-size:16px;
   transition:transform 0.25s ease;
   color:#ff6680;
 }
-
-.arrow.collapsed{
+.date-arrow.collapsed{
   transform:rotate(90deg);
 }
-
-.group-content{
+.date-content{
   overflow:hidden;
   transition:max-height 0.3s ease, opacity 0.3s ease;
   max-height:2000px;
   opacity:1;
-  padding-top:6px;
-  position:relative;
 }
-
-.group-content::before{
-  content:"";
-  display:block;
-  height:1px;
-  background:#ffccd5;
-  margin:0 16px;
-  position:absolute;
-  top:0;
-  left:0;
-  right:0;
-}
-
-.group-content.hidden{
+.date-content.hidden{
   max-height:0;
   opacity:0;
   pointer-events:none;
-  padding-top:0;
-  height:0;
 }
-.group-content.hidden::before{
-  display:none;
-}
-
-.accel-item{
-  margin-bottom:16px;
-}
-
-.label{
+.title-hd{
   font-size:20px;
-  margin-bottom:4px;
-  display:block;
-  font-weight:500;
-}
-
-a{
-  color:#0066cc;
-  word-wrap:break-word;
-  word-break:break-word;
-  text-decoration:none;
-}
-
-.desc{
-  color:#444;
-  margin:4px 0 6px 0;
-  font-size:14px;
-}
-
-.code{
-  color:#c8102e;
   font-weight:bold;
+  margin-bottom:12px;
+  padding:0 4px;
 }
-
-.note{
-  color:#666;
+.code-wrap{
+  position:relative;
+  margin-bottom:18px;
+}
+.code-box{
+  background:#222;
+  color:#fff;
+  padding:16px;
+  border-radius:8px;
+  overflow-x:auto;
+}
+.copy-btn{
+  position:absolute;
+  top:8px;
+  right:8px;
+  background:#555;
+  color:#fff;
+  border:none;
+  padding:4px 10px;
+  border-radius:4px;
   font-size:13px;
+  cursor:pointer;
+  z-index:2;
 }
-
-/* 底部大导航条 左⬅｜中主页｜右➡ */
-.nav-bar-wrap{
+.url-text{
+  white-space: nowrap;
+  font-family: monospace;
+}
+.url-text::after{
+  content:"";
+  display:inline-block;
+  width:55px;
+}
+/* 返回主页 固定置底，居中 */
+.back-home-wrap{
   position:fixed;
   bottom:20px;
   left:0;
   width:100%;
-  display:flex;
-  justify-content:center;
+  text-align:center;
 }
-.nav-bar{
-  display:flex;
-  gap:0;
-  background:#fff;
-  border-radius:999px;
-  border:1px solid #ffd6de;
-  box-shadow:0 1px 3px rgba(255,102,128,0.08);
-  overflow:hidden;
+.back-home {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 28px;
+  background: #fff;
+  color: #ff6680;
+  text-decoration: none;
+  border-radius: 999px;
+  border: 1px solid #ffd6de;
+  font-size: 14px;
+  font-weight: 500;
+  box-shadow: 0 1px 3px rgba(255,102,128,0.08);
+  transition: all 0.2s ease;
+ 
 }
-.nav-item{
-  padding:10px 18px;
-  color:#ff6680;
-  font-size:18px;
-  font-weight:500;
-  cursor:pointer;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  transition:background 0.2s ease;
+.back-home:hover {
+  background: #fff0f3;
+  border-color: #ffb3c1;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(255,102,128,0.15);
 }
-.nav-item:hover{
-  background:#fff0f3;
+/* 注释掉图标左移动画，这就是漂移来源 */
+/*.back-home:hover .arrow-icon{
+  transform: translateX(-3px);
+}*/
+.arrow-icon{
+  display: inline-block;
 }
-.nav-item:disabled{
-  opacity:0.4;
-  cursor:not-allowed;
-}
-.nav-item a{
-  color:#ff6680;
-  text-decoration:none;
-  display:flex;
-  align-items:center;
-  gap:4px;
+
+
+/* 所有a标签全部去掉下划线，深蓝色 #0f2b4d */
+a {
+  text-decoration: none;
+  color: #2563eb;
 }
 </style>
 </head>
 <body>
+<div class="page-title">免费节点订阅</div>
+<div class="page-title1">Clash/V2Ray/SSR最新机场订阅</div>
 
-<div class="title-hd">🍚吃饭工具</div>
-<div id="container"></div>
-
-<!-- 顺序：左⬅｜中主页｜右➡ -->
-<div class="nav-bar-wrap">
-  <div class="nav-bar">
-    <div class="nav-item" id="prevBtn" onclick="goPrev()">⬅</div>
-    <div class="nav-item"><a href="/"><span class="arrow-icon">⌂</span></a></div>
-    <div class="nav-item" id="nextBtn" onclick="goNext()">➡</div>
-  </div>
+<!-- 直接复用已有的 date-block 样式，无新增css -->
+<div class="main-date" style="padding:6px 12px;flex-direction:column;align-items:flex-start;">
+    <div class="page-title2" style="margin-bottom:0;"><a href="https://url46.ctfile.com/s/2b02971cf50feb61d3fcf0c6abb58ce0?p=123456" style="color:#000;">🔗直链下载地址：没数据换浏览器</a></div>
+    <!-- margin‑top:8px 拉开两行文字距离，数值越大间距越大 -->
+    <div class="page-title2" style="margin-bottom:0;margin-top:8px;"> <a href="https://pan.quark.cn/s/9378d5888f4b#/list/share" style="color:#000;">🔗夸克下载地址：不要在线解压，会和谐</a> </div>
+ 
+  <div class="main-date" style="padding:6px 12px;margin-bottom:0;"><div class="page-title2" style="margin-bottom:0;"><a href="./tools.html" target="_blank" style="color:#000;">🧰吃饭工具</a> </div></div>
 </div>
 
-<script src="tools.js"></script>
+<div id="container"></div>
+<!-- 返回主页【固定置底】 -->
+<div class="back-home-wrap">
+  <a href="/" class="back-home"><span class="arrow-icon">⌂</span></a>
+</div>
+
+<!-- 引入外部节点数据文件 -->
+<script src="node.js"></script>
 <script>
-
 const container = document.getElementById("container");
-const cardDomList = [];
-
-toolsData.forEach((group, index) => {
-  let itemHtml = "";
-  group.items.forEach(item => {
-    itemHtml += `
-      <div class="accel-item">
-        <div class="label">${item.label}</div>
-        ${item.html}
+// 渲染卡片，适配 window.groupData 数组格式
+function renderList(){
+  container.innerHTML = "";
+  // 判断是否存在
+  if(typeof window.groupData === 'undefined'){
+    container.innerHTML = `<div style="text-align:center;color:red;padding:30px">⚠️数据加载异常，请检查JS语法</div>`;
+    return;
+  }
+  let htmlStr = '';
+  window.groupData.forEach(item => {
+    let itemHtml = "";
+    // 拿到下标 index，区分第1、第2条链接
+    item.items.forEach((sub, index) => {
+      let titleText = "";
+      if(index === 0){
+        titleText = "Clash/Mihomo免费节点订阅地址：";
+      }else if(index === 1){
+        titleText = "V2Ray免费节点订阅地址：";
+      }
+      itemHtml += `
+      <div class="title-hd">${titleText}</div>
+      <div class="code-wrap">
+        <button class="copy-btn" onclick="copyText(this)">复制</button>
+        <div class="code-box">
+          <div class="url-text">${sub.url}</div>
+        </div>
       </div>
+      `;
+    });
+    htmlStr += `
+<div class="date-block">
+  <div class="main-date" onclick="toggleDate(this)">
+    <span>📅 ${item.date}</span>
+    <span class="date-arrow">▼</span>
+  </div>
+  <div class="date-content">
+    ${itemHtml}
+  </div>
+</div>
     `;
   });
-
-  const cardHtml = `
-    <div class="group-card collapsed" data-index="${index}">
-      <div class="group-header" onclick="toggleGroup(this)">
-        <span>${group.title}</span>
-        <span class="arrow collapsed">▼</span>
-      </div>
-      <div class="group-content hidden">
-        ${itemHtml}
-      </div>
-    </div>
-  `;
-  container.innerHTML += cardHtml;
-});
-
-document.querySelectorAll('.group-card').forEach(card=>{
-  cardDomList.push(card);
-});
-
-let currentIndex = 0;
-
-// 切换：全部折叠，只打开目标卡片
-function jumpTo(index){
-  if(index < 0 || index >= cardDomList.length) return;
-  currentIndex = index;
-
-  cardDomList.forEach(card=>{
-    card.classList.add("collapsed");
-    card.querySelector(".group-content").classList.add("hidden");
-    card.querySelector(".arrow").classList.add("collapsed");
-  });
-
-  const card = cardDomList[index];
-  card.classList.remove("collapsed");
-  card.querySelector(".group-content").classList.remove("hidden");
-  card.querySelector(".arrow").classList.remove("collapsed");
-
-  card.scrollIntoView({behavior:"smooth", block:"start"});
-  updateBtnState();
+  container.innerHTML = htmlStr;
+  // 初始化折叠：第一个展开，其余折叠
+  const blocks = document.querySelectorAll('.date-block');
+  for(let i=2;i<blocks.length;i++){
+    const content = blocks[i].querySelector('.date-content');
+    const arrow = blocks[i].querySelector('.date-arrow');
+    content.classList.add('hidden');
+    arrow.classList.add('collapsed');
+  }
 }
-
-function toggleGroup(el){
-  const card = el.closest('.group-card');
+// 页面加载完成
+document.addEventListener('DOMContentLoaded',()=>{
+  renderList();
+});
+// 折叠切换
+function toggleDate(el){
   const content = el.nextElementSibling;
-  const arrow = el.querySelector('.arrow');
-  card.classList.toggle('collapsed');
+  const arrow = el.querySelector('.date-arrow');
   content.classList.toggle('hidden');
   arrow.classList.toggle('collapsed');
 }
-
-function updateBtnState(){
-  const prevBtn = document.getElementById("prevBtn");
-  const nextBtn = document.getElementById("nextBtn");
-  prevBtn.style.opacity = currentIndex <= 0 ? "0.4" : "1";
-  nextBtn.style.opacity = currentIndex >= cardDomList.length -1 ? "0.4" : "1";
-}
-
-function goPrev(){
-  if(currentIndex > 0){
-    jumpTo(currentIndex -1);
+// 复制
+function copyText(btn){
+  const urlDom = btn.closest('.code-wrap').querySelector('.url-text');
+  const text = urlDom.innerText.trim();
+  const ta = document.createElement('textarea');
+  ta.value = text;
+  ta.style.position = 'absolute';
+  ta.style.left = '-9999px';
+  document.body.appendChild(ta);
+  ta.select();
+  try {
+    document.execCommand('copy');
+    btn.textContent = "已复制";
+  } catch (e) {
+    btn.textContent = "复制失败";
   }
+  document.body.removeChild(ta);
+  setTimeout(()=>{btn.textContent="复制"},1200);
 }
-
-function goNext(){
-  if(currentIndex < cardDomList.length -1){
-    jumpTo(currentIndex +1);
-  }
-}
-
-updateBtnState();
 </script>
-
 </body>
 </html>
