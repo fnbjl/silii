@@ -1,3 +1,4 @@
+ 
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -112,12 +113,21 @@ body {
     line-height:1.5;
 }
 .pop-btn{
-    color:#d63384;
+    color:#000000;
     font-size:20px;
     cursor:pointer;
-}
+    }
 .copy-source{
     display:none;
+}
+/*紫色通用类 加粗 font-weight:500 !important;*/
+.text-purple {
+    color:#00000 !important;
+    text-decoration: none !important;
+    
+}
+.text-purple:hover {
+    color:#000000 !important;
 }
 
 /*底部双按钮：取消｜复制，分割线效果*/
@@ -183,7 +193,7 @@ body {
     padding:14px;
     border:none;
     background:#fff;
-    color:#d63384;
+    color:#000000;
     font-size:17px;
     font-weight:bold;
     border-left:1px solid #e8e8e8;
@@ -214,40 +224,49 @@ body {
 <div class="line"></div>
 
 <div class="grid-two">
-    <span class="pop-btn" data-target="modalMask">📢汇总</span>
-    <a href="./rule.html" style="color:#d63384;">💡教程必看</a>
-    <span class="pop-btn" data-target="modalMask_fuli">🫧浮力汇总</span>
-    <span class="pop-btn" data-target="modalMask_pwd">🔐txt单本搜索</span>
-    
-    <a href="https://www.kdocs.cn/etapps/query/q/Zh78BBBB">🔍一键搜索①</a>
-    <a href="./All Search.html">🔍一键搜索②</a>
-    
-    <a href="./author.html">👉小说‑作者</a>
-    <a href="./type.html">👉小说‑类型</a>
+    <a href="./All Search.html"class="text-purple">🔍一键搜索①</a>
+    <a href="https://www.kdocs.cn/etapps/query/q/Zh78BBBB"class="text-purple">🔍一键搜索②</a>
 
-    <a href="https://www.kdocs.cn/wo/sl/v1EhIinl">👉书籍‑平台</a>
-    <a href="https://www.kdocs.cn/wo/sl/v14Oxbrh">👉漫画</a>
+    <span class="pop-btn" data-target="modalMask">🌐备用网址</span>
+    <a href="./rule.html"class="text-purple">🔔教程必看</a>
 
-    <a href="https://www.kdocs.cn/wo/sl/v11pNw1A">👉广播剧/有声剧</a>
-    <a href="https://www.kdocs.cn/wo/sl/v11cx7Ta">👉影视</a>
+    <span class="pop-btn" data-target="modalMask_fuli">👉🏻浮力汇总</span>
+    <span class="pop-btn" data-target="modalMask_pwd">👉🏻txt单本搜索</span>
 
-    <a href="https://www.kdocs.cn/wo/sl/v11uhpz2">👉软件</a>
-    <a href="https://www.kdocs.cn/wo/sl/v1dzztK">👉课程</a>
-
-    <a href="https://www.kdocs.cn/wo/sl/v12OWpMH">👉音乐</a>
-    <a href="https://www.kdocs.cn/l/cdoBaY2HudCQ">👉推图</a>
-
-    <a href="https://www.kdocs.cn/l/ce5CjGfczDP5">👉输入法</a>
-    <a href="https://www.kdocs.cn/l/cehQOLkoItKw">👉推荐网站</a>
-
-    <a href="https://www.kdocs.cn/l/cluWmY2qP21H">👉生成器</a>
-
-    <a href="./tools/tools.html">🛠️吃饭工具</a>
-    <a href="./tools/node.html">🧰免费节点</a>
 </div>
+
+
+<div class="grid-two">
+
+    <a href="./author.html">👉🏻小说‑作者</a>
+    <a href="./type.html">👉🏻小说‑类型</a>
+
+    <a href="https://www.kdocs.cn/wo/sl/v1EhIinl">👉🏻书籍‑平台</a>
+    <a href="https://www.kdocs.cn/wo/sl/v14Oxbrh">👉🏻漫画</a>
+
+    <a href="https://www.kdocs.cn/wo/sl/v11pNw1A">👉🏻广播/有声剧</a>
+    <a href="https://www.kdocs.cn/wo/sl/v11cx7Ta">👉🏻影视</a>
+
+    <a href="https://www.kdocs.cn/wo/sl/v11uhpz2">👉🏻软件</a>
+    <a href="https://www.kdocs.cn/wo/sl/v1dzztK">👉🏻课程</a>
+
+    <a href="https://www.kdocs.cn/wo/sl/v12OWpMH">👉🏻音乐</a>
+    <a href="https://www.kdocs.cn/l/cdoBaY2HudCQ">👉🏻推图</a>
+
+    <a href="https://www.kdocs.cn/l/ce5CjGfczDP5">👉🏻输入法</a>
+    <a href="https://www.kdocs.cn/l/cehQOLkoItKw">👉🏻推荐网站</a>
+
+    <a href="https://www.kdocs.cn/l/cluWmY2qP21H">👉🏻生成器</a>
+</div>
+
+<div class="grid-two">
+    <a href="./tools/tools.html">👉🏻吃饭工具</a>
+    <a href="./tools/node.html">👉🏻免费节点</a>
+</div>
+
 <div class="grid-two">
  
-    <a href="https://v.wjx.cn/vm/hm9ppDu.aspx">💌留言板</a>
+    <a href="https://mp.weixin.qq.com/s/1fCDvx1UNOBsMAiZ_IL4Lw">💌留言板</a>
 </div>
 </div>
 
@@ -257,11 +276,11 @@ body {
         <div class="modal-content">
             
             <span class="title-hd">⭐汇总网址</span>
-            <div>👉🏻永久导航<a href="https://link3.cc/sili">https://link3.cc/sili</a></div>
+            <div>✨永久导航<a href="https://link3.cc/sili">https://link3.cc/sili</a></div>
             <div>👉🏻汇总① <a href="https://sili.cc.cd/">https://sili.cc.cd/</a></div>
             <div>👉🏻汇总② <a href="https://www.silii.cc.cd/">https://www.silii.cc.cd/</a></div>
              <div>👉🏻汇总③ <a href="https://www.sili.cc.cd/">https://www.sili.cc.cd/</a></div>
-            <div>👉🏻汇总④ <a href="https://www.kdocs.cn/l/cugJkk7n9MMc">https://www.kdocs.cn/l/cugJkk7n9MMc</a></div>
+            <div>👉🏻汇总④ <a href="https://www.kdocs.cn/l/cugJkk7n9MMc">链接</a></div>
             <div class="tip-small">💡提示：①‑③内容一样，打不开切换链接</div>
         </div>
         <div class="modal-bottom-btn">
@@ -269,8 +288,8 @@ body {
             <button class="btn-copy-bottom">复制</button>
         </div>
         <div class="copy-source">
-⭐永久汇总链接
-🫧导航https://link3.cc/sili
+    ⭐永久汇总链接
+✨导航https://link3.cc/sili
 汇总① https://sili.cc.cd/
 汇总② https://www.silii.cc.cd/
 汇总③ https://www.sili.cc.cd/
@@ -310,11 +329,11 @@ body {
     <div class="modal-box" style="padding-bottom:0;">
         <div id="pwd-input-area">
             <div style="text-align:center;font-size:20px;font-weight:bold;">输入密码后访问</div>
-            <a href="https://mp.weixin.qq.com/s/1fCDvx1UNOBsMAiZ_IL4Lw" target="_blank" style="color:#777;text-decoration:none;">
-1️⃣文章评论区自取:需微信内打开 <span style="color:#4285f4;">🔗点我</span><br>
-2️⃣备选渠道：朋友圈置顶获取
-</a>
-</div>
+           
+            
+            <div class="pwd-hint" style="margin-top:12px;">🔔提示:<br><a href="https://mp.weixin.qq.com/s/1fCDvx1UNOBsMAiZ_IL4Lw" target="_blank" style="color:#777;text-decoration:none;">
+①微信文章评论区自取:需微信内打开 <span style="color:#4285f4;">🔗点我</span><br>
+②备选渠道：朋友圈置顶获取</a></div>
                <div class="pwd-box-wrap">
                 <input class="pwd-single" maxlength="1" data-index="0">
                 <input class="pwd-single" maxlength="1" data-index="1">
@@ -330,9 +349,9 @@ body {
         <!--解锁后展示内容，密码弹窗这里依旧显示完整网址-->
         <div id="pwd-content-area" style="display:none;padding:0 20px 20px;">
             <div class="modal-content">
-                <div>🔑UC：<a href="https://drive.uc.cn/s/3a502843e05b4" target="_blank">https://drive.uc.cn/s/3a502843e05b4</a><br>
-                      🔗：<a href="https://www.ilanzou.com/s/rOdligGH" target="_blank">https://www.ilanzou.com/s/rOdligGH</a><br>
-                       1️⃣只保存有日期的压缩包<br>2️⃣用解压专家/解压大师解压后，找到钥匙即可<br>3️⃣文太多了，有时候卡，多搜两遍<br>4️⃣自助搜书只是福利功能，不会用还就只看每日更新，别问了<br>5️⃣解压相关问题请用专业的解压软件，别问了
+                <div>🔑UC<a href="https://drive.uc.cn/s/3a502843e05b4" target="_blank">https://drive.uc.cn/s/3a502843e05b4</a><br>
+                      🔗<a href="https://www.ilanzou.com/s/rOdligGH" target="_blank">https://www.ilanzou.com/s/rOdligGH</a><br>
+                       1️⃣只保存有日期的压缩包<br>2️⃣用解压专家/解压大师解压后，找到钥匙<br>3️⃣文太多了，有时候卡，多搜两遍<br>4️⃣自助搜书只是福利功能，不会用还就只看每日更新，别问了<br>5️⃣解压相关问题请用专业的解压软件，别问了
                 </div>
             </div>
             <div class="modal-bottom-btn">
@@ -372,6 +391,31 @@ document.addEventListener('click',function(e){
     }
 })
 
+// 自定义提示框，无确定按钮，1秒自动消失
+function showToast(message){
+    const toast = document.createElement('div');
+    toast.style.position = 'fixed';
+    toast.style.top = '50%';
+    toast.style.left = '50%';
+    toast.style.transform = 'translate(-50%,-50%)';
+    toast.style.background = 'rgba(0,0,0,0.85)';
+    toast.style.color = '#fff';
+    toast.style.padding = '16px 24px';
+    toast.style.borderRadius = '10px';
+    toast.style.zIndex = '9999';
+    toast.style.fontSize = '15px';
+
+    const text = document.createElement('div');
+    text.innerText = message;
+    toast.appendChild(text);
+    document.body.appendChild(toast);
+
+    //1秒自动移除提示框，不关闭底层弹窗
+    setTimeout(()=>{
+        toast.remove();
+    },1000);
+}
+
 //底部复制按钮复制逻辑
 async function doCopy(box){
     let sourceDom = box.querySelector('.copy-source');
@@ -385,7 +429,6 @@ async function doCopy(box){
     const text = sourceDom.innerText.trim();
     try{
         await navigator.clipboard.writeText(text);
-        alert("✅复制成功");
     }catch(err){
         const ta = document.createElement('textarea');
         ta.value = text;
@@ -393,8 +436,9 @@ async function doCopy(box){
         ta.select();
         document.execCommand('copy');
         document.body.removeChild(ta);
-        alert("✅复制成功");
     }
+
+    showToast("✅复制成功");
 }
 
 //弹窗底部红色复制按钮
@@ -486,6 +530,7 @@ pwdMask.addEventListener('click',function(e){
         resetPwdModal();
     }
 })
+
 </script>
 </body>
 </html>
