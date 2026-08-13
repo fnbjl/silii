@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.85em' font-size='70'>🐟</text></svg>">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.85em' font-size='70'>🐟︎</text></svg>">
 <style>
 *{
   box-sizing:border-box;
@@ -14,6 +14,8 @@
 body{
   background:#f7f9fc;
   padding:14px;
+  /* 底部预留空间，避免内容被固定按钮遮挡 */
+  padding-bottom:80px;
   line-height:1.7;
   font-size:15px;
 }
@@ -63,7 +65,7 @@ body{
   color:#ff6680;
 }
 .date-arrow.collapsed{
-  transform:rotate(-90deg);
+  transform:rotate(90deg);
 }
 .date-content{
   overflow:hidden;
@@ -115,11 +117,13 @@ body{
   display:inline-block;
   width:55px;
 }
-/* 返回主页 底部居中 极简胶囊 */
+/* 返回主页 固定置底，居中 */
 .back-home-wrap{
-  margin-top: 40px;
-  padding-top: 24px;
-  text-align: center;
+  position:fixed;
+  bottom:20px;
+  left:0;
+  width:100%;
+  text-align:center;
 }
 .back-home {
   display: inline-flex;
@@ -177,7 +181,7 @@ a {
 </div>
 
 <div id="container"></div>
-<!-- 返回主页 -->
+<!-- 返回主页【固定置底】 -->
 <div class="back-home-wrap">
   <a href="/" class="back-home"><span class="arrow-icon">⌂</span></a>
 </div>
@@ -230,7 +234,7 @@ function renderList(){
   container.innerHTML = htmlStr;
   // 初始化折叠：第一个展开，其余折叠
   const blocks = document.querySelectorAll('.date-block');
-  for(let i=1;i<blocks.length;i++){
+  for(let i=2;i<blocks.length;i++){
     const content = blocks[i].querySelector('.date-content');
     const arrow = blocks[i].querySelector('.date-arrow');
     content.classList.add('hidden');
