@@ -24,7 +24,6 @@ body{
   font-size:25px;
   font-weight:bold;
   margin-bottom:16px;
-  /* 删掉了 border-bottom 下划线 */
 }
 
 .group-card{
@@ -138,7 +137,9 @@ a{
 <!-- 引入外部数据文件 tools.js -->
 <script src="tools.js"></script>
 <script>
-// 渲染卡片，读取tools.js里面的 toolsData
+<script>
+
+
 const container = document.getElementById("container");
 toolsData.forEach(group => {
   let itemHtml = "";
@@ -151,13 +152,14 @@ toolsData.forEach(group => {
     `;
   });
 
+  // ✅ 默认折叠：卡片加 collapsed，内容容器加 hidden，箭头加 collapsed
   const cardHtml = `
-    <div class="group-card">
+    <div class="group-card collapsed">
       <div class="group-header" onclick="toggleGroup(this)">
         <span>${group.title}</span>
-        <span class="arrow">▼</span>
+        <span class="arrow collapsed">▼</span>
       </div>
-      <div class="group-content">
+      <div class="group-content hidden">
         ${itemHtml}
       </div>
     </div>
@@ -165,14 +167,13 @@ toolsData.forEach(group => {
   container.innerHTML += cardHtml;
 });
 
-// 折叠切换
 function toggleGroup(el){
   const card = el.closest('.group-card');
   const content = el.nextElementSibling;
   const arrow = el.querySelector('.arrow');
+  card.classList.toggle('collapsed');
   content.classList.toggle('hidden');
   arrow.classList.toggle('collapsed');
-  card.classList.toggle('collapsed');
 }
 </script>
 
