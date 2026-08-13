@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.85em' font-size='70'>🐟︎</text></svg>">
+
 <title>小说-类型索引</title>
 <style>
 body { max-width:920px; margin:24px auto; padding:0 14px; font-size:16px; }
@@ -91,6 +93,46 @@ body { max-width:920px; margin:24px auto; padding:0 14px; font-size:16px; }
     margin: 40px auto 20px;
     border-radius: 8px;
 }
+
+ 
+/* 返回主页 固定置底，居中 */
+.back-home-wrap{
+  position:fixed;
+  bottom:20px;
+  left:0;
+  width:100%;
+  text-align:center;
+}
+.back-home {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 28px;
+  background: #fff;
+  color: #ff6680;
+  text-decoration: none;
+  border-radius: 999px;
+  border: 1px solid #ffd6de;
+  font-size: 14px;
+  font-weight: 500;
+  box-shadow: 0 1px 3px rgba(255,102,128,0.08);
+  transition: all 0.2s ease;
+ 
+}
+.back-home:hover {
+  background: #fff0f3;
+  border-color: #ffb3c1;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(255,102,128,0.15);
+}
+/* 注释掉图标左移动画，这就是漂移来源 */
+/*.back-home:hover .arrow-icon{
+  transform: translateX(-3px);
+}*/
+.arrow-icon{
+  display: inline-block;
+}
+
 </style>
 </head>
 <body>
@@ -121,7 +163,10 @@ body { max-width:920px; margin:24px auto; padding:0 14px; font-size:16px; }
 <!-- 关键点：去掉src，使用data-src存图片地址，初始不会发起图片请求 -->
 <img class="footer-img" data-src="qrcode.jpg" alt="等待加载">
 
-
+<!-- 返回主页【固定置底】 -->
+<div class="back-home-wrap">
+  <a href="/" class="back-home"><span class="arrow-icon">⌂</span></a>
+</div>
 
 
 <!-- 优先加载数据源 -->
