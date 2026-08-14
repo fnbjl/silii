@@ -180,7 +180,7 @@ function flatGroupData(gData){
 </script>
 
 <!-- 1、加载author.js，读完立刻复制保存到list1 -->
-<script src="js/author.js"></script>
+<script src="js/sili.js"></script>
 <script>
 list1 = flatGroupData(window.groupData);
 // 清空全局，防止干扰
@@ -188,14 +188,14 @@ window.groupData = null;
 </script>
 
 <!-- 2、加载type.js，读完立刻复制保存到list2 -->
-<script src="js/type.js"></script>
+<script src="js/author.js"></script>
 <script>
 list2 = flatGroupData(window.groupData);
 window.groupData = null;
 </script>
 
 <!--3、加载sili.js，读完立刻复制保存到list3 -->
-<script src="js/sili.js"></script>
+<script src="js/type.js"></script>
 <script>
 list3 = flatGroupData(window.groupData);
 window.groupData = null;
