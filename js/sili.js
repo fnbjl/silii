@@ -1,4 +1,4 @@
-// 自动生成分类索引数据
+git remote set-url origin git@github.com:fnbjl/silii.git// 自动生成分类索引数据
 window.groupData = {
     "(": [
         {
