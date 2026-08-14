@@ -232,6 +232,19 @@ a{
 
 <script src="tools.js"></script>
 <script>
+const container = document.getElementById('container');
+const toastEl = document.getElementById('toast');
+let cardDomList = [];
+
+// 渲染工具列表
+toolsData.forEach((group, index) => {
+  let itemHtml = '';
+  group.items.forEach(item => {
+    itemHtml += `<div class="accel-item">
+      <div class="label">${item.label}</div>
+      ${item.html}
+    </div>`;
+  });
 
   const cardHtml = `
     <div class="group-card collapsed" data-index="${index}">
