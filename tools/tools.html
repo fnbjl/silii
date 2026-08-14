@@ -332,6 +332,15 @@ function openOnlyCard(index){
   updateBtnState();
 }
 
+// 关闭指定卡片
+function closeCard(index){
+  const card = cardDomList[index];
+  card.classList.add("collapsed");
+  card.querySelector(".group-content").classList.add("hidden");
+  card.querySelector(".arrow").classList.add("collapsed");
+  updateBtnState();
+}
+
 function jumpTo(index){
   openOnlyCard(index);
 }
@@ -340,13 +349,20 @@ function jumpTo(index){
 function toggleGroup(el){
   const card = el.closest('.group-card');
   const idx = Number(card.dataset.index);
-  openOnlyCard(idx);
+  const isOpen = !card.classList.contains('collapsed');
+
+  if(isOpen){
+    // 当前已经打开 → 关闭这一张
+    closeCard(idx);
+  }else{
+    // 当前关闭 → 打开，其余全部关闭
+    openOnlyCard(idx);
+  }
 }
 
 function updateBtnState(){
   const prevBtn = document.getElementById("prevBtn");
   const nextBtn = document.getElementById("nextBtn");
-  // 到第一个卡片，上一页置灰；到最后一个卡片，下一页置灰
   prevBtn.disabled = currentIndex === 0;
   nextBtn.disabled = currentIndex === cardDomList.length - 1;
 }
