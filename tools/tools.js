@@ -1,16 +1,21 @@
 // tools.js
 const toolsData = [
   {
-    title: "一、加速器",
+    title: "一、下载工具",
     items: [
-      {
-        label: "👉🏻汇总",
-        html: `<div>网址：<a href="https://sili.cc.cd">https://sili.cc.cd</a></div>`
-      },
       {
         label: "👉🏻解压专家",
         html: `<div>下载链接：<a href="https://pan.baidu.com/s/1JMHp6vUoYZFEpTKk85Mpmg?pwd=sili">https://pan.baidu.com/s/1JMHp6vUoYZFEpTKk85Mpmg?pwd=sili</a></div>`
       },
+      {
+        label: "👉🏻【手机端】蓝云：蓝奏云批量下载工具",
+        html: `<div>下载链接：<a href="https://pan.baidu.com/s/1aXZJINyIlndGhrsPfvLa8w?pwd=sili#">https://pan.baidu.com/s/1aXZJINyIlndGhrsPfvLa8w?pwd=sili#</a></div>`
+      }
+    ]
+  },
+  {
+    title: "一、加速器汇总",
+    items: [
       {
         label: "👉🏻【备用链接：下面打不开点下面】✔",
         html: `
@@ -45,13 +50,25 @@ const toolsData = [
         `
       },
       {
-        label: "👉🏻【手机端】蓝云：蓝奏云批量下载工具",
-        html: `<div>下载链接：<a href="https://pan.baidu.com/s/1aXZJINyIlndGhrsPfvLa8w?pwd=sili#">https://pan.baidu.com/s/1aXZJINyIlndGhrsPfvLa8w?pwd=sili#</a></div>`
+        label: "👉🏻【影猫咖越器】✔",
+        html: `
+          <div class="label">(注册后填写邀请码：<span class="code">31758870</span>)</div>
+          <div class="desc">👉🏻可以切换节点，稳定，邀请可以免费</div>
+          <div>下载链接：<a href="https://yingmaovpn.com?invite_code=31758870"> https://yingmaovpn.com?invite_code=31758870</a></div>
+        `
+      },
+      {
+        label: "👉🏻【白鲸咖越器】❌",
+        html: `
+          <div class="label">(注册后填写邀请码：<span class="code">QGK8L</span>)</div>
+          <div class="desc">👉🏻可以双方免费一个月，一月后换个邮箱再薅羊毛</div>
+          <div>下载链接：<a href="https://shr1.bj1ch.com/?mid=1018&invite_code=QGK8L">  https://shr1.bj1ch.com/?mid=1018&invite_code=QGK8L</a></div>
+        `
       }
     ]
   },
   {
-    title: "二、网站",
+    title: "二、吃饭网站",
     items: [
       {
         label: "👉🏻韩漫官网传送门",
