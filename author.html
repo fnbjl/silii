@@ -6,6 +6,12 @@
  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.85em' font-size='70'>🐟︎</text></svg>">
 <title>作者索引</title>
 <style>
+*{
+  box-sizing: border-box;
+}
+html,body{
+  overflow-x: hidden; /* 禁止横向滚动，解决往右无限划 */
+}
 body{ 
    max-width:920px;
    margin:6px auto; 
@@ -18,10 +24,17 @@ body{
     text-align: justify;
     margin-top:6px;
     padding:0 8px;
+    word-break: break-all;
 }
 .divider { border-bottom:1px solid #aaa; margin-bottom:20px; }
 .group-title { font-weight:bold; font-size:17px; margin-top:28px; }
-.item { margin: 9px 0; cursor: pointer; color:#0000cc; line-height:1.55; }
+.item { 
+  margin: 9px 0; 
+  cursor: pointer; 
+  color:#0000cc; 
+  line-height:1.55;
+  word-break: break-all; /* 长文字强制换行，不会撑宽页面 */
+}
 .item:hover { text-decoration: underline; }
 
 /* 弹窗遮罩层：改用flex全局居中 */
@@ -30,15 +43,14 @@ body{
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     background: rgba(0,0,0,0.6);
     z-index: 999;
-    /* 核心居中代码 */
     align-items: center;
     justify-content: center;
 }
-/* 弹窗盒子，移除旧margin，自动居中 */
+/* 弹窗盒子 */
 .pop-box {
     width: 80%;
     max-width: 600px;
@@ -46,9 +58,7 @@ body{
     padding: 25px;
     border-radius: 10px;
     position: relative;
-    /* 清除之前居中的margin */
     margin: 0;
-    /* 超长内容自动滚动 */
     max-height: 85vh;
     overflow-y: auto;
 }
@@ -94,18 +104,18 @@ body{
   position:fixed;
   bottom:20px;
   left:0;
-  width:100%;
+  width:100vw;
   display:flex;
   justify-content:center;
 }
 .nav-bar{
-  display:flex;
-  gap:0;
-  background:#fff;
-  border-radius:999px;
-  border:1px solid #ffd6de;
-  box-shadow:0 1px 3px rgba(255,102,128,0.08);
-  overflow:hidden;
+    display:flex;
+    gap:0;
+    background:#fff;
+    border-radius:999px;
+    border:1px solid #ffd6de;
+    box-shadow:0 1px 3px rgba(255,102,128,0.08);
+    overflow:hidden;
 }
 .nav-item{
   padding:14px 22px;
@@ -121,11 +131,9 @@ body{
 .nav-item:hover{
   background:#fff0f3;
 }
-/* 点击临时高亮：变色时间缩短 */
 .nav-item.click-highlight{
   background:#f8d7e0;
 }
-/* 禁用状态：使用class，div不支持原生disabled属性 */
 .nav-item.is-disabled{
   color:#bbbbbb;
   cursor:not-allowed;
@@ -139,7 +147,6 @@ body{
   align-items:center;
   gap:4px;
 }
-/* 所有a标签全部去掉下划线，深蓝色 #0f2b4d */
 a {
   text-decoration: none;
   color: #000204;
@@ -160,7 +167,6 @@ a {
 <div class="item">📋 <a href="https://www.kdocs.cn/l/cb8eZIQQZ7PD" target="_blank">二、txt目录|可下载至本地</a></div>
 
 <!-- 返回主页【固定置底】 -->
-<!-- =========底部导航栏========= -->
 <div class="nav-bar-wrap">
     <div class="nav-bar" style="width:88px; justify-content:center;">
         <div class="nav-item" style="width:100%;">
@@ -168,7 +174,7 @@ a {
                 <span class="arrow-icon">⌂</span>   </a> </div>
     </div>
 </div>
-<!-- 弹窗结构 -->
+
 <div class="mask" id="mask">
     <div class="pop-box">
         <span class="close-btn" onclick="closePop()">×</span>
@@ -176,25 +182,16 @@ a {
     </div>
 </div>
 
-<!-- 列表渲染容器 -->
 <div id="listContainer"></div>
 
-<!-- ==========页面底部图片区域========== -->
-<!-- 关键点：去掉src，使用data-src存图片地址，初始不会发起图片请求 -->
 <img class="footer-img" data-src="qrcode.jpg" alt="等待刷新">
 
-
-
-
-<!-- 优先加载数据源 -->
 <script src="js/author.js"></script>
 <script>
 const urlReg = /(https?:\/\/[^\s]+)/g;
 
 function openPop(text){
-    // 1、链接替换为文字“链接”
     let html = text.replace(urlReg, '<a href="$1" target="_blank">$1</a>');
-    // 2、把换行回车\n转为网页换行<br>，完整保留原始换行排版
     html = html.replaceAll('\n', '<br>');
     document.getElementById('popContent').innerHTML = html;
     document.getElementById('mask').style.display = 'flex';
@@ -206,9 +203,7 @@ document.getElementById('mask').onclick = function(e){
     if(e.target === this) closePop();
 }
 
-// 渲染列表函数
 function renderList(){
-    // 填充总数
     document.getElementById('countNum').innerText = window.totalCount || 0;
     const container = document.getElementById('listContainer');
     let htmlStr = '';
@@ -221,22 +216,17 @@ function renderList(){
     }
     container.innerHTML = htmlStr;
 
-    // ✅列表渲染**完成之后，才开始加载图片**
     const footerImg = document.querySelector('.footer-img');
     if(footerImg.dataset.src){
         footerImg.src = footerImg.dataset.src;
     }
 }
 
-// 【重点】DOMContentLoaded：DOM、js加载完立刻执行，**不等图片**
 document.addEventListener('DOMContentLoaded',function(){
     renderList();
-    // 列表渲染完成后，再绑定搜索事件
     bindSearch();
 });
 
-// 封装搜索绑定函数
-// 封装搜索绑定函数【搜索时完全隐藏分组标题】
 function bindSearch(){
     const input = document.getElementById('search-input');
     if(!input) return;
@@ -248,17 +238,13 @@ function bindSearch(){
             const allItems = document.querySelectorAll('.item');
             const allGroupTitles = document.querySelectorAll('.group-title');
 
-            // 清空输入框：全部恢复
             if(keyword === ''){
                 allItems.forEach(el=> el.style.display = 'block');
                 allGroupTitles.forEach(el=> el.style.display = 'block');
                 return;
             }
 
-            // 有搜索关键词：全部分组标题隐藏
             allGroupTitles.forEach(el=> el.style.display = 'none');
-
-            // 筛选条目，只显示匹配的
             allItems.forEach(el=>{
                 const text = el.textContent.toLowerCase();
                 el.style.display = text.includes(keyword) ? 'block' : 'none';
@@ -267,7 +253,6 @@ function bindSearch(){
         },300)
     })
 }
-
 </script>
 </body>
 </html>
