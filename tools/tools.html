@@ -346,8 +346,9 @@ function toggleGroup(el){
 function updateBtnState(){
   const prevBtn = document.getElementById("prevBtn");
   const nextBtn = document.getElementById("nextBtn");
-  prevBtn.disabled = currentIndex <= 0;
-  nextBtn.disabled = currentIndex >= cardDomList.length -1;
+  // 到第一个卡片，上一页置灰；到最后一个卡片，下一页置灰
+  prevBtn.disabled = currentIndex === 0;
+  nextBtn.disabled = currentIndex === cardDomList.length - 1;
 }
 
 function goPrev(){
