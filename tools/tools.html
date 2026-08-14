@@ -311,24 +311,36 @@ function showToast(text){
 
 let currentIndex = 0;
 
-function jumpTo(index){
-  if(index < 0 || index >= cardDomList.length) return;
+// 统一函数：只打开指定index卡片，其余全部关闭
+function openOnlyCard(index){
+  if(index <0 || index >= cardDomList.length) return;
   currentIndex = index;
 
-  // ==========改动：删掉这里循环把全部卡片折叠的代码==========
-  // 不再关闭其他卡片，只滚动到目标卡片
-  const card = cardDomList[index];
-  card.scrollIntoView({behavior:"smooth", block:"start"});
+  cardDomList.forEach((card, i)=>{
+    if(i === index){
+      card.classList.remove("collapsed");
+      card.querySelector(".group-content").classList.remove("hidden");
+      card.querySelector(".arrow").classList.remove("collapsed");
+    }else{
+      card.classList.add("collapsed");
+      card.querySelector(".group-content").classList.add("hidden");
+      card.querySelector(".arrow").classList.add("collapsed");
+    }
+  });
+
+  cardDomList[index].scrollIntoView({behavior:"smooth", block:"start"});
   updateBtnState();
 }
 
+function jumpTo(index){
+  openOnlyCard(index);
+}
+
+// 点击卡片标题
 function toggleGroup(el){
   const card = el.closest('.group-card');
-  const content = el.nextElementSibling;
-  const arrow = el.querySelector('.arrow');
-  card.classList.toggle('collapsed');
-  content.classList.toggle('hidden');
-  arrow.classList.toggle('collapsed');
+  const idx = Number(card.dataset.index);
+  openOnlyCard(idx);
 }
 
 function updateBtnState(){
@@ -345,6 +357,13 @@ function goPrev(){
 }
 
 function goNext(){
+  // 判断是否没有任何卡片打开
+  const anyOpen = cardDomList.some(c=>!c.classList.contains('collapsed'));
+  if(!anyOpen){
+    // 全部关闭，按下一个默认打开第一个
+    jumpTo(0);
+    return;
+  }
   if(currentIndex < cardDomList.length -1){
     jumpTo(currentIndex +1);
   }
