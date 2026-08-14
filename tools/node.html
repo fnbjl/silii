@@ -14,8 +14,7 @@
 body{
   background:#f7f9fc;
   padding:14px;
-  /* 底部预留空间，避免内容被固定按钮遮挡 */
-  padding-bottom:80px;
+  padding-bottom:140px;
   line-height:1.7;
   font-size:15px;
 }
@@ -36,7 +35,7 @@ body{
   font-weight:bold;
   margin-bottom:16px;
   padding:0 4px;
-}  
+}
 
 .date-block{
   background:#ffe6ea;
@@ -58,6 +57,15 @@ body{
   background:#fff0f3;
   margin-bottom:12px;
   user-select:none;
+}
+/* 顶部固定信息块，不是可折叠标题，重置cursor和点击行为 */
+.top-info-box{
+  background:#fff0f3;
+  border:1px solid #ffccd5;
+  border-radius:12px;
+  padding:10px 12px;
+  margin-bottom:12px;
+  cursor:default;
 }
 .date-arrow{
   font-size:16px;
@@ -117,10 +125,57 @@ body{
   display:inline-block;
   width:55px;
 }
+
+/* ============底部翻页导航栏============ */
+.nav-bar-wrap{
+  position:fixed;
+  bottom:20px;
+  left:0;
+  width:100%;
+  display:flex;
+  justify-content:center;
+}
+.nav-bar{
+  display:flex;
+  gap:0;
+  background:#fff;
+  border-radius:999px;
+  border:1px solid #ffd6de;
+  box-shadow:0 1px 3px rgba(255,102,128,0.08);
+  overflow:hidden;
+}
+.nav-item{
+  padding:14px 22px;
+  color:#ff6680;
+  font-size:18px;
+  font-weight:500;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition:background-color 0.25s ease, color 0.25s ease;
+}
+.nav-item:hover{
+  background:#fff0f3;
+}
+.nav-item.is-disabled{
+  color:#bbbbbb;
+  cursor:not-allowed;
+  background:transparent;
+  pointer-events:none;
+}
+.nav-item a{
+  color:#ff6680;
+  text-decoration:none;
+  display:flex;
+  align-items:center;
+  gap:4px;
+}
+
 /* 返回主页 固定置底，居中 */
 .back-home-wrap{
   position:fixed;
-  bottom:20px;
+  bottom:80px;
   left:0;
   width:100%;
   text-align:center;
@@ -139,7 +194,7 @@ body{
   font-weight: 500;
   box-shadow: 0 1px 3px rgba(255,102,128,0.08);
   transition: all 0.2s ease;
- 
+
 }
 .back-home:hover {
   background: #fff0f3;
@@ -147,14 +202,9 @@ body{
   transform: translateY(-1px);
   box-shadow: 0 4px 12px rgba(255,102,128,0.15);
 }
-/* 注释掉图标左移动画，这就是漂移来源 */
-/*.back-home:hover .arrow-icon{
-  transform: translateX(-3px);
-}*/
 .arrow-icon{
   display: inline-block;
 }
-
 
 /* 所有a标签全部去掉下划线，深蓝色 #0f2b4d */
 a {
@@ -167,24 +217,31 @@ a {
 <div class="page-title">免费节点订阅</div>
 <div class="page-title1">Clash/V2Ray/SSR最新机场订阅</div>
 
-<!-- 直接复用已有的 date-block 样式，无新增css -->
-<div class="main-date" style="padding:6px 12px;flex-direction:column;align-items:flex-start;">
+<!-- ✅还原顶部带边框背景的信息框 -->
+<div class="top-info-box" style="flex-direction:column;align-items:flex-start;">
     <div class="page-title2" style="margin-bottom:0;"><a href="https://url46.ctfile.com/s/2b02971cf50feb61d3fcf0c6abb58ce0?p=123456" style="color:#000;">🔗直链下载地址：没数据换浏览器</a></div>
-    <!-- margin‑top:8px 拉开两行文字距离，数值越大间距越大 -->
     <div class="page-title2" style="margin-bottom:0;margin-top:8px;"> <a href="https://pan.quark.cn/s/9378d5888f4b#/list/share" style="color:#000;">🔗夸克下载地址：不要在线解压，会和谐</a> </div>
- 
-  <div class="main-date" style="padding:6px 12px;margin-bottom:0;"><div class="page-title2" style="margin-bottom:0;"><a href="./tools.html" target="_blank" style="color:#000;">🧰吃饭工具</a> </div></div>
+    <div class="page-title2" style="margin-bottom:0;margin-top:8px;"><a href="./tools.html" target="_blank" style="color:#000;">🧰吃饭工具</a> </div>
 </div>
 
 <div id="container"></div>
-<!-- 返回主页【固定置底】 -->
-<div class="back-home-wrap">
-  <a href="/" class="back-home"><span class="arrow-icon">⌂</span></a>
+
+
+<!-- =========底部翻页导航栏========= -->
+<div class="nav-bar-wrap">
+  <div class="nav-bar">
+    <div class="nav-item" id="prevBtn" onclick="handlePrev()">⬅</div>
+    <div class="nav-item"><a href="../index.html"><span class="arrow-icon">⌂</span></a></div>
+    <div class="nav-item" id="nextBtn" onclick="handleNext()">➡</div>
+  </div>
 </div>
 
 <!-- 引入外部节点数据文件 -->
-<script src="node.js"></script>
+<script src="../js/node.js"></script>
 <script>
+let blockList = [];
+let currentIndex = null;
+
 const container = document.getElementById("container");
 // 渲染卡片，适配 window.groupData 数组格式
 function renderList(){
@@ -192,10 +249,11 @@ function renderList(){
   // 判断是否存在
   if(typeof window.groupData === 'undefined'){
     container.innerHTML = `<div style="text-align:center;color:red;padding:30px">⚠️数据加载异常，请检查JS语法</div>`;
+    blockList = [];
     return;
   }
   let htmlStr = '';
-  window.groupData.forEach(item => {
+  window.groupData.forEach((item,idx) => {
     let itemHtml = "";
     // 拿到下标 index，区分第1、第2条链接
     item.items.forEach((sub, index) => {
@@ -216,7 +274,7 @@ function renderList(){
       `;
     });
     htmlStr += `
-<div class="date-block">
+<div class="date-block" data-index="${idx}">
   <div class="main-date" onclick="toggleDate(this)">
     <span>📅 ${item.date}</span>
     <span class="date-arrow">▼</span>
@@ -228,6 +286,8 @@ function renderList(){
     `;
   });
   container.innerHTML = htmlStr;
+  blockList = Array.from(document.querySelectorAll('.date-block'));
+
   // 初始化折叠：第一个展开，其余折叠
   const blocks = document.querySelectorAll('.date-block');
   for(let i=2;i<blocks.length;i++){
@@ -236,18 +296,98 @@ function renderList(){
     content.classList.add('hidden');
     arrow.classList.add('collapsed');
   }
+  currentIndex = 0;
+  updateBtnState();
 }
+
+// 打开指定卡片，其余关闭
+function openOnlyCard(index){
+    if(index <0 || index >= blockList.length) return;
+    currentIndex = index;
+    blockList.forEach((block,i)=>{
+        const content = block.querySelector('.date-content');
+        const arrow = block.querySelector('.date-arrow');
+        if(i === index){
+            content.classList.remove('hidden');
+            arrow.classList.remove('collapsed');
+        }else{
+            content.classList.add('hidden');
+            arrow.classList.add('collapsed');
+        }
+    })
+    blockList[index].scrollIntoView({behavior:"smooth", block:"start"});
+    updateBtnState();
+}
+
+// 关闭当前卡片
+function closeCard(index){
+    const block = blockList[index];
+    const content = block.querySelector('.date-content');
+    const arrow = block.querySelector('.date-arrow');
+    content.classList.add('hidden');
+    arrow.classList.add('collapsed');
+    currentIndex = null;
+    updateBtnState();
+}
+
+// 更新按钮状态：无禁用
+function updateBtnState(){
+    const prevBtn = document.getElementById("prevBtn");
+    const nextBtn = document.getElementById("nextBtn");
+    prevBtn.classList.remove("is-disabled");
+    nextBtn.classList.remove("is-disabled");
+}
+
+function goPrev(){
+    if(currentIndex === null){
+        openOnlyCard(blockList.length -1);
+        return;
+    }
+    if(currentIndex === 0){
+        closeCard(0);
+        return;
+    }
+    openOnlyCard(currentIndex -1);
+}
+function handlePrev(){
+    goPrev();
+}
+
+function goNext(){
+    if(currentIndex === null){
+        openOnlyCard(0);
+        return;
+    }
+    if(currentIndex === blockList.length -1){
+        closeCard(currentIndex);
+        return;
+    }
+    openOnlyCard(currentIndex +1);
+}
+function handleNext(){
+    goNext();
+}
+
 // 页面加载完成
 document.addEventListener('DOMContentLoaded',()=>{
   renderList();
 });
-// 折叠切换
+
+// 折叠切换（点击标题手动展开/收起）
 function toggleDate(el){
+  const block = el.closest('.date-block');
+  const idx = Number(block.dataset.index);
   const content = el.nextElementSibling;
   const arrow = el.querySelector('.date-arrow');
-  content.classList.toggle('hidden');
-  arrow.classList.toggle('collapsed');
+  const isHidden = content.classList.contains('hidden');
+
+  if(isHidden){
+      openOnlyCard(idx);
+  }else{
+      closeCard(idx);
+  }
 }
+
 // 复制
 function copyText(btn){
   const urlDom = btn.closest('.code-wrap').querySelector('.url-text');

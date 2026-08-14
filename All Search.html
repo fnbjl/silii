@@ -3,10 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>作者索引</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.85em' font-size='70'>🐟︎</text></svg>">
+<title>一键搜索</title>
 <style>
-body { max-width:920px; margin:24px auto; padding:0 14px; font-size:16px; }
-.tip { text-align:center; margin:24px 0; }
+body { max-width:920px; margin:6px auto; padding:0 14px; font-size:16px; }
+.tip { text-align:center; margin:6px 0; }
 .divider { border-bottom:1px solid #aaa; margin-bottom:20px; }
 .group-title { font-weight:bold; font-size:17px; margin-top:28px; display:none; }
 .item { margin: 9px 0; cursor: pointer; color:#0000cc; line-height:1.55; }
@@ -82,16 +83,75 @@ body { max-width:920px; margin:24px auto; padding:0 14px; font-size:16px; }
     margin: 40px auto 20px;
     border-radius: 8px;
 }
+
+/* ============底部导航栏样式============ */
+.nav-bar-wrap{
+  position:fixed;
+  bottom:20px;
+  left:0;
+  width:100%;
+  display:flex;
+  justify-content:center;
+}
+.nav-bar{
+  display:flex;
+  gap:0;
+  background:#fff;
+  border-radius:999px;
+  border:1px solid #ffd6de;
+  box-shadow:0 1px 3px rgba(255,102,128,0.08);
+  overflow:hidden;
+}
+.nav-item{
+  padding:14px 22px;
+  color:#ff6680;
+  font-size:18px;
+  font-weight:500;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition:background-color 0.25s ease, color 0.25s ease;
+}
+.nav-item:hover{
+  background:#fff0f3;
+}
+/* 点击临时高亮：变色时间缩短 */
+.nav-item.click-highlight{
+  background:#f8d7e0;
+}
+/* 禁用状态：使用class，div不支持原生disabled属性 */
+.nav-item.is-disabled{
+  color:#bbbbbb;
+  cursor:not-allowed;
+  background:transparent;
+  pointer-events:none;
+}
+.nav-item a{
+  color:#ff6680;
+  text-decoration:none;
+  display:flex;
+  align-items:center;
+  gap:4px;
+}
+
 </style>
 </head>
 <body>
-<div class="tip">
-【温馨提示】<br>当前合集总数：<span id="countNum">0</span> 个
+<div class="tip">当前合集总数：<span id="countNum">加载中…</span> 
 <br>点击名字进入，转存后去网盘下载/转存
 </div>
 <div class="divider"></div>
 <input id="search-input" placeholder="🔍 输入关键词快速搜索资源名称...">
 
+<!-- =========底部导航栏========= -->
+<div class="nav-bar-wrap">
+    <div class="nav-bar" style="width:88px; justify-content:center;">
+        <div class="nav-item" style="width:100%;">
+            <a href="./index.html" style="display:flex; width:100%; height:100%; align-items:center; justify-content:center;">
+                <span class="arrow-icon">⌂</span>   </a> </div>
+    </div>
+</div>
 <!-- 弹窗结构 -->
 <div class="mask" id="mask">
     <div class="pop-box">
@@ -150,7 +210,7 @@ const urlReg = /(https?:\/\/[^\s]+)/g;
 
 function openPop(text){
     // 1、链接替换为文字“链接”
-    let html = text.replace(urlReg, '<a href="$1" target="_blank">链接</a>');
+    let html = text.replace(urlReg, '<a href="$1" target="_blank">$1</a>');
     // 2、把换行回车\n转为网页换行<br>，完整保留原始换行排版
     html = html.replaceAll('\n', '<br>');
     document.getElementById('popContent').innerHTML = html;
@@ -175,7 +235,7 @@ function renderList(){
     container.innerHTML = htmlStr;
 }
 
-// 页面加载完成渲染列表
+// 页面全部资源加载完成渲染列表
 window.onload = function(){
     renderList();
     bindSearch();

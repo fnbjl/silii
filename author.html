@@ -8,11 +8,11 @@
 <style>
 body{ 
    max-width:920px;
-   margin:24px auto; 
+   margin:6px auto; 
    padding:0 14px; 
    padding-bottom:80px;
    font-size:16px; }
-.tip { text-align:center; margin:24px 0; }
+.tip { text-align:center; margin:15px 0; }
  /* 仅公告段落两端对齐，末尾居左 */
 .tip-notice{
     text-align: justify;
@@ -89,52 +89,55 @@ body{
 .highlight{
     background-color:#fff280;
 }
- 
-/* 返回主页 固定置底，居中 */
-.back-home-wrap{
+ /* ============底部导航栏样式============ */
+.nav-bar-wrap{
   position:fixed;
   bottom:20px;
   left:0;
   width:100%;
-  text-align:center;
+  display:flex;
+  justify-content:center;
 }
-.back-home {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 10px 28px;
-  background: #fff;
-  color: #ff6680;
-  text-decoration: none;
-  border-radius: 999px;
-  border: 1px solid #ffd6de;
-  font-size: 14px;
-  font-weight: 500;
-  box-shadow: 0 1px 3px rgba(255,102,128,0.08);
-  transition: all 0.2s ease;
- 
+.nav-bar{
+  display:flex;
+  gap:0;
+  background:#fff;
+  border-radius:999px;
+  border:1px solid #ffd6de;
+  box-shadow:0 1px 3px rgba(255,102,128,0.08);
+  overflow:hidden;
 }
-.back-home:hover {
-  background: #fff0f3;
-  border-color: #ffb3c1;
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(255,102,128,0.15);
+.nav-item{
+  padding:14px 22px;
+  color:#ff6680;
+  font-size:18px;
+  font-weight:500;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition:background-color 0.25s ease, color 0.25s ease;
 }
-/* 注释掉图标左移动画，这就是漂移来源 */
-/*.back-home:hover .arrow-icon{
-  transform: translateX(-3px);
-}*/
-.arrow-icon{
-  display: inline-block;
+.nav-item:hover{
+  background:#fff0f3;
 }
-
-/* 底部图片样式 */
-.footer-img{
-    width: 100%;
-    max-width: 600px;
-    display: block;
-    margin: 40px auto 20px;
-    border-radius: 8px;
+/* 点击临时高亮：变色时间缩短 */
+.nav-item.click-highlight{
+  background:#f8d7e0;
+}
+/* 禁用状态：使用class，div不支持原生disabled属性 */
+.nav-item.is-disabled{
+  color:#bbbbbb;
+  cursor:not-allowed;
+  background:transparent;
+  pointer-events:none;
+}
+.nav-item a{
+  color:#ff6680;
+  text-decoration:none;
+  display:flex;
+  align-items:center;
+  gap:4px;
 }
 /* 所有a标签全部去掉下划线，深蓝色 #0f2b4d */
 a {
@@ -144,11 +147,8 @@ a {
 </style>
 </head>
 <body>
-<div class="tip">
-当前合集总数：<span id="countNum">0</span>
-<!-- <br>公告：点击名字弹窗进入，转存后去网盘下载/转存；如果遇到禁止访问/加载缓慢就换夸克、Edge等浏览器。-->
-<div class="tip-notice">
-公告：点击名字弹窗进入，转存后去网盘下载/转存；如果遇到禁止访问/加载缓慢就换夸克/Edge/360/夸克/UC/谷歌浏览器等。
+<div class="tip">当前合集总数：<span id="countNum">加载中…</span>
+<div class="tip-notice">公告：①点击名字弹窗进入，转存后去网盘下载/转存②如果遇到禁止访问或加载缓慢，就换夸克/Edge/360/夸克/UC/谷歌浏览器等。
 </div>
 </div>
 <div class="divider"></div>
@@ -160,8 +160,13 @@ a {
 <div class="item">📋 <a href="https://www.kdocs.cn/l/cb8eZIQQZ7PD" target="_blank">二、txt目录|可下载至本地</a></div>
 
 <!-- 返回主页【固定置底】 -->
-<div class="back-home-wrap">
-  <a href="/" class="back-home"><span class="arrow-icon">⌂</span></a>
+<!-- =========底部导航栏========= -->
+<div class="nav-bar-wrap">
+    <div class="nav-bar" style="width:88px; justify-content:center;">
+        <div class="nav-item" style="width:100%;">
+            <a href="./index.html" style="display:flex; width:100%; height:100%; align-items:center; justify-content:center;">
+                <span class="arrow-icon">⌂</span>   </a> </div>
+    </div>
 </div>
 <!-- 弹窗结构 -->
 <div class="mask" id="mask">
@@ -188,7 +193,7 @@ const urlReg = /(https?:\/\/[^\s]+)/g;
 
 function openPop(text){
     // 1、链接替换为文字“链接”
-    let html = text.replace(urlReg, '<a href="$1" target="_blank">链接</a>');
+    let html = text.replace(urlReg, '<a href="$1" target="_blank">$1</a>');
     // 2、把换行回车\n转为网页换行<br>，完整保留原始换行排版
     html = html.replaceAll('\n', '<br>');
     document.getElementById('popContent').innerHTML = html;

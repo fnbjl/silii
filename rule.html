@@ -2,7 +2,8 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.85em' font-size='70'>🐟︎</text></svg>">
 <title>教程合集【必看】‑四里</title>
 <style>
 *{box-sizing:border-box;}
@@ -12,6 +13,7 @@ body{
     padding:0 16px;
     font-size:15px;
     line-height:1.7;
+    padding-bottom:90px;
 }
 h2{
     font-size:28px;
@@ -37,6 +39,7 @@ h2{
     gap:12px;
     align-items:center;
     justify-content:space-between;
+    user-select:none;
 }
 .collapse-title:active{
     background:#f8d2e3;
@@ -153,6 +156,57 @@ summary{
 details>div{
     padding-left:20px;
 }
+
+/* ============底部导航栏样式============ */
+.nav-bar-wrap{
+  position:fixed;
+  bottom:20px;
+  left:0;
+  width:100%;
+  display:flex;
+  justify-content:center;
+}
+.nav-bar{
+  display:flex;
+  gap:0;
+  background:#fff;
+  border-radius:999px;
+  border:1px solid #ffd6de;
+  box-shadow:0 1px 3px rgba(255,102,128,0.08);
+  overflow:hidden;
+}
+.nav-item{
+  padding:14px 22px;
+  color:#ff6680;
+  font-size:18px;
+  font-weight:500;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition:background-color 0.25s ease, color 0.25s ease;
+}
+.nav-item:hover{
+  background:#fff0f3;
+}
+/* 点击临时高亮：变色时间缩短 */
+.nav-item.click-highlight{
+  background:#f8d7e0;
+}
+/* 禁用状态：使用class，div不支持原生disabled属性 */
+.nav-item.is-disabled{
+  color:#bbbbbb;
+  cursor:not-allowed;
+  background:transparent;
+  pointer-events:none;
+}
+.nav-item a{
+  color:#ff6680;
+  text-decoration:none;
+  display:flex;
+  align-items:center;
+  gap:4px;
+}
 </style>
 </head>
 <body>
@@ -160,7 +214,7 @@ details>div{
 <h2>💡教程合集【必看】‑四里</h2>
 
 <!-- 一、必看 ✅完全复刻二的结构 -->
-<div class="container-A">
+<div class="container-A" data-index="0">
   <div class="collapse-wrap">
     <div class="collapse-title">
       <div class="collapse-icon">⭐</div>
@@ -207,7 +261,7 @@ details>div{
 </div>
 
 <!-- 二、搜索教程 ✅正确模板 -->
-<div class="container-A">
+<div class="container-A" data-index="1">
   <div class="collapse-wrap">
     <div class="collapse-title">
       <div class="collapse-icon">🔍</div>
@@ -232,7 +286,7 @@ details>div{
 </div>
 
 <!-- 三、取文教程 ✅完全复刻二的结构 -->
-<div class="container-A">
+<div class="container-A" data-index="2">
   <div class="collapse-wrap">
     <div class="collapse-title">
       <div class="collapse-icon">📚</div>
@@ -315,7 +369,7 @@ details>div{
 </div>
 
 <!-- 四、帮找规则 ✅完全复刻二的结构 -->
-<div class="container-A">
+<div class="container-A" data-index="3">
   <div class="collapse-wrap">
     <div class="collapse-title">
       <div class="collapse-icon">💌</div>
@@ -360,29 +414,121 @@ details>div{
   </div>
 </div>
 
+<!-- =========底部导航栏========= -->
+<div class="nav-bar-wrap">
+  <div class="nav-bar">
+    <div class="nav-item" id="prevBtn" onclick="handlePrev()">⬅</div>
+    <div class="nav-item"><a href="./index.html"><span class="arrow-icon">⌂</span></a></div>
+    <div class="nav-item" id="nextBtn" onclick="handleNext()">➡</div>
+  </div>
+</div>
+
 <script>
+const containerList = Array.from(document.querySelectorAll('.container-A'));
+let currentIndex = null;
+
+// 只打开指定index，其余全部关闭
+function openOnlyCard(index){
+    if(index <0 || index >= containerList.length) return;
+    currentIndex = index;
+
+    containerList.forEach((card, i)=>{
+        const content = card.querySelector('.collapse-content');
+        const arrow = card.querySelector('.date-arrow');
+        if(i === index){
+            content.classList.add('open');
+            arrow.classList.add('collapsed');
+            if(!content.classList.contains('multi-open')){
+                content.querySelectorAll('.sub-item').forEach(d=>d.open=false);
+            }
+        }else{
+            content.classList.remove('open');
+            arrow.classList.remove('collapsed');
+        }
+    })
+
+    containerList[index].scrollIntoView({behavior:"smooth", block:"start"});
+    updateBtnState();
+}
+
+// 关闭当前卡片
+function closeCard(index){
+    const card = containerList[index];
+    const content = card.querySelector('.collapse-content');
+    const arrow = card.querySelector('.date-arrow');
+    content.classList.remove('open');
+    arrow.classList.remove('collapsed');
+    currentIndex = null;
+    updateBtnState();
+}
+
+// 点击标题切换
+function toggleGroup(el){
+    const card = el.closest('.container-A');
+    const idx = Number(card.dataset.index);
+    const content = card.querySelector('.collapse-content');
+    const isOpen = content.classList.contains('open');
+
+    if(isOpen){
+        closeCard(idx);
+    }else{
+        openOnlyCard(idx);
+    }
+}
+
+// 更新按钮状态：完全移除禁用逻辑
+function updateBtnState(){
+    const prevBtn = document.getElementById("prevBtn");
+    const nextBtn = document.getElementById("nextBtn");
+    prevBtn.classList.remove("is-disabled");
+    nextBtn.classList.remove("is-disabled");
+}
+
+function goPrev(){
+    // 场景1：全部收起，点⬅打开最后一页（四）
+    if(currentIndex === null){
+        openOnlyCard(containerList.length -1);
+        return;
+    }
+    // 场景2：当前在第0页（第一页），点⬅关闭卡片回到全部收起
+    if(currentIndex === 0){
+        closeCard(0);
+        return;
+    }
+    // 场景3：普通中间页，向前翻页
+    openOnlyCard(currentIndex - 1);
+}
+function handlePrev(){
+    goPrev();
+}
+
+function goNext(){
+    // 场景1：全部收起，点➡打开第0页
+    if(currentIndex === null){
+        openOnlyCard(0);
+        return;
+    }
+    // 场景2：当前在最后一页，点➡关闭卡片回到全部收起
+    if(currentIndex === containerList.length - 1){
+        closeCard(currentIndex);
+        return;
+    }
+    // 场景3：普通中间页，向后翻页
+    openOnlyCard(currentIndex + 1);
+}
+function handleNext(){
+    goNext();
+}
+
+// 绑定标题点击事件
 const titles = document.querySelectorAll('.collapse-title');
 titles.forEach(title=>{
     title.onclick = function(){
-        const content = this.nextElementSibling;
-        const arrow = this.querySelector('.date-arrow');
-        const isOpen = content.classList.contains('open');
-        document.querySelectorAll('.collapse-content').forEach(c=>c.classList.remove('open'));
-        document.querySelectorAll('.date-arrow').forEach(a=>a.classList.remove('collapsed'));
-
-        if(!content.classList.contains('multi-open')){
-            content.querySelectorAll('.sub-item').forEach(d=>{
-                d.open = false;
-            })
-        }
-
-        if(!isOpen){
-            content.classList.add('open');
-            arrow.classList.add('collapsed');
-        }
+        toggleGroup(this);
     }
 })
 
+// sub‑item互斥逻辑
 const subDetails = document.querySelectorAll('.sub-item');
 subDetails.forEach(det=>{
     det.addEventListener('toggle',function(){
@@ -396,6 +542,8 @@ subDetails.forEach(det=>{
         })
     })
 })
+
+updateBtnState();
 </script>
 
 </body>

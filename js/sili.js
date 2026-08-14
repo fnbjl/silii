@@ -1,4 +1,4 @@
-git remote set-url origin git@github.com:fnbjl/silii.git// 自动生成分类索引数据
+// 自动生成分类索引数据
 window.groupData = {
     "(": [
         {
@@ -7527,11 +7527,11 @@ window.groupData = {
     "4": [
         {
             "name": "4K草莓熊",
-            "url": "【夸克】https://pan.quark.cn/s/067ea04ddbe2"
+            "url": "【夸克】https://pan.quark.cn/s/067ea04ddbe2\n\n【汇总】sili.cc.sili\n【教程】sili.cc.sili/rule"
         },
         {
             "name": "4K剧下饭",
-            "url": "【夸克】https://pan.quark.cn/s/067ea04ddbe2"
+            "url": "【夸克】https://pan.quark.cn/s/067ea04ddbe2\n\n【汇总】sili.cc.sili\n【教程】sili.cc.sili/rule"
         },
         {
             "name": "[4]-444号家具店.完结",
@@ -7609,7 +7609,7 @@ window.groupData = {
     "9": [
         {
             "name": "91毒舌电影",
-            "url": "【夸克】https://pan.quark.cn/s/067ea04ddbe2"
+            "url": "【夸克】https://pan.quark.cn/s/067ea04ddbe2\n\n【汇总】sili.cc.sili\n【教程】sili.cc.sili/rule"
         },
         {
             "name": "2024029-DLL修复和文档下载",
@@ -7661,27 +7661,27 @@ window.groupData = {
     "A": [
         {
             "name": "爱电影（原：爱影视）",
-            "url": "【夸克】https://pan.quark.cn/s/067ea04ddbe2"
+            "url": "【夸克】https://pan.quark.cn/s/067ea04ddbe2\n\n【汇总】sili.cc.sili\n【教程】sili.cc.sili/rule"
         },
         {
             "name": "爱看剧场",
-            "url": "【夸克】https://pan.quark.cn/s/067ea04ddbe2"
+            "url": "【夸克】https://pan.quark.cn/s/067ea04ddbe2\n\n【汇总】sili.cc.sili\n【教程】sili.cc.sili/rule"
         },
         {
             "name": "爱奇艺",
-            "url": "【夸克】https://pan.quark.cn/s/067ea04ddbe2"
+            "url": "【夸克】https://pan.quark.cn/s/067ea04ddbe2\n\n【汇总】sili.cc.sili\n【教程】sili.cc.sili/rule"
         },
         {
             "name": "爱壹帆",
-            "url": "【夸克】https://pan.quark.cn/s/067ea04ddbe2"
+            "url": "【夸克】https://pan.quark.cn/s/067ea04ddbe2\n\n【汇总】sili.cc.sili\n【教程】sili.cc.sili/rule"
         },
         {
             "name": "岸听音乐 Ver.2.7-beta 禁止广告初始化 去更新.apk",
-            "url": "【夸克】https://pan.quark.cn/s/4755eb22f7be"
+            "url": "【夸克】https://pan.quark.cn/s/4755eb22f7be\n\n【汇总】sili.cc.sili\n【教程】sili.cc.sili/rule"
         },
         {
             "name": "Audio?mack（音乐下载器）Ver.6.45.1 高级版 去广告.apk",
-            "url": "【夸克】https://pan.quark.cn/s/78e404c67bf0"
+            "url": "【夸克】https://pan.quark.cn/s/78e404c67bf0\n\n【汇总】sili.cc.sili\n【教程】sili.cc.sili/rule"
         },
         {
             "name": "AdGuard（广告拦截）",
@@ -9607,27 +9607,27 @@ window.groupData = {
     "B": [
         {
             "name": "百度网盘 5月下载器网速100MB 无限制不限速",
-            "url": "【夸克】https://pan.quark.cn/s/067ea04ddbe2"
+            "url": "【夸克】https://pan.quark.cn/s/067ea04ddbe2\n\n【汇总】sili.cc.sili\n【教程】sili.cc.sili/rule"
         },
         {
             "name": "影视猫 Plus（原：布蕾4K）Ver.4.8.0 禁止广告初始化 去除更新 去除友盟 其他布局调整.apk",
-            "url": "【夸克】https://pan.quark.cn/s/067ea04ddbe2"
+            "url": "【夸克】https://pan.quark.cn/s/067ea04ddbe2\n\n【汇总】sili.cc.sili\n【教程】sili.cc.sili/rule"
         },
         {
             "name": "百度网盘批量转存工具",
-            "url": "【夸克】https://pan.quark.cn/s/487a00e9298e"
+            "url": "【夸克】https://pan.quark.cn/s/487a00e9298e\n\n【汇总】sili.cc.sili\n【教程】sili.cc.sili/rule"
         },
         {
             "name": "哔哩哔哩（bilibili）",
-            "url": "【夸克】https://pan.quark.cn/s/067ea04ddbe2"
+            "url": "【夸克】https://pan.quark.cn/s/067ea04ddbe2\n\n【汇总】sili.cc.sili\n【教程】sili.cc.sili/rule"
         },
         {
             "name": "哔哩哔哩（国际版）内置模块助手 简洁流畅无广 Ver.3.19.2.zip",
-            "url": "【夸克】https://pan.quark.cn/s/18f83e07d4fd"
+            "url": "【夸克】https://pan.quark.cn/s/18f83e07d4fd\n\n【汇总】sili.cc.sili\n【教程】sili.cc.sili/rule"
         },
         {
             "name": "边缘视频 Ver.1.0.16 会员版 去更新 自动同意隐私政策 去除隐私权限 去除推广Tab.apk",
-            "url": "【夸克】https://pan.quark.cn/s/d150315b7ee7"
+            "url": "【夸克】https://pan.quark.cn/s/d150315b7ee7\n\n【汇总】sili.cc.sili\n【教程】sili.cc.sili/rule"
         },
         {
             "name": "班淑传奇",
@@ -11705,19 +11705,19 @@ window.groupData = {
     "C": [
         {
             "name": "Clash for Android_2.5.12.premium.apk",
-            "url": "【百度】https://pan.baidu.com/s/163MXAQ-bXV5avpZC6InOWQ?pwd=9gw3"
+            "url": "【百度】https://pan.baidu.com/s/163MXAQ-bXV5avpZC6InOWQ?pwd=9gw3\n\n【汇总】sili.cc.sili\n【教程】sili.cc.sili/rule"
         },
         {
             "name": "Clash Meta for Android_2.11.17.Meta.apk",
-            "url": "【百度】https://pan.baidu.com/s/163MXAQ-bXV5avpZC6InOWQ?pwd=9gw3"
+            "url": "【百度】https://pan.baidu.com/s/163MXAQ-bXV5avpZC6InOWQ?pwd=9gw3\n\n【汇总】sili.cc.sili\n【教程】sili.cc.sili/rule"
         },
         {
             "name": "仓鼠4K",
-            "url": "【夸克】https://pan.quark.cn/s/067ea04ddbe2"
+            "url": "【夸克】https://pan.quark.cn/s/067ea04ddbe2\n\n【汇总】sili.cc.sili\n【教程】sili.cc.sili/rule"
         },
         {
             "name": "次元城动画",
-            "url": "【夸克】https://pan.quark.cn/s/067ea04ddbe2"
+            "url": "【夸克】https://pan.quark.cn/s/067ea04ddbe2\n\n【汇总】sili.cc.sili\n【教程】sili.cc.sili/rule"
         },
         {
             "name": "测距测量仪Ruler",
@@ -11732,7 +11732,7 @@ window.groupData = {
             "url": "【夸克】 https://pan.quark.cn/s/6b85012bf777"
         },
         {
-            "name": "超级无敌好听的20部广播剧\n1. 《奇洛李维斯回信》孙路路x刘思岑\n2. 《偷风不偷月》杨超然x桑毓泽\n3. 《糊口》徐宇隆x胡良伟\n4. 《囚于永夜》孙路路x张福正\n5. 《地中行》倔强的小红x涅槃\n6. 《被冒充的丈夫》王宁x家明\n7. 《红白囍》史泽鲲x徐宇隆\n8. 《草茉莉》袁铭喆x倒霉死勒\n9. 《南方海啸》孙路路x顺子\n10. 《北斗》金弦x赵毅\n11. 《封建糟粕》赵毅x顺子x史泽鲲x陈张太康\n12. 《暗河长明》文森x胡良伟\n13. 《欲言难止》顺子x倒霉死勒\n14. 《初三的六一儿童节》顾辰x倔强的小红\n15. 《交易沦陷》贾诩x刘明月\n16. 《千秋》金弦x赵毅\n17. 《贵人》刘思岑x刘一鸣\n18. 《本能游戏》路知行x袁铭喆\n19. 《不想了》马正阳x刘思岑\n20.《入戏》三石x刘一鸣",
+            "name": "超级无敌好听的20部广播剧\n1.?《奇洛李维斯回信》孙路路x刘思岑\n2.?《偷风不偷月》杨超然x桑毓泽\n3.?《糊口》徐宇隆x胡良伟\n4.?《囚于永夜》孙路路x张福正\n5.?《地中行》倔强的小红x涅槃\n6.?《被冒充的丈夫》王宁x家明\n7.?《红白囍》史泽鲲x徐宇隆\n8.?《草茉莉》袁铭喆x倒霉死勒\n9.?《南方海啸》孙路路x顺子\n10.?《北斗》金弦x赵毅\n11.?《封建糟粕》赵毅x顺子x史泽鲲x陈张太康\n12.?《暗河长明》文森x胡良伟\n13.?《欲言难止》顺子x倒霉死勒\n14.?《初三的六一儿童节》顾辰x倔强的小红\n15.?《交易沦陷》贾诩x刘明月\n16.?《千秋》金弦x赵毅\n17.?《贵人》刘思岑x刘一鸣\n18.?《本能游戏》路知行x袁铭喆\n19.?《不想了》马正阳x刘思岑\n20.《入戏》三石x刘一鸣",
             "url": "【百度】https://pan.baidu.com/s/1DNefWzWLOGvKT-V1MDWycg?pwd=sili"
         },
         {
@@ -13839,43 +13839,43 @@ window.groupData = {
     "D": [
         {
             "name": "电影天堂",
-            "url": "【夸克】https://pan.quark.cn/s/067ea04ddbe2"
+            "url": "【夸克】https://pan.quark.cn/s/067ea04ddbe2\n\n【汇总】sili.cc.sili\n【教程】sili.cc.sili/rule"
         },
         {
             "name": "毒舌电影",
-            "url": "【夸克】https://pan.quark.cn/s/067ea04ddbe2"
+            "url": "【夸克】https://pan.quark.cn/s/067ea04ddbe2\n\n【汇总】sili.cc.sili\n【教程】sili.cc.sili/rule"
         },
         {
             "name": "电影驿站 Ver.1.1.8 本地会员版 去更新 去公告.apk",
-            "url": "【夸克】https://pan.quark.cn/s/067ea04ddbe2"
+            "url": "【夸克】https://pan.quark.cn/s/067ea04ddbe2\n\n【汇总】sili.cc.sili\n【教程】sili.cc.sili/rule"
         },
         {
             "name": "大鱼视频（紫树视频）",
-            "url": "【夸克】https://pan.quark.cn/s/067ea04ddbe2"
+            "url": "【夸克】https://pan.quark.cn/s/067ea04ddbe2\n\n【汇总】sili.cc.sili\n【教程】sili.cc.sili/rule"
         },
         {
             "name": "动漫共和国",
-            "url": "【夸克】https://pan.quark.cn/s/067ea04ddbe2"
+            "url": "【夸克】https://pan.quark.cn/s/067ea04ddbe2\n\n【汇总】sili.cc.sili\n【教程】sili.cc.sili/rule"
         },
         {
             "name": "豆丁视频",
-            "url": "【夸克】https://pan.quark.cn/s/067ea04ddbe2"
+            "url": "【夸克】https://pan.quark.cn/s/067ea04ddbe2\n\n【汇总】sili.cc.sili\n【教程】sili.cc.sili/rule"
         },
         {
             "name": "打驴动漫 Ver.1.0.4.1 免广告领会员 去除广告 去除更新 去除公告 去除获取剪切板数据.apk",
-            "url": "【夸克】https://pan.quark.cn/s/7aa7828867e5"
+            "url": "【夸克】https://pan.quark.cn/s/7aa7828867e5\n\n【汇总】sili.cc.sili\n【教程】sili.cc.sili/rule"
         },
         {
             "name": "大鱼视频 Ver.20.23 纯净版.apk",
-            "url": "【夸克】https://pan.quark.cn/s/990359f2469b"
+            "url": "【夸克】https://pan.quark.cn/s/990359f2469b\n\n【汇总】sili.cc.sili\n【教程】sili.cc.sili/rule"
         },
         {
             "name": "DJ音乐盒 Ver.8.2.7.apk",
-            "url": "【夸克】https://pan.quark.cn/s/bf17ffe7e16c"
+            "url": "【夸克】https://pan.quark.cn/s/bf17ffe7e16c\n\n【汇总】sili.cc.sili\n【教程】sili.cc.sili/rule"
         },
         {
             "name": "DJ音乐盒车机 Ver.4.0.7.apk",
-            "url": "【夸克】https://pan.quark.cn/s/a7ccb2af3d4f"
+            "url": "【夸克】https://pan.quark.cn/s/a7ccb2af3d4f\n\n【汇总】sili.cc.sili\n【教程】sili.cc.sili/rule"
         },
         {
             "name": "电脑软件",
@@ -16629,7 +16629,7 @@ window.groupData = {
     "E": [
         {
             "name": "儿歌点点 Ver.4.5.8 会员版 去广告.apk",
-            "url": "【夸克】https://pan.quark.cn/s/f88be5c1f813"
+            "url": "【夸克】https://pan.quark.cn/s/f88be5c1f813\n\n【汇总】sili.cc.sili\n【教程】sili.cc.sili/rule"
         },
         {
             "name": "EntryDB",
@@ -17095,15 +17095,15 @@ window.groupData = {
     "F": [
         {
             "name": "free影视 Ver.3.5.1 禁止广告初始化 去更新 去除获取隐私权限 去除友盟 其他布局调整.apk",
-            "url": "【夸克】https://pan.quark.cn/s/067ea04ddbe2"
+            "url": "【夸克】https://pan.quark.cn/s/067ea04ddbe2\n\n【汇总】sili.cc.sili\n【教程】sili.cc.sili/rule"
         },
         {
             "name": "FlClash-0.8.90-android-arm64-v8a.apk",
-            "url": "【百度】https://pan.baidu.com/s/163MXAQ-bXV5avpZC6InOWQ?pwd=9gw3"
+            "url": "【百度】https://pan.baidu.com/s/163MXAQ-bXV5avpZC6InOWQ?pwd=9gw3\n\n【汇总】sili.cc.sili\n【教程】sili.cc.sili/rule"
         },
         {
             "name": "番喜视频",
-            "url": "【夸克】https://pan.quark.cn/s/067ea04ddbe2"
+            "url": "【夸克】https://pan.quark.cn/s/067ea04ddbe2\n\n【汇总】sili.cc.sili\n【教程】sili.cc.sili/rule"
         },
         {
             "name": "番??系列全家桶",
@@ -18197,19 +18197,19 @@ window.groupData = {
     "G": [
         {
             "name": "瓜子影视",
-            "url": "【夸克】https://pan.quark.cn/s/067ea04ddbe2"
+            "url": "【夸克】https://pan.quark.cn/s/067ea04ddbe2\n\n【汇总】sili.cc.sili\n【教程】sili.cc.sili/rule"
         },
         {
             "name": "咕噜咕噜",
-            "url": "【夸克】https://pan.quark.cn/s/5c9f42803e6b"
+            "url": "【夸克】https://pan.quark.cn/s/5c9f42803e6b\n\n【汇总】sili.cc.sili\n【教程】sili.cc.sili/rule"
         },
         {
             "name": "顾我追剧",
-            "url": "【夸克】https://pan.quark.cn/s/9cc619fb06a0"
+            "url": "【夸克】https://pan.quark.cn/s/9cc619fb06a0\n\n【汇总】sili.cc.sili\n【教程】sili.cc.sili/rule"
         },
         {
             "name": "Girigiri（爱动漫）",
-            "url": "【夸克】https://pan.quark.cn/s/590777fe9001"
+            "url": "【夸克】https://pan.quark.cn/s/590777fe9001\n\n【汇总】sili.cc.sili\n【教程】sili.cc.sili/rule"
         },
         {
             "name": "广播剧A",
@@ -19903,27 +19903,27 @@ window.groupData = {
     "H": [
         {
             "name": "花小猪影视",
-            "url": "【夸克】https://pan.quark.cn/s/067ea04ddbe2"
+            "url": "【夸克】https://pan.quark.cn/s/067ea04ddbe2\n\n【汇总】sili.cc.sili\n【教程】sili.cc.sili/rule"
         },
         {
             "name": "华数TV",
-            "url": "【夸克】https://pan.quark.cn/s/067ea04ddbe2"
+            "url": "【夸克】https://pan.quark.cn/s/067ea04ddbe2\n\n【汇总】sili.cc.sili\n【教程】sili.cc.sili/rule"
         },
         {
             "name": "华数TV Ver.9.0.1.99 会员版.apk",
-            "url": "【夸克】https://pan.quark.cn/s/067ea04ddbe2"
+            "url": "【夸克】https://pan.quark.cn/s/067ea04ddbe2\n\n【汇总】sili.cc.sili\n【教程】sili.cc.sili/rule"
         },
         {
             "name": "火车太顺",
-            "url": "【夸克】https://pan.quark.cn/s/ae9033c2d7f7"
+            "url": "【夸克】https://pan.quark.cn/s/ae9033c2d7f7\n\n【汇总】sili.cc.sili\n【教程】sili.cc.sili/rule"
         },
         {
             "name": "heibai弹幕",
-            "url": "【夸克】https://pan.quark.cn/s/cdae985dae9e"
+            "url": "【夸克】https://pan.quark.cn/s/cdae985dae9e\n\n【汇总】sili.cc.sili\n【教程】sili.cc.sili/rule"
         },
         {
             "name": "花子动漫 Ver.1.0.1 去广告 去更新.apk",
-            "url": "【夸克】https://pan.quark.cn/s/8c571c1576d7"
+            "url": "【夸克】https://pan.quark.cn/s/8c571c1576d7\n\n【汇总】sili.cc.sili\n【教程】sili.cc.sili/rule"
         },
         {
             "name": "浩克下载",
@@ -21653,7 +21653,7 @@ window.groupData = {
     "I": [
         {
             "name": "IPTV電視直播 Ver.5.1.6 禁止广告初始化 去更新.apk",
-            "url": "【夸克】https://pan.quark.cn/s/eaed88ac2c1c"
+            "url": "【夸克】https://pan.quark.cn/s/eaed88ac2c1c\n\n【汇总】sili.cc.sili\n【教程】sili.cc.sili/rule"
         },
         {
             "name": "InCollage - 拼图&照片编辑",
@@ -21699,47 +21699,47 @@ window.groupData = {
     "J": [
         {
             "name": "即看影视 Ver.1.0.98 去广告 去更新.apk",
-            "url": "【夸克】https://pan.quark.cn/s/067ea04ddbe2"
+            "url": "【夸克】https://pan.quark.cn/s/067ea04ddbe2\n\n【汇总】sili.cc.sili\n【教程】sili.cc.sili/rule"
         },
         {
             "name": "荐片 Ver.4.6.0 去广告 去更新.apk",
-            "url": "【夸克】https://pan.quark.cn/s/067ea04ddbe2"
+            "url": "【夸克】https://pan.quark.cn/s/067ea04ddbe2\n\n【汇总】sili.cc.sili\n【教程】sili.cc.sili/rule"
         },
         {
             "name": "剧永久影视（剧下饭）Ver.1.96 免广告 禁止广告初始化 去更新 去公告.apk",
-            "url": "【夸克】https://pan.quark.cn/s/067ea04ddbe2"
+            "url": "【夸克】https://pan.quark.cn/s/067ea04ddbe2\n\n【汇总】sili.cc.sili\n【教程】sili.cc.sili/rule"
         },
         {
             "name": "极光影院",
-            "url": "【夸克】https://pan.quark.cn/s/004101f2ff7e"
+            "url": "【夸克】https://pan.quark.cn/s/004101f2ff7e\n\n【汇总】sili.cc.sili\n【教程】sili.cc.sili/rule"
         },
         {
             "name": "金牌影院",
-            "url": "【夸克】https://pan.quark.cn/s/8a142ca6a3dc"
+            "url": "【夸克】https://pan.quark.cn/s/8a142ca6a3dc\n\n【汇总】sili.cc.sili\n【教程】sili.cc.sili/rule"
         },
         {
             "name": "囧次元",
-            "url": "【夸克】https://pan.quark.cn/s/57585b2a3ca1"
+            "url": "【夸克】https://pan.quark.cn/s/57585b2a3ca1\n\n【汇总】sili.cc.sili\n【教程】sili.cc.sili/rule"
         },
         {
             "name": "橘汁",
-            "url": "【夸克】https://pan.quark.cn/s/48574bd1dde0"
+            "url": "【夸克】https://pan.quark.cn/s/48574bd1dde0\n\n【汇总】sili.cc.sili\n【教程】sili.cc.sili/rule"
         },
         {
             "name": "橘子视频",
-            "url": "【夸克】https://pan.quark.cn/s/c7c225a7bf5e"
+            "url": "【夸克】https://pan.quark.cn/s/c7c225a7bf5e\n\n【汇总】sili.cc.sili\n【教程】sili.cc.sili/rule"
         },
         {
             "name": "鲸看Pro Ver.2.3.2 禁止广告初始化 去更新.apk",
-            "url": "【夸克】https://pan.quark.cn/s/c619a4eefa67"
+            "url": "【夸克】https://pan.quark.cn/s/c619a4eefa67\n\n【汇总】sili.cc.sili\n【教程】sili.cc.sili/rule"
         },
         {
             "name": "剧多多 Ver.1.0.0 禁止广告初始化.apk",
-            "url": "【夸克】https://pan.quark.cn/s/af78cb31d587"
+            "url": "【夸克】https://pan.quark.cn/s/af78cb31d587\n\n【汇总】sili.cc.sili\n【教程】sili.cc.sili/rule"
         },
         {
             "name": "【电视版】橘汁TV Ver.3.0.1.9 免登录会员版 去更新.apk",
-            "url": "【夸克】https://pan.quark.cn/s/df5002cfe387"
+            "url": "【夸克】https://pan.quark.cn/s/df5002cfe387\n\n【汇总】sili.cc.sili\n【教程】sili.cc.sili/rule"
         },
         {
             "name": "橘子视频破解",
@@ -24409,15 +24409,23 @@ window.groupData = {
     "K": [
         {
             "name": "壳儿影视",
-            "url": "【夸克】https://pan.quark.cn/s/067ea04ddbe2"
+            "url": "【夸克】https://pan.quark.cn/s/067ea04ddbe2\n\n【汇总】sili.cc.sili\n【教程】sili.cc.sili/rule"
         },
         {
             "name": "KW",
-            "url": "【夸克】https://pan.quark.cn/s/79e67f680439"
+            "url": "【夸克】https://pan.quark.cn/s/79e67f680439\n\n【汇总】sili.cc.sili\n【教程】sili.cc.sili/rule"
+        },
+        {
+            "name": "卡音",
+            "url": "【汇总】sili.cc.sili\n【教程】sili.cc.sili/rule"
+        },
+        {
+            "name": "快映视频",
+            "url": "【汇总】sili.cc.sili\n【教程】sili.cc.sili/rule"
         },
         {
             "name": "酷狗概念版 Ver.2.5.5 最后一个支持听歌自动领取会员.apk",
-            "url": "【夸克】https://pan.quark.cn/s/82429c2258a0"
+            "url": "【夸克】https://pan.quark.cn/s/82429c2258a0\n\n【汇总】sili.cc.sili\n【教程】sili.cc.sili/rule"
         },
         {
             "name": "开发助手",
@@ -27087,15 +27095,23 @@ window.groupData = {
     "L": [
         {
             "name": "零度影视",
-            "url": "【夸克】https://pan.quark.cn/s/067ea04ddbe2"
+            "url": "【夸克】https://pan.quark.cn/s/067ea04ddbe2\n\n【汇总】sili.cc.sili\n【教程】sili.cc.sili/rule"
         },
         {
             "name": "梨园行戏曲 Ver.4.6.0 会员版 去更新.apk",
-            "url": "【夸克】https://pan.quark.cn/s/067ea04ddbe2"
+            "url": "【夸克】https://pan.quark.cn/s/067ea04ddbe2\n\n【汇总】sili.cc.sili\n【教程】sili.cc.sili/rule"
+        },
+        {
+            "name": "蓝鹰",
+            "url": "【汇总】sili.cc.sili\n【教程】sili.cc.sili/rule"
+        },
+        {
+            "name": "聆听音乐",
+            "url": "【汇总】sili.cc.sili\n【教程】sili.cc.sili/rule"
         },
         {
             "name": "梨园行戏曲HD Ver.1.0.2 会员版 去更新.apk",
-            "url": "【夸克】https://pan.quark.cn/s/7e79dc25e4a8"
+            "url": "【夸克】https://pan.quark.cn/s/7e79dc25e4a8\n\n【汇总】sili.cc.sili\n【教程】sili.cc.sili/rule"
         },
         {
             "name": "李跳跳真实好友",
@@ -28757,31 +28773,39 @@ window.groupData = {
     "M": [
         {
             "name": "喵物次元 Ver.6.0.0 去广告 去更新.apk",
-            "url": "【夸克】https://pan.quark.cn/s/067ea04ddbe2"
+            "url": "【夸克】https://pan.quark.cn/s/067ea04ddbe2\n\n【汇总】sili.cc.sili\n【教程】sili.cc.sili/rule"
         },
         {
             "name": "【TV电视端】喵影视TV Ver.3.8.0 纯净版.apk",
-            "url": "【夸克】https://pan.quark.cn/s/067ea04ddbe2"
+            "url": "【夸克】https://pan.quark.cn/s/067ea04ddbe2\n\n【汇总】sili.cc.sili\n【教程】sili.cc.sili/rule"
+        },
+        {
+            "name": "麻花视频",
+            "url": "【汇总】sili.cc.sili\n【教程】sili.cc.sili/rule"
+        },
+        {
+            "name": "魔方4K",
+            "url": "【汇总】sili.cc.sili\n【教程】sili.cc.sili/rule"
         },
         {
             "name": "美剧侠 Ver.2.3.2 去广告 去更新.apk",
-            "url": "【夸克】https://pan.quark.cn/s/8b48b0d795d0"
+            "url": "【夸克】https://pan.quark.cn/s/8b48b0d795d0\n\n【汇总】sili.cc.sili\n【教程】sili.cc.sili/rule"
         },
         {
             "name": "萌宝绘本故事 Ver.7.1.0.2 会员版 去更新 去除友盟.apk",
-            "url": "【夸克】https://pan.quark.cn/s/2c19dcce01ef"
+            "url": "【夸克】https://pan.quark.cn/s/2c19dcce01ef\n\n【汇总】sili.cc.sili\n【教程】sili.cc.sili/rule"
         },
         {
             "name": "MiFun Ver.5.1.7 本地会员版 去更新 去除公告.apk",
-            "url": "【夸克】https://pan.quark.cn/s/4a50d84001dd"
+            "url": "【夸克】https://pan.quark.cn/s/4a50d84001dd\n\n【汇总】sili.cc.sili\n【教程】sili.cc.sili/rule"
         },
         {
             "name": "【电视版】幕启星河TV Ver.1.0.0 免登录会员版.apk",
-            "url": "【夸克】https://pan.quark.cn/s/905fbf33b5f2"
+            "url": "【夸克】https://pan.quark.cn/s/905fbf33b5f2\n\n【汇总】sili.cc.sili\n【教程】sili.cc.sili/rule"
         },
         {
             "name": "魔音MORIN Ver.3.7.0 禁止广告初始化 去更新 去除激活弹窗 去除搜索及版权限制.apk",
-            "url": "【夸克】https://pan.quark.cn/s/e8ebf407be61"
+            "url": "【夸克】https://pan.quark.cn/s/e8ebf407be61\n\nsili.cc.sili"
         },
         {
             "name": "谜底黑胶",
@@ -30773,6 +30797,14 @@ window.groupData = {
         }
     ],
     "N": [
+        {
+            "name": "哪吒视频",
+            "url": "【汇总】sili.cc.sili\n【教程】sili.cc.sili/rule"
+        },
+        {
+            "name": "牛牛视频",
+            "url": "【汇总】sili.cc.sili\n【教程】sili.cc.sili/rule"
+        },
         {
             "name": "尼卡音乐 Ver.1.1.0 去广告 去更新 去除强制跳转网页更新 其他布局调整.apk",
             "url": "【夸克】https://pan.quark.cn/s/cee4701e6f1a"
@@ -34608,6 +34640,10 @@ window.groupData = {
     ],
     "Q": [
         {
+            "name": "全民电视直播",
+            "url": "【汇总】sili.cc.sili\n【教程】sili.cc.sili/rule"
+        },
+        {
             "name": "七猫短剧 Ver.1.7 禁止广告初始化 去更新.apk",
             "url": "【夸克】https://pan.quark.cn/s/c05ae77b13f3"
         },
@@ -37362,6 +37398,10 @@ window.groupData = {
     ],
     "R": [
         {
+            "name": "若惜追剧",
+            "url": "【汇总】sili.cc.sili\n【教程】sili.cc.sili/rule"
+        },
+        {
             "name": "RiMusic（音乐软件）Ver.0.6.49.1.apk",
             "url": "【夸克】https://pan.quark.cn/s/428c032d2bbb"
         },
@@ -37949,23 +37989,23 @@ window.groupData = {
     "S": [
         {
             "name": "随心影视",
-            "url": "【夸克】https://pan.quark.cn/s/067ea04ddbe2"
+            "url": "【夸克】https://pan.quark.cn/s/067ea04ddbe2\n\n【汇总】sili.cc.sili\n【教程】sili.cc.sili/rule"
         },
         {
             "name": "水滴视频 Ver.1.0.3 免广告 会员版 去更新 去除公告 禁止广告初始化.apk",
-            "url": "【夸克】https://pan.quark.cn/s/067ea04ddbe2"
+            "url": "【夸克】https://pan.quark.cn/s/067ea04ddbe2\n\n【汇总】sili.cc.sili\n【教程】sili.cc.sili/rule"
         },
         {
             "name": "鲨鱼剧场",
-            "url": "【夸克】https://pan.quark.cn/s/b7cb06c29f5f"
+            "url": "【夸克】https://pan.quark.cn/s/b7cb06c29f5f\n\n【汇总】sili.cc.sili\n【教程】sili.cc.sili/rule"
         },
         {
             "name": "闪映剧场",
-            "url": "【夸克】https://pan.quark.cn/s/f3e771edbe7e"
+            "url": "【夸克】https://pan.quark.cn/s/f3e771edbe7e\n\n【汇总】sili.cc.sili\n【教程】sili.cc.sili/rule"
         },
         {
             "name": "速搜视频",
-            "url": "【夸克】https://pan.quark.cn/s/75130172e8b6"
+            "url": "【夸克】https://pan.quark.cn/s/75130172e8b6\n\n【汇总】sili.cc.sili\n【教程】sili.cc.sili/rule"
         },
         {
             "name": "三号动漫 Ver.1.4.0 会员版 去更新 去除公告 去广告 去除友盟 自动意隐政策 其他布局调整.apk",
@@ -41111,11 +41151,11 @@ window.groupData = {
     "T": [
         {
             "name": "特狗APP",
-            "url": "【夸克】https://pan.quark.cn/s/6a96e8cde6a2"
+            "url": "【夸克】https://pan.quark.cn/s/6a96e8cde6a2\n\n【汇总】sili.cc.sili\n【教程】sili.cc.sili/rule"
         },
         {
             "name": "腾讯视频",
-            "url": "【夸克】https://pan.quark.cn/s/c863f31f8fad"
+            "url": "【夸克】https://pan.quark.cn/s/c863f31f8fad\n\n【汇总】sili.cc.sili\n【教程】sili.cc.sili/rule"
         },
         {
             "name": "泰剧兔 Ver.1.5.6.8 免广告领会员 去广告 去更新 去除公告 去除获取剪切板数据.apk",
@@ -42691,7 +42731,7 @@ window.groupData = {
     "V": [
         {
             "name": "v2rayNG_1.8.5",
-            "url": "【百度】https://pan.baidu.com/s/163MXAQ-bXV5avpZC6InOWQ?pwd=9gw3"
+            "url": "【百度】https://pan.baidu.com/s/163MXAQ-bXV5avpZC6InOWQ?pwd=9gw3\n\n【汇总】sili.cc.sili\n【教程】sili.cc.sili/rule"
         },
         {
             "name": "VideoDecodeStats",
@@ -45223,31 +45263,31 @@ window.groupData = {
     "X": [
         {
             "name": "小黄人影视",
-            "url": "【夸克】https://pan.quark.cn/s/067ea04ddbe2"
+            "url": "【夸克】https://pan.quark.cn/s/067ea04ddbe2\n\n【汇总】sili.cc.sili\n【教程】sili.cc.sili/rule"
         },
         {
             "name": "星影视频",
-            "url": "【夸克】https://pan.quark.cn/s/067ea04ddbe2"
+            "url": "【夸克】https://pan.quark.cn/s/067ea04ddbe2\n\n【汇总】sili.cc.sili\n【教程】sili.cc.sili/rule"
         },
         {
             "name": "新大师兄影视 Ver.3.4.0 禁止广告初始化.apk",
-            "url": "【夸克】https://pan.quark.cn/s/067ea04ddbe2"
+            "url": "【夸克】https://pan.quark.cn/s/067ea04ddbe2\n\n【汇总】sili.cc.sili\n【教程】sili.cc.sili/rule"
         },
         {
             "name": "稀饭动漫",
-            "url": "【夸克】https://pan.quark.cn/s/51e55179cd72"
+            "url": "【夸克】https://pan.quark.cn/s/51e55179cd72\n\n【汇总】sili.cc.sili\n【教程】sili.cc.sili/rule"
         },
         {
             "name": "享趣视频",
-            "url": "【夸克】https://pan.quark.cn/s/cb1034d9b7c3"
+            "url": "【夸克】https://pan.quark.cn/s/cb1034d9b7c3\n\n【汇总】sili.cc.sili\n【教程】sili.cc.sili/rule"
         },
         {
             "name": "小柿子",
-            "url": "【夸克】https://pan.quark.cn/s/24a15ca8ce06"
+            "url": "【夸克】https://pan.quark.cn/s/24a15ca8ce06\n\n【汇总】sili.cc.sili\n【教程】sili.cc.sili/rule"
         },
         {
             "name": "小柚子",
-            "url": "【夸克】https://pan.quark.cn/s/96de029e8719"
+            "url": "【夸克】https://pan.quark.cn/s/96de029e8719\n\n【汇总】sili.cc.sili\n【教程】sili.cc.sili/rule"
         },
         {
             "name": "戏曲多多 Ver.3.1.3.0 会员版 去更新.apk",
@@ -48833,27 +48873,27 @@ window.groupData = {
     "Y": [
         {
             "name": "壹影视",
-            "url": "【夸克】https://pan.quark.cn/s/067ea04ddbe2"
+            "url": "【夸克】https://pan.quark.cn/s/067ea04ddbe2\n\n【汇总】sili.cc.sili\n【教程】sili.cc.sili/rule"
         },
         {
             "name": "影视仓",
-            "url": "【夸克】https://pan.quark.cn/s/067ea04ddbe2"
+            "url": "【夸克】https://pan.quark.cn/s/067ea04ddbe2\n\n【汇总】sili.cc.sili\n【教程】sili.cc.sili/rule"
         },
         {
             "name": "YIYI影视",
-            "url": "【夸克】https://pan.quark.cn/s/067ea04ddbe2"
+            "url": "【夸克】https://pan.quark.cn/s/067ea04ddbe2\n\n【汇总】sili.cc.sili\n【教程】sili.cc.sili/rule"
         },
         {
             "name": "影视大全 Ver.6.2.4 免广告版 去更新 禁止广告初始化.apk",
-            "url": "【夸克】https://pan.quark.cn/s/067ea04ddbe2"
+            "url": "【夸克】https://pan.quark.cn/s/067ea04ddbe2\n\n【汇总】sili.cc.sili\n【教程】sili.cc.sili/rule"
         },
         {
             "name": "一起刷",
-            "url": "【夸克】https://pan.quark.cn/s/756f9ac1bca4"
+            "url": "【夸克】https://pan.quark.cn/s/756f9ac1bca4\n\n【汇总】sili.cc.sili\n【教程】sili.cc.sili/rule"
         },
         {
             "name": "云云视频",
-            "url": "【夸克】https://pan.quark.cn/s/178e9c73a862"
+            "url": "【夸克】https://pan.quark.cn/s/178e9c73a862\n\n【汇总】sili.cc.sili\n【教程】sili.cc.sili/rule"
         },
         {
             "name": "央视影音 Ver.7.9.11 去广告版.apk",
@@ -52127,23 +52167,23 @@ window.groupData = {
     "Z": [
         {
             "name": "追忆影视",
-            "url": "【夸克】https://pan.quark.cn/s/067ea04ddbe2"
+            "url": "【夸克】https://pan.quark.cn/s/067ea04ddbe2\n\n【汇总】sili.cc.sili\n【教程】sili.cc.sili/rule"
         },
         {
             "name": "追番达人",
-            "url": "【夸克】https://pan.quark.cn/s/9db7497d507c"
+            "url": "【夸克】https://pan.quark.cn/s/9db7497d507c\n\n【汇总】sili.cc.sili\n【教程】sili.cc.sili/rule"
         },
         {
             "name": "追剧达人",
-            "url": "【夸克】https://pan.quark.cn/s/31606da93084"
+            "url": "【夸克】https://pan.quark.cn/s/31606da93084\n\n【汇总】sili.cc.sili\n【教程】sili.cc.sili/rule"
         },
         {
             "name": "追影匣",
-            "url": "【夸克】https://pan.quark.cn/s/34d514b28313"
+            "url": "【夸克】https://pan.quark.cn/s/34d514b28313\n\n【汇总】sili.cc.sili\n【教程】sili.cc.sili/rule"
         },
         {
             "name": "资源猫",
-            "url": "【夸克】https://pan.quark.cn/s/de76da4cc800"
+            "url": "【夸克】https://pan.quark.cn/s/de76da4cc800\n\n【汇总】sili.cc.sili\n【教程】sili.cc.sili/rule"
         },
         {
             "name": "追剧吧 Ver.1.5.5.9 免广告领会员 去广告 去除公告 去除获取剪切板数据.zip",
@@ -55681,4 +55721,4 @@ window.groupData = {
         }
     ]
 };
-window.totalCount = 13897;
+window.totalCount = 13907;

@@ -1,9 +1,9 @@
- 
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head> 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.85em' font-size='70'>🐟︎</text></svg>">
 <title>四里资源导航</title>
 <style>
 html,body{
@@ -25,7 +25,7 @@ body {
 }
 .tip {
     text-align:center;
-    margin-bottom:30px;
+    margin-bottom:15px;
 }
 .tip-notice{
     text-align: justify;
@@ -36,7 +36,7 @@ body {
 .line{
     border-bottom:1px solid #333;
     max-width:400px;
-    margin:0 auto 40px;
+    margin:0 auto 25px;
 }
 .grid-two{
     display: grid;
@@ -120,11 +120,10 @@ body {
 .copy-source{
     display:none;
 }
-/*紫色通用类 加粗 font-weight:500 !important;*/
+/*紫色通用类 */
 .text-purple {
-    color:#00000 !important;
+    color:#000000 !important;
     text-decoration: none !important;
-    
 }
 .text-purple:hover {
     color:#000000 !important;
@@ -212,6 +211,16 @@ body {
     text-align:left;
     margin-right:0;
 }
+
+/* 顶部信息框样式（来自node.html） */
+.top-info-box{
+  background:#fff0f3;
+  border:1px solid #ffccd5;
+  border-radius:12px;
+  padding:10px 12px;
+  margin-bottom:12px;
+  cursor:default;
+}
 </style>
 </head>
 <body>
@@ -223,52 +232,58 @@ body {
 </div>
 <div class="line"></div>
 
-<div class="grid-two">
-    <a href="./All Search.html"class="text-purple">🔍一键搜索①</a>
-    <a href="https://www.kdocs.cn/etapps/query/q/Zh78BBBB"class="text-purple">🔍一键搜索②</a>
 
-    <span class="pop-btn" data-target="modalMask">🌐备用网址</span>
-    <a href="./rule.html"class="text-purple">🔔教程必看</a>
+<div class="top-info-box"><!--高亮-->
+    <div class="grid-two">
+        <a href="./All Search.html"class="text-purple">🔍一键搜索①</a>
+        <a href="https://www.kdocs.cn/etapps/query/q/Zh78BBBB"class="text-purple">🔍一键搜索②</a>
 
-    <span class="pop-btn" data-target="modalMask_fuli">👉🏻浮力汇总</span>
-    <span class="pop-btn" data-target="modalMask_pwd">👉🏻txt单本搜索</span>
+        <span class="pop-btn" data-target="modalMask">👉🏻备用网址</span>
+        <a href="./rule.html"class="text-purple">👉🏻教程必看</a>
 
+        <span class="pop-btn" data-target="modalMask_fuli">👉🏻浮力汇总</span>
+        <span class="pop-btn" data-target="modalMask_pwd">👉🏻txt单本搜索</span>
+
+    </div>
 </div>
 
+<div class="top-info-box">
+    <div class="grid-two">
 
-<div class="grid-two">
+        <a href="./author.html">👉🏻小说‑作者</a>
+        <a href="./type.html">👉🏻小说‑类型</a>
 
-    <a href="./author.html">👉🏻小说‑作者</a>
-    <a href="./type.html">👉🏻小说‑类型</a>
+        <a href="https://www.kdocs.cn/wo/sl/v1EhIinl">👉🏻书籍‑平台</a>
+        <a href="https://www.kdocs.cn/wo/sl/v14Oxbrh">👉🏻漫画</a>
 
-    <a href="https://www.kdocs.cn/wo/sl/v1EhIinl">👉🏻书籍‑平台</a>
-    <a href="https://www.kdocs.cn/wo/sl/v14Oxbrh">👉🏻漫画</a>
+        <a href="https://www.kdocs.cn/wo/sl/v11pNw1A">👉🏻广播/有声剧</a>
+        <a href="https://www.kdocs.cn/wo/sl/v11cx7Ta">👉🏻影视</a>
 
-    <a href="https://www.kdocs.cn/wo/sl/v11pNw1A">👉🏻广播/有声剧</a>
-    <a href="https://www.kdocs.cn/wo/sl/v11cx7Ta">👉🏻影视</a>
+        <a href="https://www.kdocs.cn/wo/sl/v11uhpz2">👉🏻软件</a>
+        <a href="https://www.kdocs.cn/wo/sl/v1dzztK">👉🏻课程</a>
 
-    <a href="https://www.kdocs.cn/wo/sl/v11uhpz2">👉🏻软件</a>
-    <a href="https://www.kdocs.cn/wo/sl/v1dzztK">👉🏻课程</a>
+        <a href="https://www.kdocs.cn/wo/sl/v12OWpMH">👉🏻音乐</a>
+        <a href="https://www.kdocs.cn/l/cdoBaY2HudCQ">👉🏻推图</a>
 
-    <a href="https://www.kdocs.cn/wo/sl/v12OWpMH">👉🏻音乐</a>
-    <a href="https://www.kdocs.cn/l/cdoBaY2HudCQ">👉🏻推图</a>
-
-    <a href="https://www.kdocs.cn/l/ce5CjGfczDP5">👉🏻输入法</a>
-    <a href="https://www.kdocs.cn/l/cehQOLkoItKw">👉🏻推荐网站</a>
-
-    <a href="https://www.kdocs.cn/l/cluWmY2qP21H">👉🏻生成器</a>
+        <a href="https://www.kdocs.cn/l/ce5CjGfczDP5">👉🏻输入法</a>
+    </div>
 </div>
 
-<div class="grid-two">
-    <a href="./tools/tools.html">👉🏻吃饭工具</a>
-    <a href="./tools/node.html">👉🏻免费节点</a>
+<div class="top-info-box">
+    <div class="grid-two">
+        <a href="./tools/tools.html">👉🏻工具&网站</a>
+        <a href="./tools/node.html">👉🏻免费节点</a>
+        <a href="https://www.kdocs.cn/l/cehQOLkoItKw">👉🏻推荐网站</a>
+        <a href="https://www.kdocs.cn/l/cluWmY2qP21H">👉🏻生成器</a>
+    </div>
+    
+    <div class="grid-two">
+     
+        <a href="https://mp.weixin.qq.com/s/1fCDvx1UNOBsMAiZ_IL4Lw">💌留言板</a>
+    </div>
+    </div>
 </div>
 
-<div class="grid-two">
- 
-    <a href="https://mp.weixin.qq.com/s/1fCDvx1UNOBsMAiZ_IL4Lw">💌留言板</a>
-</div>
-</div>
 
 <!--弹窗1 汇总：显示文字【链接】，不显示网址，点击跳转；复制依旧复制完整网址 -->
 <div class="modal-mask" id="modalMask">

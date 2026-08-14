@@ -202,12 +202,12 @@ a{
 .nav-item:hover{
   background:#fff0f3;
 }
-/* 点击临时高亮样式 */
+/* 点击临时高亮样式 保留但不再使用 */
 .nav-item.click-highlight{
   background:#f8d7e0;
 }
-/* 置灰不可点击 */
-.nav-item:disabled{
+/* 置灰不可点击 样式保留但JS不再调用 */
+.nav-item.disabled{
   opacity:0.4;
   cursor:not-allowed;
   background:transparent;
@@ -227,11 +227,11 @@ a{
 <div id="container"></div>
 
 <div class="toast" id="toast">复制成功</div>
-
+<!--主页-->
 <div class="nav-bar-wrap">
   <div class="nav-bar">
     <div class="nav-item" id="prevBtn" onclick="handlePrev()">⬅</div>
-    <div class="nav-item"><a href="/"><span class="arrow-icon">⌂</span></a></div>
+    <div class="nav-item"><a href="../index.html"><span class="arrow-icon">⌂</span></a></div>
     <div class="nav-item" id="nextBtn" onclick="handleNext()">➡</div>
   </div>
 </div>
@@ -368,52 +368,40 @@ function toggleGroup(el){
 function updateBtnState(){
   const prevBtn = document.getElementById("prevBtn");
   const nextBtn = document.getElementById("nextBtn");
-  if(currentIndex === null){
-    // 全部关闭，两个按钮都可用
-    prevBtn.disabled = false;
-    nextBtn.disabled = false;
-  }else{
-    // 到第一张，上一页禁用置灰；到最后一张，下一页禁用置灰
-    prevBtn.disabled = currentIndex === 0;
-    nextBtn.disabled = currentIndex === cardDomList.length - 1;
-  }
-}
-
-// 给按钮添加临时高亮，2秒清除
-function setBtnHighlight(btn){
-  // 如果按钮是disabled，不执行高亮
-  if(btn.disabled) return;
-  btn.classList.add("click-highlight");
-  setTimeout(()=>{
-    btn.classList.remove("click-highlight");
-  },2000);
+  // 永远移除disabled，不再置灰
+  prevBtn.classList.remove("disabled");
+  nextBtn.classList.remove("disabled");
 }
 
 function goPrev(){
-  if(currentIndex === null) return;
-  if(currentIndex > 0){
-    openOnlyCard(currentIndex -1);
-  }
+    //全部收起状态，点⬅打开最后一页
+    if(currentIndex === null){
+        openOnlyCard(cardDomList.length - 1);
+        return;
+    }
+    //当前第0页，点⬅关闭卡片回到全部收起
+    if(currentIndex === 0){
+        closeCard(0);
+        return;
+    }
+    openOnlyCard(currentIndex - 1);
 }
 function handlePrev(){
-  const btn = document.getElementById("prevBtn");
-  setBtnHighlight(btn);
   goPrev();
 }
 
 function goNext(){
-  const anyOpen = cardDomList.some(c=>!c.classList.contains('collapsed'));
-  if(!anyOpen){
-    jumpTo(0);
+  if(currentIndex === null){
+    openOnlyCard(0);
     return;
   }
-  if(currentIndex !== null && currentIndex < cardDomList.length -1){
-    openOnlyCard(currentIndex +1);
+  if(currentIndex === cardDomList.length - 1){
+    closeCard(currentIndex);
+    return;
   }
+  openOnlyCard(currentIndex + 1);
 }
 function handleNext(){
-  const btn = document.getElementById("nextBtn");
-  setBtnHighlight(btn);
   goNext();
 }
 
