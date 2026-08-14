@@ -315,17 +315,9 @@ function jumpTo(index){
   if(index < 0 || index >= cardDomList.length) return;
   currentIndex = index;
 
-  cardDomList.forEach(card=>{
-    card.classList.add("collapsed");
-    card.querySelector(".group-content").classList.add("hidden");
-    card.querySelector(".arrow").classList.add("collapsed");
-  });
-
+  // ==========改动：删掉这里循环把全部卡片折叠的代码==========
+  // 不再关闭其他卡片，只滚动到目标卡片
   const card = cardDomList[index];
-  card.classList.remove("collapsed");
-  card.querySelector(".group-content").classList.remove("hidden");
-  card.querySelector(".arrow").classList.remove("collapsed");
-
   card.scrollIntoView({behavior:"smooth", block:"start"});
   updateBtnState();
 }
