@@ -50,10 +50,10 @@ body{
     align-items: center;
     justify-content: center;
 }
-/* 弹窗盒子 */
+/* 弹窗盒子，宽度和页面主体保持一致 max‑width:920px */
 .pop-box {
-    width: 80%;
-    max-width: 600px;
+    width: 94%;
+    max-width: 920px;
     background: #fff;
     padding: 25px;
     border-radius: 10px;
@@ -75,13 +75,14 @@ body{
     word-break: break-all;
     line-height: 1.7;
 }
-/* 弹窗内链接样式 */
+/* 弹窗内链接样式，全部去掉下划线 */
 .pop-text a {
     color: #0066cc;
     word-break: break-all;
+    text-decoration: none;
 }
 .pop-text a:hover {
-    text-decoration: underline;
+    text-decoration: none;
 }
 /* 搜索框样式 */
 #search-input{
