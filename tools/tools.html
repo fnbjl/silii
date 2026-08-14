@@ -197,14 +197,20 @@ a{
   display:flex;
   align-items:center;
   justify-content:center;
-  transition:background 0.2s ease;
+  transition:background-color 0.25s ease;
 }
 .nav-item:hover{
   background:#fff0f3;
 }
+/* 点击临时高亮样式 */
+.nav-item.click-highlight{
+  background:#f8d7e0;
+}
+/* 置灰不可点击 */
 .nav-item:disabled{
   opacity:0.4;
   cursor:not-allowed;
+  background:transparent;
 }
 .nav-item a{
   color:#ff6680;
@@ -224,9 +230,9 @@ a{
 
 <div class="nav-bar-wrap">
   <div class="nav-bar">
-    <div class="nav-item" id="prevBtn" onclick="goPrev()">⬅</div>
+    <div class="nav-item" id="prevBtn" onclick="handlePrev()">⬅</div>
     <div class="nav-item"><a href="/"><span class="arrow-icon">⌂</span></a></div>
-    <div class="nav-item" id="nextBtn" onclick="goNext()">➡</div>
+    <div class="nav-item" id="nextBtn" onclick="handleNext()">➡</div>
   </div>
 </div>
 
@@ -362,22 +368,37 @@ function toggleGroup(el){
 function updateBtnState(){
   const prevBtn = document.getElementById("prevBtn");
   const nextBtn = document.getElementById("nextBtn");
-  // 关键修复：只有currentIndex不为null，才判断边界置灰
   if(currentIndex === null){
+    // 全部关闭，两个按钮都可用
     prevBtn.disabled = false;
     nextBtn.disabled = false;
   }else{
+    // 到第一张，上一页禁用置灰；到最后一张，下一页禁用置灰
     prevBtn.disabled = currentIndex === 0;
     nextBtn.disabled = currentIndex === cardDomList.length - 1;
   }
 }
 
+// 给按钮添加临时高亮，2秒清除
+function setBtnHighlight(btn){
+  // 如果按钮是disabled，不执行高亮
+  if(btn.disabled) return;
+  btn.classList.add("click-highlight");
+  setTimeout(()=>{
+    btn.classList.remove("click-highlight");
+  },2000);
+}
+
 function goPrev(){
-  // 没有打开任何卡片，点上一页不做操作
   if(currentIndex === null) return;
   if(currentIndex > 0){
     openOnlyCard(currentIndex -1);
   }
+}
+function handlePrev(){
+  const btn = document.getElementById("prevBtn");
+  setBtnHighlight(btn);
+  goPrev();
 }
 
 function goNext(){
@@ -389,6 +410,11 @@ function goNext(){
   if(currentIndex !== null && currentIndex < cardDomList.length -1){
     openOnlyCard(currentIndex +1);
   }
+}
+function handleNext(){
+  const btn = document.getElementById("nextBtn");
+  setBtnHighlight(btn);
+  goNext();
 }
 
 updateBtnState();
