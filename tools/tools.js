@@ -1,93 +1,357 @@
-// tools.js
-const toolsData = [
-  {
-    title: "一、下载工具",
-    items: [
-      {
-        label: "👉🏻解压专家",
-        html: `<div>下载链接：<a href="https://pan.baidu.com/s/1JMHp6vUoYZFEpTKk85Mpmg?pwd=sili">https://pan.baidu.com/s/1JMHp6vUoYZFEpTKk85Mpmg?pwd=sili</a></div>`
-      },
-      {
-        label: "👉🏻【手机端】蓝云：蓝奏云批量下载工具",
-        html: `<div>下载链接：<a href="https://pan.baidu.com/s/1aXZJINyIlndGhrsPfvLa8w?pwd=sili#">https://pan.baidu.com/s/1aXZJINyIlndGhrsPfvLa8w?pwd=sili#</a></div>`
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.85em' font-size='70'>🐟︎</text></svg>">
+<title>吃饭工具</title>
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+  font-family:system-ui, sans-serif;
+}
+
+body{
+  background:#f7f9fc;
+  padding:14px 12px;
+  line-height:1.7;
+  font-size:15px;
+  overflow-x:hidden;
+  padding-bottom:90px;
+}
+
+.title-hd{
+  font-size:25px;
+  font-weight:bold;
+  margin-bottom:16px;
+}
+
+.group-card{
+  background:#fff0f3;
+  border:1px solid #ffccd5;
+  border-radius:16px;
+  padding:12px;
+  margin-bottom:20px;
+  transition: padding 0.2s;
+}
+.group-card.collapsed{
+  padding-bottom:0;
+}
+
+.group-header{
+  font-size:22px;
+  font-weight:bold;
+  padding:10px 12px;
+  border-radius:12px;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  background:#fff0f3;
+  margin-bottom:4px;
+  user-select:none;
+}
+
+.arrow{
+  font-size:16px;
+  transition:transform 0.25s ease;
+  color:#ff6680;
+}
+
+.arrow.collapsed{
+  transform:rotate(90deg);
+}
+
+.group-content{
+  overflow:hidden;
+  transition:max-height 0.3s ease, opacity 0.3s ease;
+  max-height:2000px;
+  opacity:1;
+  padding-top:6px;
+  position:relative;
+}
+
+.group-content::before{
+  content:"";
+  display:block;
+  height:1px;
+  background:#ffccd5;
+  margin:0 16px;
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+}
+
+.group-content.hidden{
+  max-height:0;
+  opacity:0;
+  pointer-events:none;
+  padding-top:0;
+  height:0;
+}
+.group-content.hidden::before{
+  display:none;
+}
+
+.accel-item{
+  margin-bottom:16px;
+}
+
+.label{
+  font-size:20px;
+  margin-bottom:4px;
+  display:block;
+  font-weight:500;
+}
+
+a{
+  color:#0066cc;
+  word-wrap:break-word;
+  word-break:break-word;
+  text-decoration:none;
+}
+
+.desc{
+  color:#444;
+  margin:4px 0 6px 0;
+  font-size:14px;
+}
+
+.code{
+  color:#c8102e;
+  font-weight:bold;
+}
+
+.note{
+  color:#666;
+  font-size:13px;
+}
+
+.code-wrap{
+  display:inline-block;
+  position:relative;
+  padding-right:54px; /* 给悬浮按钮预留空间 */
+}
+.copy-btn{
+  font-size:13px;
+  padding:3px 8px;
+  background:#888888;
+  color:#fff;
+  border:none;
+  border-radius:6px;
+  cursor:pointer;
+  position:absolute;
+  right:0;
+  top:50%;
+  transform:translateY(-50%);
+}
+.copy-btn:active{
+  background:#666666;
+}
+
+.toast{
+  position:fixed;
+  top:20px;
+  left:50%;
+  transform:translateX(-50%);
+  background:rgba(0,0,0,0.75);
+  color:#fff;
+  padding:8px 16px;
+  border-radius:8px;
+  font-size:14px;
+  z-index:9999;
+  opacity:0;
+  transition:opacity 0.2s;
+  pointer-events:none;
+}
+.toast.show{
+  opacity:1;
+}
+
+.nav-bar-wrap{
+  position:fixed;
+  bottom:20px;
+  left:0;
+  width:100%;
+  display:flex;
+  justify-content:center;
+}
+.nav-bar{
+  display:flex;
+  gap:0;
+  background:#fff;
+  border-radius:999px;
+  border:1px solid #ffd6de;
+  box-shadow:0 1px 3px rgba(255,102,128,0.08);
+  overflow:hidden;
+}
+.nav-item{
+  padding:14px 22px;
+  color:#ff6680;
+  font-size:18px;
+  font-weight:500;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition:background 0.2s ease;
+}
+.nav-item:hover{
+  background:#fff0f3;
+}
+.nav-item:disabled{
+  opacity:0.4;
+  cursor:not-allowed;
+}
+.nav-item a{
+  color:#ff6680;
+  text-decoration:none;
+  display:flex;
+  align-items:center;
+  gap:4px;
+}
+</style>
+</head>
+<body>
+
+<div class="title-hd">🍚吃饭工具</div>
+<div id="container"></div>
+
+<div class="toast" id="toast">复制成功</div>
+
+<div class="nav-bar-wrap">
+  <div class="nav-bar">
+    <div class="nav-item" id="prevBtn" onclick="goPrev()">⬅</div>
+    <div class="nav-item"><a href="/"><span class="arrow-icon">⌂</span></a></div>
+    <div class="nav-item" id="nextBtn" onclick="goNext()">➡</div>
+  </div>
+</div>
+
+<script src="tools.js"></script>
+<script>
+const container = document.getElementById('container');
+const toastEl = document.getElementById('toast');
+let cardDomList = [];
+
+// 渲染工具列表
+toolsData.forEach((group, index) => {
+  let itemHtml = '';
+  group.items.forEach(item => {
+    itemHtml += `<div class="accel-item">
+      <div class="label">${item.label}</div>
+      ${item.html}
+    </div>`;
+  });
+
+  const cardHtml = `
+    <div class="group-card collapsed" data-index="${index}">
+      <div class="group-header" onclick="toggleGroup(this)">
+        <span>${group.title}</span>
+        <span class="arrow collapsed">▼</span>
+      </div>
+      <div class="group-content hidden">
+        ${itemHtml}
+      </div>
+    </div>
+  `;
+  container.innerHTML += cardHtml;
+});
+
+cardDomList = Array.from(document.querySelectorAll('.group-card'));
+
+function autoInjectCopyButtons(){
+  const codeWraps = document.querySelectorAll('.code-wrap');
+  codeWraps.forEach(wrap => {
+    const codeEl = wrap.querySelector('.code');
+    if (!codeEl) return;
+    if (wrap.querySelector('.copy-btn')) return;
+
+    const btn = document.createElement('button');
+    btn.className = 'copy-btn';
+    btn.textContent = 'copy';
+
+    btn.addEventListener('click', () => {
+      const text = codeEl.innerText.trim();
+      const ta = document.createElement('textarea');
+      ta.value = text;
+      ta.style.position = 'absolute';
+      ta.style.left = '-9999px';
+      document.body.appendChild(ta);
+      ta.select();
+      try {
+        document.execCommand('copy');
+        btn.textContent = "已复制";
+        showToast("复制成功");
+      } catch (e) {
+        btn.textContent = "复制失败";
+        showToast("复制失败，请手动复制");
       }
-    ]
-  },
-  {
-    title: "一、加速器汇总",
-    items: [
-      {
-        label: "👉🏻【备用链接：下面打不开点下面】✔",
-        html: `
-          <div class="desc">含以下安装包</div>
-          <div><a href="https://url46.ctfile.com/s/2b02971cf50feb61d3fcf0c6abb58ce0?p=123456">🔗直链下载地址：不显示换浏览器，密码123456</a></div>
-          <div><a href="https://pan.quark.cn/s/9378d5888f4b">🔗夸克下载地址：不要在线解压，会和谐</a></div>
-          <div>📮 <a href="node.html" target="_blank">免费节点丨Clash/V2Ray/SSR最新机场订阅</a></div>
-        `
-      },
-      {
-        label: "👉🏻【旋风咖越器】✔",
-        html: `
-          <div class="label">(注册后填写邀请码：<span class="code">0DKLC7Q</span>)</div>
-          <div class="desc">👉🏻老牌子了，很稳定，邀请可以免费</div>
-          <div>下载链接：<a href="https://www.67553555.com/0DKLC7Q">https://www.67553555.com/0DKLC7Q</a></div>
-        `
-      },
-      {
-        label: "👉🏻【雷霆咖越器】✔",
-        html: `
-          <div class="label">(注册后填写邀请码：<span class="code">I84OBD</span>)</div>
-          <div class="desc">👉🏻老牌子了，很稳定，邀请可以免费</div>
-          <div>下载链接：<a href="https://www.67284687.com/i/I84OBD">https://www.67284687.com/i/I84OBD</a></div>
-        `
-      },
-      {
-        label: "👉🏻【黑洞咖越器】✔",
-        html: `
-          <div class="label">(注册后填写邀请码：<span class="code">ZZWIY0</span>)</div>
-          <div class="desc">👉🏻老牌子了，很稳定，邀请可以免费</div>
-          <div>下载链接：<a href="https://www.78457389.com/id/ZZWIY0">https://www.78457389.com/id/ZZWIY0</a></div>
-        `
-      },
-      {
-        label: "👉🏻【影猫咖越器】✔",
-        html: `
-          <div class="label">(注册后填写邀请码：<span class="code">31758870</span>)</div>
-          <div class="desc">👉🏻可以切换节点，稳定，邀请可以免费</div>
-          <div>下载链接：<a href="https://yingmaovpn.com?invite_code=31758870"> https://yingmaovpn.com?invite_code=31758870</a></div>
-        `
-      },
-      {
-        label: "👉🏻【白鲸咖越器】❌",
-        html: `
-          <div class="label">(注册后填写邀请码：<span class="code">QGK8L</span>)</div>
-          <div class="desc">👉🏻可以双方免费一个月，一月后换个邮箱再薅羊毛</div>
-          <div>下载链接：<a href="https://shr1.bj1ch.com/?mid=1018&invite_code=QGK8L">  https://shr1.bj1ch.com/?mid=1018&invite_code=QGK8L</a></div>
-        `
-      }
-    ]
-  },
-  {
-    title: "二、吃饭网站",
-    items: [
-      {
-        label: "👉🏻韩漫官网传送门",
-        html: `
-          <div><a href="shturl.cc/3bqsiTkqxlQs">shturl.cc/3bqsiTkqxlQs</a></div>
-          <div><a href="shturl.cc/klc1wHTx1er">shturl.cc/klc1wHTx1er</a></div>
-          <div>韩版 <a href="https://www.bomtoon.com/">https://www.bomtoon.com/</a></div>
-          <div>台版 <a href="https://www.bomtoon.tw/">https://www.bomtoon.tw/</a></div>
-        `
-      },
-      {
-        label: "👉🏻一些吃饭网站",
-        html: `
-          <div>P站：<a href="https://www.pixiv.net/">https://www.pixiv.net/</a> <span class="note">(需墙)</span></div>
-          <div>P站镜像：<a href="https://pixiviz.xyz/">https://pixiviz.xyz/</a> <span class="note">(需墙)</span></div>
-          <div>小说笔趣阁<a href="shturl.cc/y3N77nF5o">shturl.cc/y3N77nF5o</a></div>
-          <div>歌曲<a href="https://gqsou.com">https://gqsou.com</a></div>
-        `
-      }
-    ]
+      document.body.removeChild(ta);
+      setTimeout(() => {
+        btn.textContent = "copy";
+      }, 1200);
+    });
+
+    wrap.appendChild(btn);
+  });
+}
+
+autoInjectCopyButtons();
+
+function showToast(text){
+  toastEl.textContent = text;
+  toastEl.classList.add('show');
+  setTimeout(()=>{
+    toastEl.classList.remove('show');
+  },1200);
+}
+
+let currentIndex = 0;
+
+function jumpTo(index){
+  if(index < 0 || index >= cardDomList.length) return;
+  currentIndex = index;
+
+  // ==========改动：删掉这里循环把全部卡片折叠的代码==========
+  // 不再关闭其他卡片，只滚动到目标卡片
+  const card = cardDomList[index];
+  card.scrollIntoView({behavior:"smooth", block:"start"});
+  updateBtnState();
+}
+
+function toggleGroup(el){
+  const card = el.closest('.group-card');
+  const content = el.nextElementSibling;
+  const arrow = el.querySelector('.arrow');
+  card.classList.toggle('collapsed');
+  content.classList.toggle('hidden');
+  arrow.classList.toggle('collapsed');
+}
+
+function updateBtnState(){
+  const prevBtn = document.getElementById("prevBtn");
+  const nextBtn = document.getElementById("nextBtn");
+  prevBtn.disabled = currentIndex <= 0;
+  nextBtn.disabled = currentIndex >= cardDomList.length -1;
+}
+
+function goPrev(){
+  if(currentIndex > 0){
+    jumpTo(currentIndex -1);
   }
-];
+}
+
+function goNext(){
+  if(currentIndex < cardDomList.length -1){
+    jumpTo(currentIndex +1);
+  }
+}
+
+updateBtnState();
+</script>
+
+</body>
+</html>
