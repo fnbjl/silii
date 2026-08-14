@@ -309,9 +309,9 @@ function showToast(text){
   },1200);
 }
 
-let currentIndex = 0;
+let currentIndex = null;
 
-// 统一函数：只打开指定index卡片，其余全部关闭
+// 打开指定卡片，其余全部关闭
 function openOnlyCard(index){
   if(index <0 || index >= cardDomList.length) return;
   currentIndex = index;
@@ -338,6 +338,7 @@ function closeCard(index){
   card.classList.add("collapsed");
   card.querySelector(".group-content").classList.add("hidden");
   card.querySelector(".arrow").classList.add("collapsed");
+  currentIndex = null;
   updateBtnState();
 }
 
@@ -352,10 +353,8 @@ function toggleGroup(el){
   const isOpen = !card.classList.contains('collapsed');
 
   if(isOpen){
-    // 当前已经打开 → 关闭这一张
     closeCard(idx);
   }else{
-    // 当前关闭 → 打开，其余全部关闭
     openOnlyCard(idx);
   }
 }
@@ -363,26 +362,32 @@ function toggleGroup(el){
 function updateBtnState(){
   const prevBtn = document.getElementById("prevBtn");
   const nextBtn = document.getElementById("nextBtn");
-  prevBtn.disabled = currentIndex === 0;
-  nextBtn.disabled = currentIndex === cardDomList.length - 1;
+  // 关键修复：只有currentIndex不为null，才判断边界置灰
+  if(currentIndex === null){
+    prevBtn.disabled = false;
+    nextBtn.disabled = false;
+  }else{
+    prevBtn.disabled = currentIndex === 0;
+    nextBtn.disabled = currentIndex === cardDomList.length - 1;
+  }
 }
 
 function goPrev(){
+  // 没有打开任何卡片，点上一页不做操作
+  if(currentIndex === null) return;
   if(currentIndex > 0){
-    jumpTo(currentIndex -1);
+    openOnlyCard(currentIndex -1);
   }
 }
 
 function goNext(){
-  // 判断是否没有任何卡片打开
   const anyOpen = cardDomList.some(c=>!c.classList.contains('collapsed'));
   if(!anyOpen){
-    // 全部关闭，按下一个默认打开第一个
     jumpTo(0);
     return;
   }
-  if(currentIndex < cardDomList.length -1){
-    jumpTo(currentIndex +1);
+  if(currentIndex !== null && currentIndex < cardDomList.length -1){
+    openOnlyCard(currentIndex +1);
   }
 }
 
