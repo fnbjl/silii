@@ -14,7 +14,7 @@ const toolsData = [
     ]
   },
   {
-    title: "二、加速器汇总",
+    title: "二、咖越器汇总",
     items: [
       {
         label: "👉🏻【备用链接：下面打不开点下面】✔",
