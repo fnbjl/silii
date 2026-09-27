@@ -19,9 +19,8 @@ const toolsData = [
       {
         label: "👉🏻【备用链接：下面打不开点下面】✔",
         html: `
-          <div class="desc">含以下安装包</div>
-          <div><a href="https://url46.ctfile.com/s/2b02971cf50feb61d3fcf0c6abb58ce0?p=123456">🔗直链下载地址：不显示换浏览器，密码123456</a></div>
-          <div><a href="https://pan.quark.cn/s/9378d5888f4b">🔗夸克下载地址：不要在线解压，会和谐</a></div>
+          <div class="desc"部分🔗过一会失效没办法直接打开，可以看要什么，找我新发链接；也可以连接别的🪜后再打开链接tips:有补充可以滴滴我，🌏hecbof</div>
+          <div><a href="https://url46.ctfile.com/s/2b02971cf50feb61d3fcf0c6abb58ce0?p=123456">🔗Clash/V2Ray/下方咖越器直链下载地址：不显示换浏览器，密码123456</a></div>
           <div>📮 <a href="node.html" target="_blank">免费节点丨Clash/V2Ray/SSR最新机场订阅</a></div>
         `
       },
@@ -29,7 +28,7 @@ const toolsData = [
         label: "👉🏻【旋风咖越器】✔",
         html: `
           <div class="label">(注册后填写邀请码：<span class="code">0DKLC7Q</span>)</div>
-          <div class="desc">👉🏻老牌子了，很稳定，邀请可以免费</div>
+          <div class="desc">👉🏻老牌子了，很稳定，邀请可以免费，打卡30min</div>
           <div>下载链接：<a href="https://www.67553555.com/0DKLC7Q">https://www.67553555.com/0DKLC7Q</a></div>
         `
       },
@@ -37,7 +36,7 @@ const toolsData = [
         label: "👉🏻【雷霆咖越器】✔",
         html: `
           <div class="label">(注册后填写邀请码：<span class="code">I84OBD</span>)</div>
-          <div class="desc">👉🏻老牌子了，很稳定，邀请可以免费</div>
+          <div class="desc">👉🏻老牌子了，很稳定，邀请可以免费，打卡30min</div>
           <div>下载链接：<a href="https://www.67284687.com/i/I84OBD">https://www.67284687.com/i/I84OBD</a></div>
         `
       },
@@ -45,8 +44,16 @@ const toolsData = [
         label: "👉🏻【黑洞咖越器】✔",
         html: `
           <div class="label">(注册后填写邀请码：<span class="code">ZZWIY0</span>)</div>
-          <div class="desc">👉🏻老牌子了，很稳定，邀请可以免费</div>
+          <div class="desc">👉🏻老牌子了，很稳定，邀请可以免费，打卡30 min</div>
           <div>下载链接：<a href="https://www.78457389.com/id/ZZWIY0">https://www.78457389.com/id/ZZWIY0</a></div>
+        `
+      },
+      {
+        label: "👉🏻【魔方咖越器】✔",
+        html: `
+          <div class="label">(注册后填写邀请码：<span class="code">ZZWIY0</span>)</div>
+          <div class="desc">👉🏻老牌子了，很稳定，邀请可以免费，每日打卡30min</div>
+          <div>下载链接：<a href="https://www.ehyauppr.com/share/3AYB3PU">https://www.ehyauppr.com/share/3AYB3PU</a></div>
         `
       },
       {
@@ -82,6 +89,9 @@ const toolsData = [
       {
         label: "👉🏻一些吃饭网站",
         html: `
+          <div>海棠：<a href="https://haitangbook.com/">https://haitangbook.com/</a> <span class="note">(需墙)</span></div>
+         <div>P站：<a href="http://www.po18.tw/">http://www.po18.tw/</a> <span class="note">(需墙)</span></div>
+         <div>废文：<a href="https://www.废文.com">https://www.废文.com</a> <span class="note">(需墙)</span></div>
           <div>P站：<a href="https://www.pixiv.net/">https://www.pixiv.net/</a> <span class="note">(需墙)</span></div>
           <div>P站镜像：<a href="https://pixiviz.xyz/">https://pixiviz.xyz/</a> <span class="note">(需墙)</span></div>
           <div>小说笔趣阁<a href="shturl.cc/y3N77nF5o">shturl.cc/y3N77nF5o</a></div>
