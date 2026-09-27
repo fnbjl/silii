@@ -19,11 +19,11 @@ const toolsData = [
       {
         label: "👉🏻【备用链接：下面打不开点下面】✔",
         html: `
-          <div class="desc"部分🔗过一会失效没办法直接打开，可以看要什么，找我新发链接；也可以连接别的🪜后再打开链接tips:有补充可以滴滴我，🌏hecbof</div>
+          <div class="desc">部分🔗过一会失效没办法直接打开，可以看要什么，找我新发链接；也可以连接别的🪜后再打开链接<br>tips:有补充可以滴滴我，🌏hecbof</div>
           <div><a href="https://url46.ctfile.com/s/2b02971cf50feb61d3fcf0c6abb58ce0?p=123456">🔗Clash/V2Ray/下方咖越器直链下载地址：不显示换浏览器，密码123456</a></div>
           <div>📮 <a href="node.html" target="_blank">免费节点丨Clash/V2Ray/SSR最新机场订阅</a></div>
         `
-      },
+      }b,
       {
         label: "👉🏻【旋风咖越器】✔",
         html: `
